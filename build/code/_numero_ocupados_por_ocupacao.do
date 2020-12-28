@@ -25,7 +25,7 @@ foreach v of var `colvar' {
 }
 
 * colapse
-collapse (firstnm) `colvar' , by(Ano Trimestre VD4010)
+collapse (firstnm) `colvar' , by(Ano Trimestre V4013)
 
 // copy back the label of variables
 foreach v of var `colvar' {
