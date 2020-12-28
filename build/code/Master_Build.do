@@ -35,7 +35,7 @@ set more off, perm
 
 //////////////////////////////////////////////
 //	
-//	Setores mais dinamicos da Amazonia
+//	Calcular o numero de ocupacoes por setores na Amazonia
 //	
 //////////////////////////////////////////////
 
@@ -48,9 +48,11 @@ global area_geografica = "Amazônia Legal"
 forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	*sample 1
+	sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
+	* run code
+	do "$code_dir\_numero_ocupados_por_setor"
 	* save as temporary
 	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
 }
@@ -63,7 +65,7 @@ forvalues yr = 2012(1)2020{
 }
 
 * save in the output directory
-save "$output_dir\_clean_data_amazonia_legal.dta", replace
+save "$output_dir\_numero_ocupados_por_setor.dta", replace
 
 ******************************************
 ** delete temporary files
