@@ -24,6 +24,7 @@ else if "`c(username)'" == "f.cavalcanti"   {
 global input_basiic		"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\basico"  
 global input_advanc     "${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\avancado"
 global input_pnadanual	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
+global input_pnadcdoc	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
 global tmp_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\tmp"   
 global code_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\code"   
 global output_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\output"   
@@ -32,6 +33,46 @@ global input_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\input"
 * set more off 
 set more off, perm
 
+//////////////////////////////////////////////
+//	
+//	Descricao de codigos de atividades
+//	
+//////////////////////////////////////////////
+
+* call data Atividade_CNAE_Domiciliar_2_0
+import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+cap gen cod_atividade = Classe
+cap tostring cod_atividade, replace
+keep if cod_atividade !=""
+sort cod_atividade
+keep cod_atividade titulo
+
+* save in the output directory
+save "$output_dir\cod_atividade.dta", replace
+
+
+//////////////////////////////////////////////
+//	
+//	Descricao de codigos de ocupacao
+//	
+//////////////////////////////////////////////
+
+* call data Atividade_CNAE_Domiciliar_2_0
+import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+cap gen cod_ocupacao = Grupodebase
+cap tostring cod_ocupacao, replace
+keep if cod_ocupacao !=""
+sort cod_ocupacao
+keep cod_ocupacao titulo
+
+* save in the output directory
+save "$output_dir\cod_ocupacao.dta", replace
 
 //////////////////////////////////////////////
 //	
