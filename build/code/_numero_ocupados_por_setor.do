@@ -47,3 +47,6 @@ collapse (firstnm) `colvar' , by(Ano Trimestre VD4010)
 foreach v of var `colvar' {
     label var `v' "`l`v''"
 }
+
+gen cod_setor = VD4010
+cap tostring cod_setor, replace
