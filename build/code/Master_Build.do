@@ -51,6 +51,7 @@ sort cod_atividade
 keep cod_atividade titulo
 
 * save in the output directory
+compress
 save "$output_dir\cod_atividade.dta", replace
 
 
@@ -72,6 +73,7 @@ sort cod_ocupacao
 keep cod_ocupacao titulo
 
 * save in the output directory
+compress
 save "$output_dir\cod_ocupacao.dta", replace
 
 //////////////////////////////////////////////
@@ -89,7 +91,7 @@ global area_geografica = "Amazônia Legal"
 forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	sample 1
+	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -106,6 +108,7 @@ forvalues yr = 2012(1)2020{
 }
 
 * save in the output directory
+compress
 save "$output_dir\_numero_ocupados_por_setor.dta", replace
 
 //////////////////////////////////////////////
@@ -123,7 +126,7 @@ global area_geografica = "Amazônia Legal"
 forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	sample 1
+	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -140,6 +143,7 @@ forvalues yr = 2012(1)2020{
 }
 
 * save in the output directory
+compress
 save "$output_dir\_numero_ocupados_por_ocupacao.dta", replace
 
 //////////////////////////////////////////////
@@ -157,7 +161,7 @@ global area_geografica = "Amazônia Legal"
 forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	sample 1
+	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -174,6 +178,7 @@ forvalues yr = 2012(1)2020{
 }
 
 * save in the output directory
+compress
 save "$output_dir\_numero_ocupados_por_atividade.dta", replace
 
 ******************************************
