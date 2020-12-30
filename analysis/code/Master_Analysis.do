@@ -35,6 +35,13 @@ set more off, perm
 
 * run do file
 do "$code_dir\_por_setor.do"
+
+//////////////////////////////////////////////
+//	Por setores atividade
+//////////////////////////////////////////////
+
+* run do file
+do "$code_dir\_por_atividade.do"
 	
 * delete temporary files
 
