@@ -25,10 +25,10 @@ global input_basiic		"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_
 global input_advanc     "${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\avancado"
 global input_pnadanual	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
 global input_pnadcdoc	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
-global tmp_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\tmp"   
-global code_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\code"   
-global output_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\output"   
-global input_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\input"   
+global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\tmp"   
+global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\code"   
+global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
+global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\input"   
 
 * set more off 
 set more off, perm

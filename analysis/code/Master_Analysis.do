@@ -21,10 +21,10 @@ else if "`c(username)'" == "f.cavalcanti"   {
     global ROOT "C:\Users\Francisco\Dropbox\DataZoom"
 }	
 
-global tmp_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\analysis\tmp"   
-global code_dir			"${ROOT}\Amazonia_Analise_Economia_Dinamica\analysis\code"   
-global output_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\analysis\output"   
-global input_dir		"${ROOT}\Amazonia_Analise_Economia_Dinamica\build\output"   
+global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\analysis\tmp"   
+global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\analysis\code"   
+global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\analysis\output"   
+global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
 
 * set more off 
 set more off, perm
