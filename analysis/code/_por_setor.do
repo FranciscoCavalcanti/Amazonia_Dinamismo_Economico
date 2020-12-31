@@ -66,25 +66,25 @@ format tx_crescimento %16,2fc
 
 * drop irrelevant variables
 * cap drop cod_setor
-destring cod_setor, replace
+tostring cod_setor, replace
 destring tx_crescimento, replace
 
 // transforma data em matrix
-mkmat tx_crescimento, matrix(A) rownames(cod_setor_label)
+mkmat tx_crescimento, matrix(A) rownames(cod_setor)
 
 * local notes
-local ttitle "Número total de \textbf{formal} por setor de Indústria da Transformação - 2019"
-local tnotes "Valores correspondem a média entre os trimestres da PNAD Contínua 2019"
+local ttitle "Taxas de crescimento de ocupações por grandes atividades"
+local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 
 #delim ;    
-esttab matrix(A, fmt(%16,0fc)) using "$output_dir\_retrato_emprego_setor_sgap_trans_table_n_de_formal.tex", 
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\tablendeocupadosporsetor.tex", 
 	replace 
-	collabels("Atividade" "Taxas de crescimento de ocupações por grandes atividades")
+	collabels("Taxa de crescimento (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
-		"\label{_retrato_emprego_setor_gstr_table}"
+		"\label{tablendeocupadosporsetor}"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"
         "\begin{tabular}{l*{@span}{r}}"
@@ -94,7 +94,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\_retrato_emprego_setor_sgap_tr
         "\bottomrule"
         "\end{tabular}"    
         "\begin{tablenotes}"
-        "\scriptsize{Nota: `tnotes'}"
+        "\scriptsize{`tnotes'}"
         "\end{tablenotes}"
         "\end{threeparttable}"
         "\end{table}"
@@ -103,6 +103,20 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\_retrato_emprego_setor_sgap_tr
     unstack 
 	noobs 
 	nonumber 
-	nomtitle 
+	nomtitle
+        coeflabels(
+        1 "Agricultura, pecuária, produção florestal, pesca e aquicultura" 
+        2 "Indústria geral"
+        3 "Construção" 
+        4 "Comércio, reparação de veículos automotores e motocicletas"
+        5 "Transporte, armazenagem e correio"
+        6 "Alojamento e alimentação"
+        7 "Informação, comunicação e atividades financeiras, imobiliárias, profissionais e administrativas"
+        8 "Administração pública, defesa e seguridade social"
+        9 "Educação, saúde humana e serviços sociais"
+        10 "Outros Serviços"
+        11 "Serviços domésticos"
+        12 "Atividades mal definidas"
+    ) 
     ;
 #delim cr
