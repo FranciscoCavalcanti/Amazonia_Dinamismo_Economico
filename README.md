@@ -1,4 +1,4 @@
-# Amazonia_Analise_Economia_Dinamica
+# Amazonia_Dinamismo_Economico
 O objetivo do projeto é mapear as ocupações e os setores econômicos mais promissores na Amazônia
 
 A pasta está subdivida nas seguintes pastas: 1) [build](./build), 2) [analysis](./analysis), 3) [document](./document), 4) [reference](./reference). No qual eu descrevo o propósito a seguir:
