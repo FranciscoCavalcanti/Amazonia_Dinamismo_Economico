@@ -85,18 +85,20 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\tablendeocupadosporsetor.tex",
         "\begin{table}[H]"
         "\centering"
 		"\label{tablendeocupadosporsetor}"
+		"\scalebox{0.60}{"
         "\begin{threeparttable}"
-        "\caption{`ttitle'}"
+        "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"
         "\midrule \midrule"
     )
     postfoot(
         "\bottomrule"
-        "\end{tabular}"    
+        "\end{tabular}"		
         "\begin{tablenotes}"
-        "\scriptsize{`tnotes'}"
+        "\item \scriptsize{`tnotes'}"
         "\end{tablenotes}"
         "\end{threeparttable}"
+		"}"
         "\end{table}"
     )    
 	label
