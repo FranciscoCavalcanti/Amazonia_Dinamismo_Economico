@@ -2,3 +2,9 @@
 *.dta
 build/input/README.txt
 analysis/output/_retrato_emprego_setor_sgap_trans_table_n_de_formal.tex
+document/Preliminary_Results.aux
+document/Preliminary_Results.log
+document/Preliminary_Results.nav
+document/Preliminary_Results.out
+document/Preliminary_Results.snm
+document/Preliminary_Results.toc
