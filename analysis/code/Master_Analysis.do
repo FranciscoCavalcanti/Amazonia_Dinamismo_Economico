@@ -30,18 +30,20 @@ global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"
 set more off, perm
 
 //////////////////////////////////////////////
-//	Por setores econômicos
+//	Taxa de crescimento de ocupações
 //////////////////////////////////////////////
 
+//	Por setores econômicos
 * run do file
 do "$code_dir\_por_setor.do"
 
-//////////////////////////////////////////////
 //	Por setores atividade
-//////////////////////////////////////////////
-
 * run do file
 do "$code_dir\_por_atividade.do"
+
+//	Por setores tipo de ocupação
+* run do file
+do "$code_dir\_por_ocupacao.do"
 	
 * delete temporary files
 
