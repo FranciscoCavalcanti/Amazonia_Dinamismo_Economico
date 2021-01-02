@@ -60,3 +60,61 @@ drop _merge
 compress
 gsort -tx_crescimento
 
+
+
+drop if _n>10
+
+* format
+format tx_crescimento %16,2fc
+
+// transforma data em matrix
+mkmat tx_crescimento, matrix(A) rownames(cod_ocupacao)
+
+* local notes
+local ttitle "Taxas de crescimento de ocupações por tipo de ocupação"
+local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
+
+#delim ;    
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\table1taxadecrescimentondeocupadosportipodeocupacao.tex", 
+	replace 
+	collabels("Taxa de crescimento (\%)")
+    prehead(
+        "\begin{table}[H]"
+        "\centering"
+		"\label{table1taxadecrescimentondeocupadosportipodeocupacao}"
+		"\scalebox{0.60}{"
+        "\begin{threeparttable}"
+        "\caption{`ttitle'}"		
+        "\begin{tabular}{l*{@span}{r}}"
+        "\midrule \midrule"
+    )
+    postfoot(
+        "\bottomrule"
+        "\end{tabular}"		
+        "\begin{tablenotes}"
+        "\item \scriptsize{`tnotes'}"
+        "\end{tablenotes}"
+        "\end{threeparttable}"
+		"}"
+        "\end{table}"
+    )    
+	label
+    unstack 
+	noobs 
+	nonumber 
+	nomtitle
+        coeflabels(
+        9629 "Outras ocupações elementares não classificadas anteriormente" 
+        7531 "Alfaiates, modistas, chapeleiros e peleteiros"
+        5249 "Vendedores não classificados anteriormente" 
+        5244 "Vendedores por telefone"
+        7319 "Artesãos não classificados anteriormente"
+        2619 "Profissionais em direito não classificados anteriormente"
+        3251 "Dentistas auxiliares e ajudantes de odontologia"
+        6114 "Agricultores e trabalhadores qualificados de cultivos mistos"
+        5312 "Ajudantes de professores"
+        3412 "Trabalhadores e assistentes sociais de nível médio"
+    ) 
+    ;
+#delim cr
+
