@@ -1,5 +1,5 @@
 ******************************************************
-**	 Taxas de crescimento de ocupacoes por atividade	**
+**	 Taxas de crescimento de ocupacoes por grupamentos de atividade	**
 ******************************************************
 
 * call data 
@@ -59,4 +59,60 @@ merge 1:1 cod_atividade using "$input_dir\cod_atividade.dta"
 drop _merge
 compress
 gsort -tx_crescimento
+
+drop if _n>10
+
+* format
+format tx_crescimento %16,2fc
+
+// transforma data em matrix
+mkmat tx_crescimento, matrix(A) rownames(cod_atividade)
+
+* local notes
+local ttitle "Taxas de crescimento de ocupações por grupamentos de atividade"
+local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
+
+#delim ;    
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\table1taxadecrescimentondeocupadosporatividade.tex", 
+	replace 
+	collabels("Taxa de crescimento (\%)")
+    prehead(
+        "\begin{table}[H]"
+        "\centering"
+		"\label{table1taxadecrescimentondeocupadosporatividade}"
+		"\scalebox{0.60}{"
+        "\begin{threeparttable}"
+        "\caption{`ttitle'}"		
+        "\begin{tabular}{l*{@span}{r}}"
+        "\midrule \midrule"
+    )
+    postfoot(
+        "\bottomrule"
+        "\end{tabular}"		
+        "\begin{tablenotes}"
+        "\item \scriptsize{`tnotes'}"
+        "\end{tablenotes}"
+        "\end{threeparttable}"
+		"}"
+        "\end{table}"
+    )    
+	label
+    unstack 
+	noobs 
+	nonumber 
+	nomtitle
+        coeflabels(
+        78000 "Seleção, agenciamento e locação de mão-de-obra" 
+        53002 "Atividades de malote e de entrega"
+        86009 "Atividades de atenção à saúde humana não especificadas anteriormente" 
+        84017 "Outros serviços coletivos prestados pela administração pública - Municipal"
+        14002 "Confecção, sob medida, de artigos do vestuário"
+        21000 "Fabricação de produtos farmoquimicos e farmacêuticos"
+        56020 "Serviços ambulantes de alimentação"
+        17002 "Fabricação de embalagens e de produtos diversos de papel, cartolina, papel-cartão e papelão ondulado"
+        01107 "Cultivo de soja"
+        01112 "Cultivo de frutas cítricas"
+    ) 
+    ;
+#delim cr
 
