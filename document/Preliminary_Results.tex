@@ -1,0 +1,120 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{lmodern}
+\usepackage[beamer,customcolors]{hf-tikz}
+
+\tikzset{hl/.style={
+    set fill color=red!80!black!40,
+    set border color=red!80!black,
+  },
+}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\usetheme{Montpellier}
+\usepackage[utf8]{inputenc}
+\usepackage[english,american]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+\usepackage{lscape}
+\usepackage{array} % for defining a new column type
+\usepackage{tabulary}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+	
+%\author[Francisco Cavalcanti]{Francisco Cavalcanti\\\footnotesize{PUC-Rio}
+%}
+
+%\author{
+%Flávia  Alfenas\\
+%\textit{PUC-Rio}\\ \vspace{3mm}
+%\and  
+%Francisco Cavalcanti\\
+%\textit{PUC-Rio}\\ \vspace{3mm}
+%\and   
+%Gustavo Gonzaga \\
+%\textit{PUC-Rio} 
+%}
+
+\date{Janeiro, 2021}
+
+\title{Dinamismo Econômico na Amazônia \\ Uma análise entre 2012 - 2020}
+
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+
+\newcommand{\quotes}[1]{``#1''}
+
+
+\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\section{Introdução}
+
+\begin{frame}[label=indice_principal]{Índice Principal}
+
+
+\begin{itemize}
+\item{Por atividade econômica: \hyperlink{tablendeocupadosporsetor}{\beamerbutton{clique aqui}}}
+\end{itemize}
+
+
+\end{frame}
+
+\section{Por atividade econômica}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/tablendeocupadosporsetor}
+\end{frame}
+
+\section{Comentários}
+
+
+\frame
+{
+    \begin{center}
+     \vfill
+    \textbf{Obrigado!}
+     \\
+
+     \begin{small}
+     email: francisco.lima.cavalcanti@gmail.com
+     \end{small}
+     \vfill
+     \onslide<2>
+\end{center}
+}
+
+\end{document}
+
+
+
