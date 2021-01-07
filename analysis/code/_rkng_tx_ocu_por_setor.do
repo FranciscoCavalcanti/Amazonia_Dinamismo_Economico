@@ -78,13 +78,13 @@ local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 
 #delim ;    
-esttab matrix(A, fmt(%16,2fc)) using "$output_dir\table1taxadecrescimentondeocupadosporsetor.tex", 
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\rkngtxocuporsetor.tex", 
 	replace 
 	collabels("Taxa de crescimento (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
-		"\label{table1taxadecrescimentondeocupadosporsetor}"
+		"\label{rkngtxocuporsetor}"
 		"\scalebox{0.60}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		

@@ -75,13 +75,13 @@ local ttitle "Taxas de crescimento de ocupações por tipo de ocupação"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt(%16,2fc)) using "$output_dir\table1taxadecrescimentondeocupadosportipodeocupacao.tex", 
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\rkngtxocuporocupacao.tex", 
 	replace 
 	collabels("Taxa de crescimento (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
-		"\label{table1taxadecrescimentondeocupadosportipodeocupacao}"
+		"\label{rkngtxocuporocupacao}"
 		"\scalebox{0.60}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
