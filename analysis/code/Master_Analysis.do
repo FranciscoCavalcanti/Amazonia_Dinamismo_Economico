@@ -30,20 +30,62 @@ global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"
 set more off, perm
 
 //////////////////////////////////////////////
-//	Taxa de crescimento de ocupações
+//	Importancia relativa
 //////////////////////////////////////////////
 
-//	Por setores econômicos
-* run do file
-do "$code_dir\_por_setor.do"
+do "$code_dir\_importancia_relativa.do"
 
-//	Por setores atividade
-* run do file
-do "$code_dir\_por_atividade.do"
+//////////////////////////////////////////////////////
+//	Rankings de crescimento de absoluto de ocupações
+//////////////////////////////////////////////////////
 
-//	Por setores tipo de ocupação
+//	Por grandes setores econômicos 
 * run do file
-do "$code_dir\_por_ocupacao.do"
+do "$code_dir\_rkng_n_ocu_por_setor.do"
+
+//	Por setores atividade econônmica (CNAE)
+* run do file
+do "$code_dir\_rkng_n_ocu_por_atividade.do"
+
+//	Por setores tipo de ocupação (COD)
+* run do file
+do "$code_dir\_rkng_n_ocu_por_ocupacao.do"
+
+//////////////////////////////////////////////////
+//	Rankings de taxa de crescimento de ocupações 
+//////////////////////////////////////////////////
+
+//	Por grandes setores econômicos 
+* run do file
+do "$code_dir\_rkng_tx_ocu_por_setor.do"
+
+//	Por setores atividade econônmica (CNAE)
+* run do file
+do "$code_dir\_rkng_tx_ocu_por_atividade.do"
+
+//	Por setores tipo de ocupação (COD)
+* run do file
+do "$code_dir\_rkng_tx_ocu_por_ocupacao.do"
+
+//////////////////////////////////////////////////
+//	Rankings de taxa de crescimento de salários 
+//////////////////////////////////////////////////
+
+//	Por grandes setores econômicos 
+* run do file
+do "$code_dir\_rkng_tx_renda_por_setor.do"
+
+//	Por setores atividade econônmica (CNAE)
+* run do file
+do "$code_dir\_rkng_tx_renda_por_atividade.do"
+
+//	Por setores tipo de ocupação (COD)
+* run do file
+do "$code_dir\_rkng_tx_renda_por_ocupacao.do"
+
+//////////////////////////////////////////////
+//	Analise por zonas rurais e zonas urbanas	
+//////////////////////////////////////////////
 	
 * delete temporary files
 
