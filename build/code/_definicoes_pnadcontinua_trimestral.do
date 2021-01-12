@@ -93,6 +93,7 @@ replace formal = 1 if VD4002 == 1 &  VD4009 == 3 	// Trabalhador doméstico com 
 replace formal = 1 if VD4002 == 1 &  VD4009 == 5 	// Empregado no setor público com carteira de trabalho assinada
 replace formal = 1 if VD4002 == 1 &  VD4009 == 7 	// Militar e servidor estatutário
 replace formal = 1 if VD4002 == 1 &  VD4009 == 9 & VD4012 == 1  // Conta-própria & Contribuinte
+replace formal = 1 if VD4002 == 1 &  VD4009 == 8  & VD4012 == 1  // Empregador & Contribuinte
 replace formal = 0 if formal ==.
 
 ** trabalhador informal
@@ -102,6 +103,7 @@ replace informal = 1 if VD4002 == 1 &  VD4009 == 4 	// Trabalhador doméstico se
 replace informal = 1 if VD4002 == 1 &  VD4009 == 6 	// Empregado no setor público sem carteira de trabalho assinada
 replace informal = 1 if VD4002 == 1 &  VD4009 == 9 & VD4012 == 2 	// Conta-própria & Não contribuinte
 replace informal = 1 if VD4002 == 1 &  VD4009 == 10 	// Trabalhador familiar auxiliar
+replace informal = 1 if VD4002 == 1 &  VD4009 == 8  & VD4012 == 2  // Empregador & Não contribuinte
 replace informal = 0 if informal ==. 
 
 * pessoa na força de trabalho
