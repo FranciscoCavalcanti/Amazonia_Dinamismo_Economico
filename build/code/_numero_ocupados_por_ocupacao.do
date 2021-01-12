@@ -69,7 +69,7 @@ label variable renda_informal "Rendimento médio habitual real dos ocupados info
 ***********************************************
 
 // attach label of variables
-local colvar n_* renda_*
+local colvar n_* renda*
 
 foreach v of var `colvar' {
     local l`v' : variable label `v'
