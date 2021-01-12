@@ -45,9 +45,9 @@ drop _merge
 * Rendimento medio habitual real dos ocupados total
 gen iten1 = ocupado * (VD4019 * Habitual) * V1028
 by Ano Trimestre VD4010, sort: egen total_renda_ocupado = total(iten1)
-gen renda = (total_renda_ocupado/n_ocu_str)
+gen renda_media = (total_renda_ocupado/n_ocu_str)
 drop iten*
-label variable renda "Rendimento médio habitual real dos ocupados (R$)"
+label variable renda_media "Rendimento médio habitual real dos ocupados (R$)"
 
 * Rendimento medio habitual real dos ocupados formal total
 gen iten1 = ocupado * (VD4019 * Habitual) * V1028 if formal ==1 
@@ -68,7 +68,7 @@ label variable renda_informal "Rendimento médio habitual real dos ocupados info
 ***********************************************
 
 // attach label of variables
-local colvar n_* renda*
+local colvar n_* renda_*
 
 foreach v of var `colvar' {
     local l`v' : variable label `v'
