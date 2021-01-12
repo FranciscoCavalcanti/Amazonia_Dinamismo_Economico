@@ -51,16 +51,16 @@ label variable rendimento_medio_total "Rendimento médio habitual real dos ocupa
 * Rendimento medio habitual real dos ocupados formal total
 gen iten1 = ocupado * (VD4019 * Habitual) * V1028 if formal ==1 
 by Ano Trimestre V4013, sort: egen iten2 = total(iten1)
-gen rendimento_medio_total = (iten2/n_de_ocupados_por_atividade_formal)
+gen rendimento_medio_total_formal = (iten2/n_de_ocupados_por_atividade_formal)
 drop iten*
-label variable rendimento_medio_total "Rendimento médio habitual real dos ocupados formal (R$)"
+label variable rendimento_medio_total_formal "Rendimento médio habitual real dos ocupados formal (R$)"
 
 * Rendimento medio habitual real dos ocupados informal total
-gen iten1 = ocupado * (VD4019 * Habitual) * V1028 if formal ==1 
+gen iten1 = ocupado * (VD4019 * Habitual) * V1028 if informal ==1 
 by Ano Trimestre V4013, sort: egen iten2 = total(iten1)
-gen rendimento_medio_total = (iten2/n_de_ocupados_por_atividade_informal)
+gen rendimento_medio_total_informal = (iten2/n_de_ocupados_por_atividade_informal)
 drop iten*
-label variable rendimento_medio_total "Rendimento médio habitual real dos ocupados informal (R$)"
+label variable rendimento_medio_total_informal "Rendimento médio habitual real dos ocupados informal (R$)"
 
 ***********************************************
 **	Colapsar ao nível do trimestre e setor	 **
