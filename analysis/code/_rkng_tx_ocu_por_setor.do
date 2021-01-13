@@ -4,7 +4,6 @@
 
 * call data 
 use "$input_dir\_numero_ocupados_por_setor.dta", clear
-
 gen id = cod_setor
 sort Ano Trimestre cod_setor id
 
@@ -41,7 +40,6 @@ by cod_setor, sort: gen tx_crescimento = (n_ocu_str[_n]/n_ocu_str[_n-1])*100 -10
 collapse (mean) tx_crescimento, by (cod_setor)
 gsort -tx_crescimento
 
-
 gen cod_setor_label = ""
 
 replace	cod_setor_label = "Agricultura, pecuária, produção florestal, pesca e aquicultura"  if cod_setor == "1"
@@ -73,7 +71,7 @@ destring tx_crescimento, replace
 mkmat tx_crescimento, matrix(A) rownames(cod_setor)
 
 * local notes
-local ttitle "Taxas de crescimento de ocupações por grandes atividades"
+local ttitle "Taxas de crescimento de ocupações por setores econômicos entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 

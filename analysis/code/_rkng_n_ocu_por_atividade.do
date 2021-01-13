@@ -78,7 +78,7 @@ destring delta_n, replace
 mkmat delta_n, matrix(A) rownames(cod_atividade)
 
 * local notes
-local ttitle "Variação absoluta do número ocupações por atividade econômica"
+local ttitle "Variação absoluta do número ocupações por atividade econômica entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 
