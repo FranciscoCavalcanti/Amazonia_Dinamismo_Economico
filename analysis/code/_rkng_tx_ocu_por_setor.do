@@ -30,13 +30,13 @@ format %tqCCYY trim
 
 keep if Ano == "2019" | Ano == "2012"
 
-collapse (mean) n_de_ocupados_por_setor, by (cod_setor Ano)
+collapse (mean) n_ocu_str, by (cod_setor Ano)
 
 drop if cod_setor=="."
 
 sort cod_setor Ano
 
-by cod_setor, sort: gen tx_crescimento = (n_de_ocupados_por_setor[_n]/n_de_ocupados_por_setor[_n-1])*100 -100
+by cod_setor, sort: gen tx_crescimento = (n_ocu_str[_n]/n_ocu_str[_n-1])*100 -100
 
 collapse (mean) tx_crescimento, by (cod_setor)
 gsort -tx_crescimento

@@ -29,7 +29,7 @@ format %tqCCYY trim
 
 keep if Ano == "2019" | Ano == "2012"
 
-collapse (mean) n_de_ocupados_por_ocupacao, by (cod_ocupacao Ano)
+collapse (mean) n_ocu_cod, by (cod_ocupacao Ano)
 
 drop if cod_ocupacao=="."
 drop if cod_ocupacao==""
@@ -37,7 +37,7 @@ drop if cod_ocupacao=="0"
 
 sort cod_ocupacao Ano
 
-by cod_ocupacao, sort: gen tx_crescimento = (n_de_ocupados_por_ocupacao[_n]/n_de_ocupados_por_ocupacao[_n-1])*100 -100
+by cod_ocupacao, sort: gen tx_crescimento = (n_ocu_cod[_n]/n_ocu_cod[_n-1])*100 -100
 
 collapse (mean) tx_crescimento, by (cod_ocupacao)
 sort tx_crescimento
