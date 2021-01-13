@@ -113,3 +113,6 @@ local datafiles: dir "${tmp_dir}/" files "*.pdf"
 foreach datafile of local datafiles {
         rm `datafile'
 }
+
+* clear all
+clear all
