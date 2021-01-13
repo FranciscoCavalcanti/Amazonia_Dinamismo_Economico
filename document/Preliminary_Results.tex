@@ -50,7 +50,7 @@
 
 \date{Janeiro, 2021}
 
-\title{Dinamismo Econômico na Amazônia \\ Uma análise entre 2012 - 2020}
+\title{Dinamismo Econômico na Amazônia Legal \\ Uma análise entre 2012 - 2019}
 
 \usepackage{tikz}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
@@ -77,38 +77,116 @@
 %\tableofcontents
 %\end{frame}
 
-\section{Introdução}
+\section{Índice Principal}
 
-\begin{frame}[label=indice_principal]{Índice Principal}
+\begin{frame}[label=indice_principal]{}
 
-
+\textbf{Dinamismo Econômico no Mercado de Trabalho da Amazônia Legal:}
+\vspace{2mm}
 \begin{itemize}
-\item{Por setor econômico: \hyperlink{table1taxadecrescimentondeocupadosporsetor}{\beamerbutton{clique aqui}}}
-\item{Por atividade econômica: \hyperlink{table1taxadecrescimentondeocupadosporatividade}{\beamerbutton{clique aqui}}}
-\item{Por tipo de ocupação: \hyperlink{table1taxadecrescimentondeocupadosportipodeocupacao}{\beamerbutton{clique aqui}}}
+
+\item{Importância relativa dos setores econômicos: \hyperlink{importancia_relativa}{\beamerbutton{clique aqui}}}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por setor econômico: \hyperlink{rkngnocuporsetor}{\beamerbutton{clique aqui}}}
+	\item{Por atividade econômica: \hyperlink{rkngnocuporatividade}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{rkngnocuporocupacao}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Taxa de crescimento de ocupações:
+	\begin{itemize}
+	\item{Por setor econômico: \hyperlink{rkngtxocuporsetor}{\beamerbutton{clique aqui}}}
+	\item{Por atividade econômica: \hyperlink{rkngtxocuporatividade}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{rkngtxocuporocupacao}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Taxa de crescimento de rendimentos:
+	\begin{itemize}
+	\item{Por setor econômico: \hyperlink{rkngtxrendaporsetor}{\beamerbutton{clique aqui}}}
+	\item{Por atividade econômica: \hyperlink{rkngtxrendaporatividade}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{rkngtxrendaporocupacao}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
 
 \end{itemize}
 
 
 \end{frame}
 
-\section{Crescimento de ocupações}
+\section{Dinamismo Econômico no Mercado de Trabalho}
 
 \begin{frame}
 \textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
-\input{./../analysis/output/table1taxadecrescimentondeocupadosporsetor}
+\begin{figure}
+  \centering
+  \includegraphics[width=.85\linewidth]{./../analysis/output/importancia_relativa.png}
+  \label{importancia_relativa}
+  \caption{{Número de ocupações por setor econômico}}
+\end{figure}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngnocuporsetor}
 \end{frame}
 
 
 \begin{frame}
 \textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
-\input{./../analysis/output/table1taxadecrescimentondeocupadosporatividade}
+\input{./../analysis/output/rkngnocuporatividade}
 \end{frame}
 
 
 \begin{frame}
 \textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
-\input{./../analysis/output/table1taxadecrescimentondeocupadosportipodeocupacao}
+\input{./../analysis/output/rkngnocuporocupacao}
+\end{frame}
+
+\subsection{Taxa de crescimento de ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxocuporsetor}
+\end{frame}
+
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxocuporatividade}
+\end{frame}
+
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxocuporocupacao}
+\end{frame}
+
+\subsection{Taxa de crescimento de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxrendaporsetor}
+\end{frame}
+
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxrendaporatividade}
+\end{frame}
+
+
+\begin{frame}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngtxrendaporocupacao}
 \end{frame}
 
 
