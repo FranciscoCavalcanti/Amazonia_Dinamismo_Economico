@@ -1,4 +1,4 @@
-# Dinamismo Econômico no Mercado de trabalho na Amazônia Legal: Uma análise Entre 2012 e 2019
+# Dinamismo Econômico no Mercado de trabalho na Amazônia Legal: Uma Análise Entre 2012 e 2019
 
 O objetivo do projeto é mapear as ocupações e os setores econômicos mais promissores na Amazônia
 
