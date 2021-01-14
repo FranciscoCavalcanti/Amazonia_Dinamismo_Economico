@@ -1,6 +1,6 @@
 # Dinamismo Econômico no Mercado de trabalho na Amazônia Legal: Uma Análise Entre 2012 e 2019
 
-O objetivo do projeto é mapear as ocupações e os setores econômicos mais promissores na Amazônia
+O objetivo do projeto é apresentar uma caracterização do dinamismo mercado de trabalho na Amazônia Legal.
 
 A pasta está subdivida nas seguintes pastas: 1) [build](./build), 2) [analysis](./analysis), 3) [document](./document), 4) [reference](./reference). No qual eu descrevo o propósito a seguir:
 
