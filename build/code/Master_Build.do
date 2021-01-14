@@ -101,11 +101,11 @@ import excel "$input_dir\Lista_corrida_CNAE_PNADC_SVC.xls", sheet("Sheet1") firs
 * clean data
 keep if Comidas==1
 cap gen titulo = nome 
-cap gen cod_ocupacao = codigo
-cap tostring cod_ocupacao, replace
-keep if cod_ocupacao !=""
-sort cod_ocupacao
-keep cod_ocupacao titulo
+cap gen cod_atividade = codigo
+cap tostring cod_atividade, replace
+keep if cod_atividade !=""
+sort cod_atividade
+keep cod_atividade titulo
 
 * save in the output directory
 compress
