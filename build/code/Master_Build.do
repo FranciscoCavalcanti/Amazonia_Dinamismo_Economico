@@ -30,9 +30,6 @@ global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\code"
 global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
 global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\input"   
 
-* set more off 
-set more off, perm
-
 //////////////////////////////////////////////
 //	
 //	Descricao de codigos de atividades
@@ -75,6 +72,45 @@ keep cod_ocupacao titulo
 * save in the output directory
 compress
 save "$output_dir\cod_ocupacao.dta", replace
+
+//////////////////////////////////////////////
+//	
+//	Descricao de codigos de comida (definicoes por Salo V Coslovsky)
+//	
+//////////////////////////////////////////////
+
+* call data for COD
+import excel "$input_dir\Lista_corrida_COD_PNADC_SVC.xls", sheet("Sheet1") firstrow clear
+
+* clean data
+keep if Comidas==1
+cap gen titulo = nome 
+cap gen cod_ocupacao = codigo
+cap tostring cod_ocupacao, replace
+keep if cod_ocupacao !=""
+sort cod_ocupacao
+keep cod_ocupacao titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_ocupacao_comidas.dta", replace
+
+* call data for CNAE
+import excel "$input_dir\Lista_corrida_CNAE_PNADC_SVC.xls", sheet("Sheet1") firstrow clear
+
+* clean data
+keep if Comidas==1
+cap gen titulo = nome 
+cap gen cod_ocupacao = codigo
+cap tostring cod_ocupacao, replace
+keep if cod_ocupacao !=""
+sort cod_ocupacao
+keep cod_ocupacao titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_atividade_comidas.dta", replace
+
 
 //////////////////////////////////////////////
 //	
