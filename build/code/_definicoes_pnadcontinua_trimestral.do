@@ -57,7 +57,7 @@ if "$area_geografica" == "Amazônia Legal"   {
 	local area = "amazonia_legal"
 }
 else if "$area_geografica" == "Amazônia Legal Rural"   {
-    drop if UF == 11 	/* 	Rondônia
+    keep if UF == 11 	/* 	Rondônia
 	*/ 	| UF == 12 	/* Acre
 	*/ 	| UF == 13 	/* Amazonas
 	*/ 	| UF == 14 	/* Roraima
@@ -72,7 +72,7 @@ else if "$area_geografica" == "Amazônia Legal Rural"   {
 	keep if domicilio_rural==1
 }
 else if "$area_geografica" == "Amazônia Legal Urbana"   {
-    drop if UF == 11 	/* 	Rondônia
+    keep if UF == 11 	/* 	Rondônia
 	*/ 	| UF == 12 	/* Acre
 	*/ 	| UF == 13 	/* Amazonas
 	*/ 	| UF == 14 	/* Roraima
