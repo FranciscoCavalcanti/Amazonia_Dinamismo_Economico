@@ -217,6 +217,27 @@ forvalues yr = 2012(1)2020{
 compress
 save "$output_dir\_numero_ocupados_por_atividade.dta", replace
 
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico na Zona Urbana da Amazônia
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_urbana"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico na Zona Rural da Amazônia
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_rural"
+clear
+
 ******************************************
 ** delete temporary files
 ******************************************

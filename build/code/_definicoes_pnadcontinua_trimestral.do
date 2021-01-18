@@ -56,6 +56,36 @@ if "$area_geografica" == "Amazônia Legal"   {
 	
 	local area = "amazonia_legal"
 }
+else if "$area_geografica" == "Amazônia Legal Rural"   {
+    drop if UF == 11 	/* 	Rondônia
+	*/ 	| UF == 12 	/* Acre
+	*/ 	| UF == 13 	/* Amazonas
+	*/ 	| UF == 14 	/* Roraima
+	*/ 	| UF == 15 	/* Pará
+	*/ 	| UF == 16 	/* Amapá
+	*/ 	| UF == 17 	/* Tocantins
+	*/ 	| UF == 51 	/* Mato Grosso
+	*/ 	| (UF == 21 & V1023 == 4) 	// Maranhão & Resto da UF (Unidade da Federação, excluindo a região metropolitana e a RIDE)
+
+	gen domicilio_rural = 0
+	replace domicilio_rural = 1 if V1022 ==2 // 2 Rural
+	keep if domicilio_rural==1
+}
+else if "$area_geografica" == "Amazônia Legal Urbana"   {
+    drop if UF == 11 	/* 	Rondônia
+	*/ 	| UF == 12 	/* Acre
+	*/ 	| UF == 13 	/* Amazonas
+	*/ 	| UF == 14 	/* Roraima
+	*/ 	| UF == 15 	/* Pará
+	*/ 	| UF == 16 	/* Amapá
+	*/ 	| UF == 17 	/* Tocantins
+	*/ 	| UF == 51 	/* Mato Grosso
+	*/ 	| (UF == 21 & V1023 == 4) 	// Maranhão & Resto da UF (Unidade da Federação, excluindo a região metropolitana e a RIDE)
+
+	gen domicilio_urbano = 0
+	replace domicilio_urbano = 1 if V1022 ==1 // 1 Urbana
+	keep if domicilio_urbano==1
+}	
 else if "$area_geografica" == "Resto do Brasil"   {
     drop if UF == 11 	/* 	Rondônia
 	*/ 	| UF == 12 	/* Acre
