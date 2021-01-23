@@ -238,6 +238,16 @@ clear
 do "$code_dir\_amz_rural"
 clear
 
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico Entre os Jovens da Amazônia
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_jovem"
+clear
+
 ******************************************
 ** delete temporary files
 ******************************************
