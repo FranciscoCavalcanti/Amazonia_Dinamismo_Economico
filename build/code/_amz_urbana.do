@@ -101,4 +101,4 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_urbana_rural_numero_ocupados_por_atividade.dta", replace
+save "$output_dir\_amz_urbana_numero_ocupados_por_atividade.dta", replace
