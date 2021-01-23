@@ -30,63 +30,25 @@ global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"
 set more off, perm
 
 //////////////////////////////////////////////
-//	Importancia relativa
+//	Analise para Amazônia Legal
 //////////////////////////////////////////////
-
-do "$code_dir\_importancia_relativa.do"
-
-//////////////////////////////////////////////////////
-//	Rankings de crescimento de absoluto de ocupações
-//////////////////////////////////////////////////////
-
-//	Por grandes setores econômicos 
-* run do file
-do "$code_dir\_rkng_n_ocu_por_setor.do"
-
-//	Por setores atividade econônmica (CNAE)
-* run do file
-do "$code_dir\_rkng_n_ocu_por_atividade.do"
-
-//	Por setores tipo de ocupação (COD)
-* run do file
-do "$code_dir\_rkng_n_ocu_por_ocupacao.do"
-
-//////////////////////////////////////////////////
-//	Rankings de taxa de crescimento de ocupações 
-//////////////////////////////////////////////////
-
-//	Por grandes setores econômicos 
-* run do file
-do "$code_dir\_rkng_tx_ocu_por_setor.do"
-
-//	Por setores atividade econônmica (CNAE)
-* run do file
-do "$code_dir\_rkng_tx_ocu_por_atividade.do"
-
-//	Por setores tipo de ocupação (COD)
-* run do file
-do "$code_dir\_rkng_tx_ocu_por_ocupacao.do"
-
-//////////////////////////////////////////////////
-//	Rankings de taxa de crescimento de salários 
-//////////////////////////////////////////////////
-
-//	Por grandes setores econômicos 
-* run do file
-do "$code_dir\_rkng_tx_renda_por_setor.do"
-
-//	Por setores atividade econônmica (CNAE)
-* run do file
-do "$code_dir\_rkng_tx_renda_por_atividade.do"
-
-//	Por setores tipo de ocupação (COD)
-* run do file
-do "$code_dir\_rkng_tx_renda_por_ocupacao.do"
+do "$code_dir\_amz.do"
 
 //////////////////////////////////////////////
-//	Analise por zonas rurais e zonas urbanas	
+//	Analise por zonas rurais
 //////////////////////////////////////////////
-	
+do "$code_dir\_amz_rural.do"
+
+//////////////////////////////////////////////
+//	Analise por zonas urbanas
+//////////////////////////////////////////////
+do "$code_dir\_amz_urbana.do"
+
+//////////////////////////////////////////////
+//	Analise entre jovens: 18 - 29 anos
+//////////////////////////////////////////////
+do "$code_dir\_amz_jovem.do"
+
 * delete temporary files
 
 cd  "${tmp_dir}/"

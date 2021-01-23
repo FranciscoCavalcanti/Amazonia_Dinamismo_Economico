@@ -3,7 +3,7 @@
 ******************************************************
 
 * call data 
-use "$input_dir\_numero_ocupados_por_setor.dta", clear
+use "$input_dir\_amz_urbana_numero_ocupados_por_setor.dta", clear
 
 gen id = cod_setor
 sort Ano Trimestre cod_setor id
@@ -47,10 +47,10 @@ set scheme amz2030
 		*/	yscale( axis(1) range(0) lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Informação") label(8 "Administração pública") label(9 "Serviços sociais") label(10 "Demais Serviços") label(11 "Serviços domésticos") label(12 "Não definidos") size(vsmall) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, grid angle(45)) 	/*
-		*/  saving("$tmp_dir\importancia_relativa", replace) 	
+		*/  saving("$tmp_dir\_amz_urbana_importancia_relativa", replace) 	
 		
 		
 * save graph 
-graph use "$tmp_dir\importancia_relativa.gph"
-erase "$tmp_dir\importancia_relativa.gph"
-graph export "$output_dir\importancia_relativa.png", replace		
+graph use "$tmp_dir\_amz_urbana_importancia_relativa.gph"
+erase "$tmp_dir\_amz_urbana_importancia_relativa.gph"
+graph export "$output_dir\_amz_urbana_importancia_relativa.png", replace		
