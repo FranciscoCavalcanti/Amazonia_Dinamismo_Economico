@@ -98,6 +98,21 @@ else if "$area_geografica" == "Resto do Brasil"   {
 	*/ 	| (UF == 21 & V1023 == 4) 	// Maranhão & Resto da UF (Unidade da Federação, excluindo a região metropolitana e a RIDE)
 
 	local area = "resto_brasil"
+}
+else if "$area_geografica" == "Mato Grosso"   {
+    keep if UF == 51 	// Mato Grosso
+
+	local area = "mato_grosso"
+}	
+else if "$area_geografica" == "Pará"   {
+    keep if UF == 15 	// Pará
+
+	local area = "para"
+}		
+else if "$area_geografica" == "Manaus"   {
+    keep if UF == 13 & (V1023 == 1 | V1023 == 2) 	// Amazonas & Capital | Resto da RM (Região Metropolitana, excluindo a capital)
+
+	local area = "manaus"
 }	
 
 **********************************

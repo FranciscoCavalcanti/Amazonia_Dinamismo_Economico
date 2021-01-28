@@ -248,6 +248,36 @@ clear
 do "$code_dir\_amz_jovem"
 clear
 
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Mato Grosso
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_mt"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Pará
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_pa"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico na região metropolitana de Manaus
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_manaus"
+clear
+
 ******************************************
 ** delete temporary files
 ******************************************
