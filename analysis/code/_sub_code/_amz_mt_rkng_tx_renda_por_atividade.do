@@ -31,6 +31,18 @@ keep if Ano == "2019" | Ano == "2012"
 
 collapse (mean) renda_media, by (cod_atividade Ano)
 
+* drop the lowest 5 percentile 
+sum renda_media, detail
+gen iten1 = `r(p5)' if Ano =="2012"
+drop if iten1 >= renda_media & Ano =="2012"
+drop iten*
+* keep only observations that exist in 2019 and 2012
+by cod_atividade, sort: gen leao1 =_n
+by cod_atividade, sort: egen leao2 =max(leao1)
+keep if leao2==2
+drop leao*
+
+
 drop if cod_atividade=="."
 drop if cod_atividade==""
 drop if cod_atividade=="0"
