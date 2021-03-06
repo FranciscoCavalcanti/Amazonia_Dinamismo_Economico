@@ -73,13 +73,13 @@ local ttitle "Taxas de crescimento de massa de rendimentos por grupamentos de at
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt(%16,2fc)) using "$output_dir\rkngtxrendaporatividade.tex", 
+esttab matrix(A, fmt(%16,2fc)) using "$output_dir\rkngtxmassaporatividade.tex", 
 	replace 
 	collabels("Taxa de crescimento (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
-		"\label{rkngtxrendaporatividade}"
+		"\label{rkngtxmassaporatividade}"
 		"\scalebox{0.60}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
