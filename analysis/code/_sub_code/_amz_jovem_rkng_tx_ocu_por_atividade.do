@@ -31,6 +31,17 @@ keep if Ano == "2019" | Ano == "2012"
 
 collapse (mean) n_ocu_cnae, by (cod_atividade Ano)
 
+* drop the lowest 5 percentile 
+sum n_ocu_cnae, detail
+gen iten1 = `r(p5)' if Ano =="2012"
+drop if iten1 >= n_ocu_cnae & Ano =="2012"
+drop iten*
+* keep only observations that exist in 2019 and 2012
+by cod_atividade, sort: gen leao1 =_n
+by cod_atividade, sort: egen leao2 =max(leao1)
+keep if leao2==2
+drop leao*
+
 drop if cod_atividade=="."
 drop if cod_atividade==""
 drop if cod_atividade=="0"
@@ -58,9 +69,14 @@ cap drop aux1 apnd lgth
 merge 1:1 cod_atividade using "$input_dir\cod_atividade.dta"
 drop _merge
 compress
+
+* drop vague names
+do "$code_dir\_sub_code\_drop_vague_names.do"
+
 gsort -tx_crescimento
 
-drop if _n>10
+* lenght of the list
+drop if _n>20
 
 * format
 format tx_crescimento %16,2fc
@@ -75,12 +91,12 @@ local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 #delim ;    
 esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzjovemrkngtxocuporatividade.tex", 
 	replace 
-	collabels("Taxa de crescimento (\%)")
+	collabels("Tx. Cresc. (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
 		"\label{amzjovemrkngtxocuporatividade}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

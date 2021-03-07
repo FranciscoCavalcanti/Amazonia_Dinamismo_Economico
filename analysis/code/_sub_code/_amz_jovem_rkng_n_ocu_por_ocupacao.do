@@ -32,6 +32,17 @@ keep if Ano == "2019" | Ano == "2012"
 
 collapse (mean) n_ocu_cod, by (cod_ocupacao Ano)
 
+* drop the lowest 5 percentile 
+sum n_ocu_cod, detail
+gen iten1 = `r(p5)' if Ano =="2012"
+drop if iten1 >= n_ocu_cod & Ano =="2012"
+drop iten*
+* keep only observations that exist in 2019 and 2012
+by cod_ocupacao, sort: gen leao1 =_n
+by cod_ocupacao, sort: egen leao2 =max(leao1)
+keep if leao2==2
+drop leao*
+
 drop if cod_ocupacao=="."
 drop if cod_ocupacao==""
 drop if cod_ocupacao=="0"
@@ -58,6 +69,10 @@ cap drop aux1 apnd lgth
 merge 1:1 cod_ocupacao using "$input_dir\cod_ocupacao.dta"
 drop _merge
 compress
+
+* drop vague names
+do "$code_dir\_sub_code\_drop_vague_names.do"
+
 gsort -delta_n
 
 drop if _n>20
@@ -90,7 +105,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\amzjovemrkngnocuporocupacao.te
         "\begin{table}[H]"
         "\centering"
 		"\label{amzjovemrkngnocuporocupacao}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

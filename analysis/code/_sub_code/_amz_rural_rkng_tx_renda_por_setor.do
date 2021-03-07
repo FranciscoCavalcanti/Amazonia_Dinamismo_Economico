@@ -72,12 +72,12 @@ local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 #delim ;    
 esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzruralrkngtxrendaporsetor.tex", 
     replace 
-    collabels("Taxa de crescimento (\%)")
+    collabels("Tx. Cresc. (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
         "\label{amzruralrkngtxrendaporsetor}"
-        "\scalebox{0.60}{"
+        "\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"        
         "\begin{tabular}{l*{@span}{r}}"

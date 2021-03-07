@@ -63,13 +63,24 @@ gen renda_informal = (iten2/n_ocu_cod_informal)
 drop iten*
 label variable renda_informal "Rendimento médio habitual real dos ocupados informal (R$)"
 
+/////////////////////////////////////////////////////////
+//	Massa salarial
+/////////////////////////////////////////////////////////
+
+* Rendimento medio habitual real * ocupados total
+gen iten1 = ocupado * (VD4019 * Habitual) * V1028
+by Ano Trimestre V4010, sort: egen iten2 = total(iten1)
+gen massa_salarial = iten2
+drop iten*
+label variable massa_salarial "Massa de rendimentos (R$)"
+
 
 ***********************************************
 **	Colapsar ao nível do trimestre e setor	 **
 ***********************************************
 
 // attach label of variables
-local colvar n_* renda_*
+local colvar n_* renda_* massa_salarial
 
 foreach v of var `colvar' {
     local l`v' : variable label `v'
