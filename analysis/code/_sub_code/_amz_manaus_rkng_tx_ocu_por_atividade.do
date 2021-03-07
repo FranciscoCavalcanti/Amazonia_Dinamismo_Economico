@@ -86,7 +86,8 @@ do "$code_dir\_sub_code\_drop_vague_names.do"
 
 gsort -tx_crescimento
 
-drop if _n>10
+* lenght of the list
+drop if _n>20
 
 * format
 format tx_crescimento %16,2fc
