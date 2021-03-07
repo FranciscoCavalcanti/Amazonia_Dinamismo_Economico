@@ -90,7 +90,7 @@ local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 #delim ;    
 esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzurbanarkngtxrendaporatividade.tex", 
 	replace 
-	collabels("Taxa de crescimento (\%)")
+	collabels("Tx. Cresc. (\%)")
     prehead(
         "\begin{table}[H]"
         "\centering"
