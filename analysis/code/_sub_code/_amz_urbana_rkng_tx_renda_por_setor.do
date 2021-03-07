@@ -77,7 +77,7 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzurbanarkngtxrendaporsetor.t
         "\begin{table}[H]"
         "\centering"
         "\label{amzurbanarkngtxrendaporsetor}"
-        "\scalebox{0.60}{"
+        "\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"        
         "\begin{tabular}{l*{@span}{r}}"

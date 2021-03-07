@@ -96,7 +96,7 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzparkngtxrendaporocupacao.te
         "\begin{table}[H]"
         "\centering"
 		"\label{amzparkngtxrendaporocupacao}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

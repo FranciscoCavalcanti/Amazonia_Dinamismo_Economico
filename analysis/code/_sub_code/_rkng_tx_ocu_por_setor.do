@@ -83,7 +83,7 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\rkngtxocuporsetor.tex",
         "\begin{table}[H]"
         "\centering"
 		"\label{rkngtxocuporsetor}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

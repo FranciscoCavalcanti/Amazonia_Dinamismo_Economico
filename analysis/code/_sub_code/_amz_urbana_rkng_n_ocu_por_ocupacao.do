@@ -106,7 +106,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\amzurbanarkngnocuporocupacao.t
         "\begin{table}[H]"
         "\centering"
 		"\label{amzurbanarkngnocuporocupacao}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

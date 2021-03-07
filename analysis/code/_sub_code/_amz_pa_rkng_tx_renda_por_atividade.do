@@ -95,7 +95,7 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzparkngtxrendaporatividade.t
         "\begin{table}[H]"
         "\centering"
 		"\label{amzparkngtxrendaporatividade}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

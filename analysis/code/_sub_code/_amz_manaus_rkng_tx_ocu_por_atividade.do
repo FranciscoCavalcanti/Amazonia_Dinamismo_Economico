@@ -106,7 +106,7 @@ esttab matrix(A, fmt(%16,2fc)) using "$output_dir\amzmanausrkngtxocuporatividade
         "\begin{table}[H]"
         "\centering"
 		"\label{amzmanausrkngtxocuporatividade}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

@@ -85,7 +85,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\amzjovemrkngnocuporsetor.tex",
         "\begin{table}[H]"
         "\centering"
 		"\label{amzjovemrkngnocuporsetor}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

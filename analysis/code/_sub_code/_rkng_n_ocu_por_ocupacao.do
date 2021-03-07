@@ -105,7 +105,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\rkngnocuporocupacao.tex",
         "\begin{table}[H]"
         "\centering"
 		"\label{rkngnocuporocupacao}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"

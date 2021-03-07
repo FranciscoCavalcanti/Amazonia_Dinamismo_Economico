@@ -105,7 +105,7 @@ esttab matrix(A, fmt(%16,0fc)) using "$output_dir\amzruralrkngnocuporatividade.t
         "\begin{table}[H]"
         "\centering"
 		"\label{amzruralrkngnocuporatividade}"
-		"\scalebox{0.60}{"
+		"\scalebox{0.70}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"
