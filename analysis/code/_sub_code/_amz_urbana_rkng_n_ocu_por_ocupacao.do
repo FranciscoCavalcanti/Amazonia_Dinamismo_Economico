@@ -70,6 +70,10 @@ cap drop aux1 apnd lgth
 merge 1:1 cod_ocupacao using "$input_dir\cod_ocupacao.dta"
 drop _merge
 compress
+
+* drop vague names
+do "$code_dir\_sub_code\_drop_vague_names.do"
+
 gsort -delta_n
 
 drop if _n>20

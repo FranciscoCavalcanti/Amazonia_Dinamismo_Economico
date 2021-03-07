@@ -69,6 +69,10 @@ cap drop aux1 apnd lgth
 merge 1:1 cod_atividade using "$input_dir\cod_atividade.dta"
 drop _merge
 compress
+
+* drop vague names
+do "$code_dir\_sub_code\_drop_vague_names.do"
+
 gsort -tx_crescimento
 
 drop if _n>20
