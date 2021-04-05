@@ -63,15 +63,15 @@ import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutu
 
 * clean data
 cap gen titulo = Denominação 
-cap gen cod_atividade = Divisão
-cap tostring cod_atividade, replace
-keep if cod_atividade !=""
-sort cod_atividade
-keep cod_atividade titulo
+cap gen cod_cnae2dig = Divisão
+cap tostring cod_cnae2dig, replace
+keep if cod_cnae2dig !=""
+sort cod_cnae2dig
+keep cod_cnae2dig titulo
 
 * save in the output directory
 compress
-save "$output_dir\cod_atividade_2digitos.dta", replace
+save "$output_dir\cod_cnae2dig.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -79,7 +79,7 @@ save "$output_dir\cod_atividade_2digitos.dta", replace
 //	
 //////////////////////////////////////////////
 
-* call data Atividade_CNAE_Domiciliar_2_0
+* call data Ocupacao_COD
 import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
 
 * clean data
@@ -100,21 +100,20 @@ save "$output_dir\cod_ocupacao.dta", replace
 //	
 //////////////////////////////////////////////
 
-* call data Atividade_CNAE_Domiciliar_2_0
+* call data Ocupacao_COD
 import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
 
 * clean data
 cap gen titulo = Denominação 
-cap gen cod_ocupacao = Subgrupoprincipal
-cap tostring cod_ocupacao, replace
-keep if cod_ocupacao !=""
-sort cod_ocupacao
-keep cod_ocupacao titulo
+cap gen cod_cod2dig = Subgrupoprincipal
+cap tostring cod_cod2dig, replace
+keep if cod_cod2dig !=""
+sort cod_cod2dig
+keep cod_cod2dig titulo
 
 * save in the output directory
 compress
-save "$output_dir\cod_ocupacao_2digitos.dta", replace
-
+save "$output_dir\cod_cod2dig.dta", replace
 
 //////////////////////////////////////////////
 //	
