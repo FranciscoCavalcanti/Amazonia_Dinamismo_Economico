@@ -54,6 +54,27 @@ save "$output_dir\cod_atividade.dta", replace
 
 //////////////////////////////////////////////
 //	
+//	Descricao de codigos de atividades (2 digitos)
+//	
+//////////////////////////////////////////////
+
+* call data Atividade_CNAE_Domiciliar_2_0
+import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+cap gen cod_atividade = Divisão
+cap tostring cod_atividade, replace
+keep if cod_atividade !=""
+sort cod_atividade
+keep cod_atividade titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_atividade_2digitos.dta", replace
+
+//////////////////////////////////////////////
+//	
 //	Descricao de codigos de ocupacao
 //	
 //////////////////////////////////////////////
