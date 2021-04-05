@@ -96,6 +96,28 @@ save "$output_dir\cod_ocupacao.dta", replace
 
 //////////////////////////////////////////////
 //	
+//	Descricao de codigos de ocupacao (2 digitos)
+//	
+//////////////////////////////////////////////
+
+* call data Atividade_CNAE_Domiciliar_2_0
+import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+cap gen cod_ocupacao = Subgrupoprincipal
+cap tostring cod_ocupacao, replace
+keep if cod_ocupacao !=""
+sort cod_ocupacao
+keep cod_ocupacao titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_ocupacao_2digitos.dta", replace
+
+
+//////////////////////////////////////////////
+//	
 //	Descricao de codigos de comida (definicoes por Salo V Coslovsky)
 //	
 //////////////////////////////////////////////
