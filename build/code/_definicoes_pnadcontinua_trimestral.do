@@ -154,7 +154,6 @@ else if "$area_geografica" == "Pará"   {
     keep if UF == 15 	// Pará
 
 	local area = "para"
-}
 }		
 else if "$area_geografica" == "Maranhao"   {
     keep if (UF == 21 & V1023 == 4) 	// Maranhão & Resto da UF (Unidade da Federação, excluindo a região metropolitana e a RIDE)
