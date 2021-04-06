@@ -63,6 +63,8 @@ import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutu
 
 * clean data
 cap gen titulo = Denominação 
+replace titulo = lower(titulo)
+replace titulo = proper(titulo)
 cap gen cod_cnae2dig = Divisão
 cap tostring cod_cnae2dig, replace
 keep if cod_cnae2dig !=""
@@ -105,6 +107,8 @@ import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrang
 
 * clean data
 cap gen titulo = Denominação 
+replace titulo = lower(titulo)
+replace titulo = proper(titulo)
 cap gen cod_cod2dig = Subgrupoprincipal
 cap tostring cod_cod2dig, replace
 keep if cod_cod2dig !=""
@@ -303,7 +307,7 @@ save "$output_dir\_numero_ocupados_por_ocupacao_2digitos.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Amazônia Legal Urbana	**
+**	Amazônia Legal 	**
 ******************************
 
 global area_geografica = "Amazônia Legal"
