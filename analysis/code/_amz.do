@@ -90,4 +90,4 @@ do "$code_dir\_sub_code\_rkng_v_massa_por_atividade_2digitos.do"
 
 //	Por setores tipo de ocupação (COD)
 * run do file
-do "$code_dir\_sub_code\_jovem_rkng_v_massa_por_ocupacao_2digitos.do"
+do "$code_dir\_sub_code\_rkng_v_massa_por_ocupacao_2digitos.do"
