@@ -6,10 +6,10 @@
 
 /*
 ******************************
-**	Tocantins	**
+**	Maranhao	**
 ******************************
 
-global area_geografica = "Tocantins"
+global area_geografica = "Maranhao"
 
 forvalues yr = 2012(1)2020{
 	* call data
@@ -32,7 +32,7 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_setor.dta", replace
+save "$output_dir\_amz_ma_numero_ocupados_por_setor.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -41,10 +41,10 @@ save "$output_dir\_amz_to_numero_ocupados_por_setor.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Tocantins	**
+**	Maranhao	**
 ******************************
 
-global area_geografica = "Tocantins"
+global area_geografica = "Maranhao"
 
 forvalues yr = 2012(1)2020{
 	* call data
@@ -67,7 +67,7 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_ocupacao.dta", replace
+save "$output_dir\_amz_ma_numero_ocupados_por_ocupacao.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -76,10 +76,10 @@ save "$output_dir\_amz_to_numero_ocupados_por_ocupacao.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Tocantins	**
+**	Maranhao	**
 ******************************
 
-global area_geografica = "Tocantins"
+global area_geografica = "Maranhao"
 
 forvalues yr = 2012(1)2020{
 	* call data
@@ -102,7 +102,7 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_atividade.dta", replace
+save "$output_dir\_amz_ma_numero_ocupados_por_atividade.dta", replace
 
 */
 
@@ -114,10 +114,10 @@ save "$output_dir\_amz_to_numero_ocupados_por_atividade.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Tocantins	**
+**	Maranhao	**
 ******************************
 
-global area_geografica = "Tocantins"
+global area_geografica = "Maranhao"
 
 forvalues yr = 2012(1)2020{
 	* call data
@@ -140,7 +140,7 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta", replace
+save "$output_dir\_amz_ma_numero_ocupados_por_ocupacao_2digitos.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -150,10 +150,10 @@ save "$output_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Tocantins	**
+**	Maranhao	**
 ******************************
 
-global area_geografica = "Tocantins"
+global area_geografica = "Maranhao"
 
 forvalues yr = 2012(1)2020{
 	* call data
@@ -176,4 +176,4 @@ forvalues yr = 2012(1)2020{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_atividade_2digitos.dta", replace
+save "$output_dir\_amz_ma_numero_ocupados_por_atividade_2digitos.dta", replace
