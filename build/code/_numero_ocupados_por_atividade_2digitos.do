@@ -2,9 +2,10 @@
 cap tostring V4013, replace
 cap replace V4013 = "" if V4013 == "."
 gen tempvar1 = strlen(V4013) // lenght of the variable
-replace V4013 = "0" + V4013 if tempvar1 == 3
-replace V4013 = "00" + V4013 if tempvar1 == 2
-replace V4013 = "000" + V4013 if tempvar1 == 1
+replace V4013 = "0" + V4013 if tempvar1 == 4
+replace V4013 = "00" + V4013 if tempvar1 == 3
+replace V4013 = "000" + V4013 if tempvar1 == 2
+replace V4013 = "0000" + V4013 if tempvar1 == 1
 drop tempvar*
 gen cod_cnae2dig = substr(V4013,1,2)
 
