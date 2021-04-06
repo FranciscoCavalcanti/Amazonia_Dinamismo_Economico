@@ -157,6 +157,7 @@ keep cod_atividade titulo
 compress
 save "$output_dir\cod_atividade_comidas.dta", replace
 
+/*
 //////////////////////////////////////////////
 //	
 //	Calcular o numero de ocupados e rendimento médio por setores na Amazonia
@@ -263,6 +264,8 @@ forvalues yr = 2012(1)2020{
 compress
 save "$output_dir\_numero_ocupados_por_atividade.dta", replace
 
+*/
+
 //////////////////////////////////////////////
 //	
 //	Calcular o numero de ocupados e rendimento médio por tipo de ocupação na Amazonia
@@ -367,6 +370,17 @@ clear
 
 //////////////////////////////////////////////
 //	
+//	Dinamismo Econômico no Maranhao
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ma"
+clear
+
+
+//////////////////////////////////////////////
+//	
 //	Dinamismo Econômico no Mato Grosso
 //	
 //////////////////////////////////////////////
@@ -412,9 +426,8 @@ clear
 //////////////////////////////////////////////
 * run code
 clear
-do "$code_dir\_amz_am"
+do "$code_dir\_amz_ap"
 clear
-
 
 //////////////////////////////////////////////
 //	
