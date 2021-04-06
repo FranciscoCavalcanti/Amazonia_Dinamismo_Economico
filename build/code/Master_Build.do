@@ -54,11 +54,34 @@ save "$output_dir\cod_atividade.dta", replace
 
 //////////////////////////////////////////////
 //	
-//	Descricao de codigos de ocupacao
+//	Descricao de codigos de atividades (2 digitos)
 //	
 //////////////////////////////////////////////
 
 * call data Atividade_CNAE_Domiciliar_2_0
+import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+replace titulo = lower(titulo)
+replace titulo = proper(titulo)
+cap gen cod_cnae2dig = Divisão
+cap tostring cod_cnae2dig, replace
+keep if cod_cnae2dig !=""
+sort cod_cnae2dig
+keep cod_cnae2dig titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_cnae2dig.dta", replace
+
+//////////////////////////////////////////////
+//	
+//	Descricao de codigos de ocupacao
+//	
+//////////////////////////////////////////////
+
+* call data Ocupacao_COD
 import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
 
 * clean data
@@ -72,6 +95,29 @@ keep cod_ocupacao titulo
 * save in the output directory
 compress
 save "$output_dir\cod_ocupacao.dta", replace
+
+//////////////////////////////////////////////
+//	
+//	Descricao de codigos de ocupacao (2 digitos)
+//	
+//////////////////////////////////////////////
+
+* call data Ocupacao_COD
+import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
+
+* clean data
+cap gen titulo = Denominação 
+replace titulo = lower(titulo)
+replace titulo = proper(titulo)
+cap gen cod_cod2dig = Subgrupoprincipal
+cap tostring cod_cod2dig, replace
+keep if cod_cod2dig !=""
+sort cod_cod2dig
+keep cod_cod2dig titulo
+
+* save in the output directory
+compress
+save "$output_dir\cod_cod2dig.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -111,7 +157,7 @@ keep cod_atividade titulo
 compress
 save "$output_dir\cod_atividade_comidas.dta", replace
 
-
+/*
 //////////////////////////////////////////////
 //	
 //	Calcular o numero de ocupados e rendimento médio por setores na Amazonia
@@ -182,6 +228,7 @@ forvalues yr = 2012(1)2020{
 compress
 save "$output_dir\_numero_ocupados_por_ocupacao.dta", replace
 
+
 //////////////////////////////////////////////
 //	
 //	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
@@ -217,6 +264,79 @@ forvalues yr = 2012(1)2020{
 compress
 save "$output_dir\_numero_ocupados_por_atividade.dta", replace
 
+*/
+
+//////////////////////////////////////////////
+//	
+//	Calcular o numero de ocupados e rendimento médio por tipo de ocupação na Amazonia
+//	(COD de 2 digitos)
+//	
+//////////////////////////////////////////////
+
+******************************
+**	Amazônia Legal	**
+******************************
+
+global area_geografica = "Amazônia Legal"
+
+forvalues yr = 2012(1)2020{
+	* call data
+	use "$input_advanc\PNADC`yr'.dta", clear
+	* sample 1
+	* run code
+	do "$code_dir\_definicoes_pnadcontinua_trimestral"
+	* run code
+	do "$code_dir\_numero_ocupados_por_ocupacao_2digitos"
+	* save as temporary
+	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
+}
+
+* append temporary data base
+clear
+forvalues yr = 2012(1)2020{
+	* call data
+	append using "$tmp_dir\_temp_PNADC`yr'.dta"
+}
+
+* save in the output directory
+compress
+save "$output_dir\_numero_ocupados_por_ocupacao_2digitos.dta", replace
+
+//////////////////////////////////////////////
+//	
+//	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
+//	(CNAE de 2 digitos)
+//	
+//////////////////////////////////////////////
+
+******************************
+**	Amazônia Legal 	**
+******************************
+
+global area_geografica = "Amazônia Legal"
+
+forvalues yr = 2012(1)2020{
+	* call data
+	use "$input_advanc\PNADC`yr'.dta", clear
+	* sample 1
+	* run code
+	do "$code_dir\_definicoes_pnadcontinua_trimestral"
+	* run code
+	do "$code_dir\_numero_ocupados_por_atividade_2digitos"
+	* save as temporary
+	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
+}
+
+* append temporary data base
+clear
+forvalues yr = 2012(1)2020{
+	* call data
+	append using "$tmp_dir\_temp_PNADC`yr'.dta"
+}
+
+* save in the output directory
+compress
+save "$output_dir\_numero_ocupados_por_atividade_2digitos.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -250,6 +370,17 @@ clear
 
 //////////////////////////////////////////////
 //	
+//	Dinamismo Econômico no Maranhao
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ma"
+clear
+
+
+//////////////////////////////////////////////
+//	
 //	Dinamismo Econômico no Mato Grosso
 //	
 //////////////////////////////////////////////
@@ -270,6 +401,66 @@ clear
 
 //////////////////////////////////////////////
 //	
+//	Dinamismo Econômico no Acre
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ac"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Amazonas
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_am"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Amapa
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ap"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Roraima
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_rr"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Rondonia
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ro"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico no Tocantins
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_to"
+clear
+
+//////////////////////////////////////////////
+//	
 //	Dinamismo Econômico na região metropolitana de Manaus
 //	
 //////////////////////////////////////////////
@@ -277,6 +468,39 @@ clear
 clear
 do "$code_dir\_amz_manaus"
 clear
+
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico nas regioes metropolitanas
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_metropolitana"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico nos setores economicos especificos: Tecnologia e Informacao
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_ti"
+clear
+
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico nos setores economicos especificos: Agricultura/Floresta
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_floresta"
+clear
+
 
 ******************************************
 ** delete temporary files

@@ -1,0 +1,972 @@
+\documentclass[8pt]{beamer}
+
+\usepackage{lmodern}
+\usepackage[beamer,customcolors]{hf-tikz}
+
+\tikzset{hl/.style={
+    set fill color=red!80!black!40,
+    set border color=red!80!black,
+  },
+}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\usetheme{Montpellier}
+\usepackage[utf8]{inputenc}
+\usepackage[english,american]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+\usepackage{lscape}
+\usepackage{array} % for defining a new column type
+\usepackage{tabulary}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+	
+%\author[Francisco Cavalcanti]{Francisco Cavalcanti\\\footnotesize{PUC-Rio}
+%}
+
+\author{
+Flávia  Alfenas\\
+\textit{PUC-Rio}\\ \vspace{3mm}
+\and  
+Francisco Cavalcanti\\
+\textit{PUC-Rio}\\ \vspace{3mm}
+\and   
+Gustavo Gonzaga \\
+\textit{PUC-Rio} 
+}
+
+\date{Março, 2021}
+
+\title{Dinamismo Econômico na Amazônia Legal \\ Uma análise entre 2012 - 2019}
+
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\newcommand{\quotes}[1]{``#1''}
+
+\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\section{Índice Principal}
+
+\begin{frame}[label=indice_principal]{}
+
+\textbf{Índice Principal}
+\vspace{2mm}
+\begin{itemize}
+
+\item{Dinamismo Econômico na Amazônia Legal: \hyperlink{indice_principal_amz}{\beamerbutton{clique aqui}}}
+\vspace{3mm}
+
+\item{Análise heterogênea restrigindo para:
+	\begin{itemize}
+	\item{AC: \hyperlink{indice_principal_amz_ac}{\beamerbutton{clique aqui}}}
+	\item{AM: \hyperlink{indice_principal_amz_am}{\beamerbutton{clique aqui}}}
+	\item{AP: \hyperlink{indice_principal_amz_ap}{\beamerbutton{clique aqui}}}
+	\item{MT: \hyperlink{indice_principal_amz_mt}{\beamerbutton{clique aqui}}}
+	\item{PA: \hyperlink{indice_principal_amz_pa}{\beamerbutton{clique aqui}}}
+	\item{RO: \hyperlink{indice_principal_amz_ro}{\beamerbutton{clique aqui}}}
+	\item{RR: \hyperlink{indice_principal_amz_rr}{\beamerbutton{clique aqui}}}
+	\item{TO: \hyperlink{indice_principal_amz_to}{\beamerbutton{clique aqui}}}
+	\item{Zona Urbana: \hyperlink{indice_principal_amz_urbana}{\beamerbutton{clique aqui}}}	
+	\item{Zona Rural: \hyperlink{indice_principal_amz_rural}{\beamerbutton{clique aqui}}}
+	\item{Zona Metropolitana: \hyperlink{indice_principal_amz_metropolitana}{\beamerbutton{clique aqui}}}
+	\item{Jovem: \hyperlink{indice_principal_amz_jovem}{\beamerbutton{clique aqui}}}
+	\item{Agricultura e Floresta: \hyperlink{indice_principal_amz_floresta}{\beamerbutton{clique aqui}}}
+	\item{Tecnologia e Informação: \hyperlink{indice_principal_amz_ti}{\beamerbutton{clique aqui}}}
+	\vspace{1mm}
+	\end{itemize}
+}
+
+\end{itemize}
+
+\end{frame}
+
+\section{Dinamismo Econômico no Mercado de Trabalho}
+
+\begin{frame}[label=indice_principal_amz]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Mercado de Trabalho da Amazônia Legal:}
+\vspace{2mm}
+\begin{itemize}
+
+\vspace{1mm}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{rkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{rkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{rkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{rkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+\subsection{Variação da massa de rendimentos:}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/rkngnocuporcod2dig}
+\end{frame}
+
+\section{Acre}
+
+\begin{frame}[label=indice_principal_amz_ac]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Acre}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzacrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzacrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzacrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzacrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ac}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzacrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ac}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzacrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ac}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzacrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ac}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzacrkngnocuporcod2dig}
+\end{frame}
+
+\section{Amazonia}
+
+\begin{frame}[label=indice_principal_amz_am]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Amazonia}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzamrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzamrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzamrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzamrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_am}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_am}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_am}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_am}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamrkngnocuporcod2dig}
+\end{frame}
+
+\section{Amapa}
+
+\begin{frame}[label=indice_principal_amz_ap]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Amapa}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzaprkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzaprkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzaprkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzaprkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ap}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaprkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ap}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaprkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ap}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaprkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ap}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaprkngnocuporcod2dig}
+\end{frame}
+
+\section{Mato Grosso}
+
+\begin{frame}[label=indice_principal_amz_mt]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Mato Grosso}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzmtrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzmtrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzmtrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzmtrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_mt}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_mt}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_mt}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_mt}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtrkngnocuporcod2dig}
+\end{frame}
+
+\section{Pará}
+
+\begin{frame}[label=indice_principal_amz_pa]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico no Pará}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzparkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzparkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzparkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzparkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_pa}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzparkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_pa}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzparkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_pa}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzparkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_pa}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzparkngnocuporcod2dig}
+\end{frame}
+
+\section{Rondônia}
+
+\begin{frame}[label=indice_principal_amz_ro]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico em Rondônia}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzrorkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzrorkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzrorkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzrorkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ro}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrorkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ro}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrorkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ro}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrorkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ro}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrorkngnocuporcod2dig}
+\end{frame}
+
+\section{Roraima}
+
+\begin{frame}[label=indice_principal_amz_rr]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico em Roraima}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzrrrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzrrrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzrrrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzrrrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rr}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rr}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rr}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rr}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrrkngnocuporcod2dig}
+\end{frame}
+
+\section{Tocantins}
+
+\begin{frame}[label=indice_principal_amz_to]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico em Tocantins}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amztorkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amztorkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amztorkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amztorkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_to}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztorkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_to}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztorkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_to}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztorkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_to}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztorkngnocuporcod2dig}
+\end{frame}
+
+
+\section{Agricultura e Floresta}
+
+\begin{frame}[label=indice_principal_amz_floresta]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Agricultura e Floresta}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzflorestarkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzflorestarkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzflorestarkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzflorestarkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_floresta}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzflorestarkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_floresta}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzflorestarkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_floresta}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzflorestarkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_floresta}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzflorestarkngnocuporcod2dig}
+\end{frame}
+
+\section{Tecnologia e Informação}
+
+\begin{frame}[label=indice_principal_amz_ti]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Tecnologia e Informação}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amztirkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amztirkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amztirkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amztirkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ti}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztirkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ti}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztirkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ti}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztirkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_ti}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztirkngnocuporcod2dig}
+\end{frame}
+
+\section{Jovens}
+
+\begin{frame}[label=indice_principal_amz_jovem]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Jovens}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzjovemrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzjovemrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzjovemrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzjovemrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_jovem}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_jovem}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_jovem}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_jovem}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemrkngnocuporcod2dig}
+\end{frame}
+
+
+\section{Zona Rural}
+
+\begin{frame}[label=indice_principal_amz_rural]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Zona Rural da Amazônia Legal}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzruralrkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzruralrkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzruralrkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzruralrkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rural}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralrkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rural}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralrkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rural}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralrkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_rural}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralrkngnocuporcod2dig}
+\end{frame}
+
+\section{Zona Urbana}
+
+\begin{frame}[label=indice_principal_amz_urbana]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Zona Urbana da Amazônia Legal}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzurbanarkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzurbanarkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzurbanarkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzurbanarkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_urbana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanarkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_urbana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanarkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_urbana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanarkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_urbana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanarkngnocuporcod2dig}
+\end{frame}
+
+\section{Zona Metropolitana}
+
+\begin{frame}[label=indice_principal_amz_metropolitana]{}
+
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar para índice principal}}}
+
+\textbf{Dinamismo Econômico na Zona Metropolitana da Amazônia Legal}
+\vspace{2mm}
+
+\begin{itemize}
+
+\item{Variação da massa de rendimentos:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzmetropolitanarkngvmassaporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzmetropolitanarkngvmassaporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\item{Crescimento  absoluto de ocupações:
+	\begin{itemize}
+	\item{Por atividade econômica: \hyperlink{amzmetropolitanarkngnocuporcnae2dig}{\beamerbutton{clique aqui}}}
+	\item{Por tipo de ocupação: \hyperlink{amzmetropolitanarkngnocuporcod2dig}{\beamerbutton{clique aqui}}}
+	\end{itemize}
+}
+\vspace{1mm}
+
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{Variação da massa de rendimentos}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_metropolitana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanarkngvmassaporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_metropolitana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanarkngvmassaporcod2dig}
+\end{frame}
+
+\subsection{Crescimento de absoluto ocupações}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_metropolitana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanarkngnocuporcnae2dig}
+\end{frame}
+
+\begin{frame}
+\textit{\hyperlink{indice_principal_amz_metropolitana}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanarkngnocuporcod2dig}
+\end{frame}
+
+\section{Comentários}
+
+\frame
+{
+\begin{center}
+	\vfill
+	\textbf{Obrigado!}
+	\\
+
+	\begin{small}
+	email: francisco.lima.cavalcanti@gmail.com
+	\end{small}
+	\vfill     
+\end{center}
+}
+
+\end{document}
+
