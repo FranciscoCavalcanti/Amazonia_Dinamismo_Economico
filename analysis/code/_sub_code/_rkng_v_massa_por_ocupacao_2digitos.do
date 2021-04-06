@@ -43,6 +43,8 @@ drop if cod_cod2dig=="0"
 
 sort cod_cod2dig Ano
 
+by cod_cod2dig, sort: gen delta_v = (massa_salarial[_n] - massa_salarial[_n-1])
+
 collapse (mean) delta_v, by (cod_cod2dig)
 sort delta_v
 
