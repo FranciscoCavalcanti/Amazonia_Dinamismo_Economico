@@ -18,3 +18,5 @@ build/output/Dados_comida_COD.xls
 build/output/Dados_comida_CNAE.xls
 document/2021-01-28 Preliminary_Results.pdf
 document/2021-03-08 Preliminary_Results.pdf
+analysis/output/amzacrkngnocuporcnae2dig.tex
+analysis/output/*.tex
