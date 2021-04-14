@@ -115,8 +115,10 @@ replace new_name = "Outros"  if codnumeric == 99
 
 * keep only relevant variables
 replace titulo = new_name
-sort cod_cnaeagr titulo
-keep cod_cnaeagr titulo
+cap drop cod_cnae2dig
+gen  cod_cnae2dig = cod_cnaeagr
+sort cod_cnaeagr titulo cod_cnae2dig
+keep cod_cnaeagr titulo cod_cnae2dig
 
 * save in the output directory
 compress

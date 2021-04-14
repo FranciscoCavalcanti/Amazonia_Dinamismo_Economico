@@ -70,6 +70,13 @@ replace new_name  = "Profissionais de nível médio" if inrange(codnumeric, 31, 
 replace new_name  = "Profissionais de nível médio" if inrange(codnumeric, 31, 35)
 
 
+* keep only relevant variables
+replace titulo = new_name
+cap drop cod_cod2dig
+gen  cod_cod2dig = cod_codagr
+sort cod_codagr titulo cod_cod2dig
+keep cod_codagr titulo cod_cod2dig
+
 * save in the output directory
 compress
 save "$output_dir\cod_codagr.dta", replace
