@@ -165,6 +165,11 @@ else if "$area_geografica" == "Manaus"   {
 
 	local area = "manaus"
 }
+else if "$area_geografica" == "Belem"   {
+    keep if UF == 15 & (V1023 == 1 | V1023 == 2) 	// Amazonas & Capital | Resto da RM (Região Metropolitana, excluindo a capital)
+
+	local area = "belem"
+}
 else if "$area_geografica" == "Tecnologia e Informacao"   {
     keep if UF == 11 	/* 	Rondônia
 	*/ 	| UF == 12 	/* Acre
