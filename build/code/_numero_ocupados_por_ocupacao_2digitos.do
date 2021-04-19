@@ -9,13 +9,24 @@ drop tempvar*
 gen cod_codagr = substr(V4010,1,2)
 
 merge n:1  cod_codagr using "$output_dir\cod_cod2dig.dta"
-*drop _merge
+drop _merge
 
 * pequenos ajustes na definicao das atividades economicas
-replace titulo = "Pecuária" if V4010 == "01201"
-replace titulo = "Pecuária" if V4010 == "01202"
-replace titulo = "Pecuária" if V4010 == "01203"
+replace titulo = "Pecuária e criação de animais" if V4010 == "6121" // Criadores de gado e trabalhadores qualificados da criação de gado
+replace titulo = "Pecuária e criação de animais" if V4010 == "6122" // Avicultores e trabalhadores qualificados da avicultura
+replace titulo = "Pecuária e criação de animais" if V4010 == "6123" // Apicultores, sericicultores e trabalhadores qualificados da apicultura e sericicultura
+replace titulo = "Pecuária e criação de animais" if V4010 == "6129" // Outros criadores e trabalhadores qualificados da pecuária não classificados anteriormente
+replace titulo = "Pecuária e criação de animais" if V4010 == "6130" // Produtores e trabalhadores qualificados de exploração agropecuária mista 
 
+replace titulo = "Pecuária e criação de animais" if V4010 == "6221" // Trabalhadores da aquicultura
+replace titulo = "Pecuária e criação de animais" if V4010 == "6224" // Caçadores
+replace titulo = "Pecuária e criação de animais" if V4010 == "6225" // Pescadores
+
+replace titulo = "Pecuária e criação de animais" if V4010 == "9212" // Trabalhadores elementares da pecuária 
+replace titulo = "Pecuária e criação de animais" if V4010 == "9213" // Trabalhadores elementares da agropecuária
+replace titulo = "Pecuária e criação de animais" if V4010 == "9216" // Trabalhadores elementares da pesca e aquicultura 
+
+replace titulo = "Produção florestal" if V4010 == "9215" // Trabalhadores florestais elementares
 
 **************************************************
 **	 Calcular numero de ocupados por tipo de ocupação	**

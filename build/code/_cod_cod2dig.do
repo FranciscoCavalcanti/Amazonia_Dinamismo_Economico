@@ -26,49 +26,50 @@ keep cod_codagr titulo
 
 gen new_name = ""
 destring cod_codagr, gen(codnumeric)
-replace new_name  = "Forças armadas e militatres" if inrange(codnumeric, 1, 5)
-replace new_name  = "Administração pública" if inrange(codnumeric, 11, 11)
-replace new_name  = "Dirigentes e gerentes" if inrange(codnumeric, 12, 14)
 
-replace new_name  = "Profissionais em ciências e engenharia" if codnumeric == 21 // Profissionais Das Ciencias E Da Engenharia
-replace new_name  = "Profissionais em ciências e engenharia" if codnumeric == 31 // Profissionais De Nivel Medio Das Ciencias E Da Engenharia
-
-replace new_name  = "Profissionais em saúde" if codnumeric == 22 // Profissionais Da Saude
-replace new_name  = "Profissionais em saúde" if codnumeric == 32 // Profissionais De Nivel Medio Da Saude E Afins
-
-replace new_name  = "Profissionais em administração" if codnumeric == 24 // Especialistas Em Organizacao Da Administracao Publica E De Empresas
-replace new_name  = "Profissionais em administração" if codnumeric == 33 // Profissionais De Nivel Medio Em Operacoes Financeiras E Administrativas
-
-replace new_name  = "Profissionais em tecnologias da informação" if codnumeric == 25 // Profissionais De Tecnologias Da Informacao E Comunicacoes
-replace new_name  = "Profissionais em tecnologias da informação" if codnumeric == 35 // Tecnicos De Nivel Medio Da Tecnologia Da Informacao E Das Comunicacoes
-
-replace new_name  = "Profissionais em direito, ciências sociais e culturais" if codnumeric == 26 // Profissionais  Em Direito, Em Ciencias Sociais E Culturais
-replace new_name  = "Profissionais em direito, ciências sociais e culturais" if codnumeric == 41 // Escriturarios
-
-replace new_name  = "Apoio administrativo" if inrange(codnumeric, 42, 44)
-
-replace new_name  = "Serviços pessoais, cuidado e proteção" if codnumeric == 51 // Trabalhadores Dos Servicos Pessoais
-replace new_name  = "Serviços pessoais, cuidado e proteção" if codnumeric == 53 // Trabalhadores Dos Cuidados Pessoais
-replace new_name  = "Serviços pessoais, cuidado e proteção" if codnumeric == 54 // Trabalhadores Dos Servicos De Protecao E Seguranca
-
-replace new_name  = "Vendedores" if codnumeric == 52 // Vendedores
-
-replace new_name  = "Agricultura, pecuária e produção florestal" if codnumeric == 61 // Agricultores E Trabalhadores Qualificados Da Agropecuaria
-replace new_name  = "Agricultura, pecuária e produção florestal" if codnumeric == 62 // Trabalhadores Florestais Qualificados, Pescadores E Cacadores
-
-replace new_name  = "Operários da construção e metalurgia qualificados" if codnumeric == 71 // Trabalhadores Qualificados E Operarios Da Metalurgia, Da Construcao Mecanica
-replace new_name  = "Operários da construção e metalurgia qualificados" if codnumeric == 72 // Trabalhadores Qualificados E Operarios Da Construcao Exclusive Eletricistas
-replace new_name  = "Operários da construção e metalurgia qualificados" if codnumeric == 73 // Artesaos E Operarios Das Artes Graficas
-replace new_name  = "Operários da construção e metalurgia qualificados" if codnumeric == 74 // Trabalhadores Especializados Em Eletricidade E Eletronica
-
-replace new_name  = "Trabalhadores domésticos" if codnumeric == 91 // Trabalhadores Domesticos E Outros Trabalhadores De Limpeza De Interior De Edificios
-replace new_name  = "Operários da construção e metalurgia qualificados" if codnumeric == 61 // Agricultores E Trabalhadores Qualificados Da Agropecuaria
-
-
-replace new_name  = "Profissionais de nível médio" if inrange(codnumeric, 31, 35)
-replace new_name  = "Profissionais de nível médio" if inrange(codnumeric, 31, 35)
-replace new_name  = "Profissionais de nível médio" if inrange(codnumeric, 31, 35)
-
+replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 1
+replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 2
+replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 4
+replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 5
+replace new_name  = "Governo" if codnumeric == 11
+replace new_name  = "Dirigentes e gerentes" if codnumeric == 12
+replace new_name  = "Dirigentes e gerentes" if codnumeric == 13
+replace new_name  = "Dirigentes e gerentes" if codnumeric == 14
+replace new_name  = "Ciências e engenharia" if codnumeric == 21
+replace new_name  = "Profissionais da saúde" if codnumeric == 22
+replace new_name  = "Profissionais do ensino" if codnumeric == 23
+replace new_name  = "Administração de empresas" if codnumeric == 24
+replace new_name  = "Informação e comunicação " if codnumeric == 25
+replace new_name  = "Direito, ciências sociais e culturais" if codnumeric == 26
+replace new_name  = "Ciências e engenharia" if codnumeric == 31
+replace new_name  = "Profissionais da saúde" if codnumeric == 32
+replace new_name  = "Administração de empresas" if codnumeric == 33
+replace new_name  = "Direito, ciências sociais e culturais" if codnumeric == 34
+replace new_name  = "Informação e comunicação " if codnumeric == 35
+replace new_name  = "Escriturários" if codnumeric == 41
+replace new_name  = "Atendimento direto ao público" if codnumeric == 42
+replace new_name  = "Apoio administrativo" if codnumeric == 43
+replace new_name  = "Apoio administrativo" if codnumeric == 44
+replace new_name  = "Serviços e cuidados pessoais" if codnumeric == 51
+replace new_name  = "Vendedores" if codnumeric == 52
+replace new_name  = "Serviços e cuidados pessoais" if codnumeric == 53
+replace new_name  = "Proteção e segurança" if codnumeric == 54
+replace new_name  = "Agricultura" if codnumeric == 61
+replace new_name  = "Produção florestal" if codnumeric == 62
+replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 71
+replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 72
+replace new_name  = "Artesões e artes gráficas" if codnumeric == 73
+replace new_name  = "Eletricidade e Eletrônica" if codnumeric == 74
+replace new_name  = "Operários de processamento e instalações" if codnumeric == 75
+replace new_name  = "Operários de processamento e instalações" if codnumeric == 81
+replace new_name  = "Montadores e condutores de veículos" if codnumeric == 82
+replace new_name  = "Montadores e condutores de veículos" if codnumeric == 83
+replace new_name  = "Domésticos" if codnumeric == 91
+replace new_name  = "Agricultura" if codnumeric == 92
+replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 93
+replace new_name  = "Alimentação" if codnumeric == 94
+replace new_name  = "Ambulantes" if codnumeric == 95
+replace new_name  = "Coletores de lixo" if codnumeric == 96
 
 * keep only relevant variables
 replace titulo = new_name
