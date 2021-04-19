@@ -68,6 +68,26 @@ label variable n_ocu_cnae_informal "Número de ocupação informal por tipo de a
 cap drop iten*
 
 /////////////////////////////////////////////////////////
+//	numero de ocupação publico por tipo de atividade
+/////////////////////////////////////////////////////////
+gen iten1 = 1 * V1028 if ocupado == 1 & publico ==1
+by Ano Trimestre titulo, sort: egen iten2 = total(iten1)
+replace iten2 = round(iten2)
+gen n_ocu_cnae_publico = iten2
+label variable n_ocu_cnae_publico "Número de ocupação no setor público por tipo de atividade"
+cap drop iten*
+
+/////////////////////////////////////////////////////////
+//	numero de ocupação privado por tipo de atividade
+/////////////////////////////////////////////////////////
+gen iten1 = 1 * V1028 if ocupado == 1 & privado ==1
+by Ano Trimestre titulo, sort: egen iten2 = total(iten1)
+replace iten2 = round(iten2)
+gen n_ocu_cnae_privado = iten2
+label variable n_ocu_cnae_privado "Número de ocupação no setor privado por tipo de atividade"
+cap drop iten*
+
+/////////////////////////////////////////////////////////
 //	Rendimentos real
 /////////////////////////////////////////////////////////
 
