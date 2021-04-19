@@ -59,7 +59,7 @@ replace new_name  = "Produção florestal" if codnumeric == 62
 replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 71
 replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 72
 replace new_name  = "Artesões e artes gráficas" if codnumeric == 73
-replace new_name  = "Eletricidade e Eletrônica" if codnumeric == 74
+replace new_name  = "Eletricidade e eletrônica" if codnumeric == 74
 replace new_name  = "Operários de processamento e instalações" if codnumeric == 75
 replace new_name  = "Operários de processamento e instalações" if codnumeric == 81
 replace new_name  = "Montadores e condutores de veículos" if codnumeric == 82
