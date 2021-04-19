@@ -79,4 +79,4 @@ keep cod_codagr titulo cod_cod2dig
 
 * save in the output directory
 compress
-save "$output_dir\cod_codagr.dta", replace
+save "$output_dir\cod_cod2dig.dta", replace
