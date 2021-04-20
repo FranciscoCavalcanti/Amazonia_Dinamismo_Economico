@@ -3,7 +3,7 @@
 ******************************************************
 
 * call data 
-use "$input_dir\_amz_urbana_numero_ocupados_por_atividade_2digitos.dta", clear
+use "$input_dir\_amz_ti_numero_ocupados_por_atividade_2digitos.dta", clear
 encode titulo, generate(nova_agregacao)
 sort Ano Trimestre 
 
@@ -99,12 +99,12 @@ local ttitle "Atividades econômicas que mais cresceram entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc")) using "$output_dir\amzurbanacnae2dig.tex", 
+esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc")) using "$output_dir\amzticnae2dig.tex", 
 	replace 
     prehead(
         "\begin{table}[H]"
         "\centering"
-		"\label{amzurbanacnae2dig}"
+		"\label{amzticnae2dig}"
 		"\scalebox{0.6}{"
         "\begin{threeparttable}"
         "\caption{`ttitle'}"		
