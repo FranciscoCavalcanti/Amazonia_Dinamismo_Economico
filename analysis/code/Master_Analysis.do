@@ -10,7 +10,7 @@ Gerar tabelas e gráficos para mapear as ocupações e os setores econômicos ma
 */
 
 * Stata version
-version 16.1 //always set the stata version being used
+cap version 16.1 //always set the stata version being used
 set more off, perm
 
 // caminhos (check your username by typing "di c(username)" in Stata) ----
@@ -28,6 +28,28 @@ global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"
 
 * set more off 
 set more off, perm
+
+
+//////////////////////////////////////////////
+//	Analise
+//////////////////////////////////////////////
+
+* loop over do files
+clear
+cd  "${code_dir}/_sub_code_agr"
+pwd
+
+* set do files
+local files : dir . files "*.do"
+display `files'
+
+* loop over files
+foreach xx in `files' {
+	do "${code_dir}/_sub_code_agr/`xx'"
+}
+
+
+
 
 //////////////////////////////////////////////
 //	Analise para Amazônia Legal
