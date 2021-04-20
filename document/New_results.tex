@@ -1,0 +1,272 @@
+\documentclass[8pt]{beamer}
+
+\usepackage{lmodern}
+\usepackage[beamer,customcolors]{hf-tikz}
+
+\tikzset{hl/.style={
+    set fill color=red!80!black!40,
+    set border color=red!80!black,
+  },
+}
+
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+
+\usetheme{Montpellier}
+\usepackage[utf8]{inputenc}
+\usepackage[english,american]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+\usepackage{lscape}
+\usepackage{array} % for defining a new column type
+\usepackage{tabulary}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+	
+%\author[Francisco Cavalcanti]{Francisco Cavalcanti\\\footnotesize{PUC-Rio}
+%}
+
+\author{
+Flávia  Alfenas\\
+\textit{PUC-Rio}\\ \vspace{3mm}
+\and  
+Francisco Cavalcanti\\
+\textit{PUC-Rio}\\ \vspace{3mm}
+\and   
+Gustavo Gonzaga \\
+\textit{PUC-Rio} 
+}
+
+\date{Março, 2021}
+
+\title{Dinamismo Econômico na Amazônia Legal \\ Uma análise entre 2012 - 2019}
+
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+
+\newcommand{\quotes}[1]{``#1''}
+
+\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+%\institute{} 
+%\date{} 
+%\subject{} 
+\begin{document}
+
+\newcolumntype{M}{>{\begin{varwidth}{4cm}}l<{\end{varwidth}}} %M is for Maximal column
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+%\begin{frame}
+%\tableofcontents
+%\end{frame}
+
+\section{Índice Principal}
+
+\begin{frame}[label=indice_principal]{}
+
+\textbf{Índice Principal}
+\vspace{2mm}
+\begin{itemize}
+
+\item{Dinamismo Econômico na Amazônia Legal:  CNAE	\hyperlink{amzcod2dig}{\beamerbutton{clique aqui}} COD 	\hyperlink{amzcod2dig}{\beamerbutton{tabela}}}
+\vspace{2mm}
+
+\item{Análise heterogênea restrigindo para:
+	\begin{itemize}
+	\item{Acre: CNAE	\hyperlink{amzaccod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzaccod2dig}{\beamerbutton{tabela}}}
+	\item{Amazonas: CNAE	\hyperlink{amzamcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzamcod2dig}{\beamerbutton{tabela}}}
+	\item{Amapá: CNAE	\hyperlink{amzapcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzapcod2dig}{\beamerbutton{tabela}}}
+	\item{Mato Grosso: CNAE	\hyperlink{amzmtcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzmtcod2dig}{\beamerbutton{tabela}}}
+	\item{Pará: CNAE	\hyperlink{amzpacod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzpacod2dig}{\beamerbutton{tabela}}}
+	\item{Rondônia: CNAE	\hyperlink{amzrocod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzrocod2dig}{\beamerbutton{tabela}}}
+	\item{Roraima: CNAE	\hyperlink{amzrrcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzrrcod2dig}{\beamerbutton{tabela}}}
+	\item{Tocantins: CNAE	\hyperlink{amztocod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amztocod2dig}{\beamerbutton{tabela}}}
+	\item{Zona Urbana: CNAE	\hyperlink{amzurbanacod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzurbanacod2dig}{\beamerbutton{tabela}}}
+	\item{Zona Rural: CNAE	\hyperlink{amzruralcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzruralcod2dig}{\beamerbutton{tabela}}}
+	\item{Zona Metropolitana: CNAE	\hyperlink{amzmetropolitanacod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzmetropolitanacod2dig}{\beamerbutton{tabela}}}
+	\item{Jovens: CNAE	\hyperlink{amzjovemcod2dig}{\beamerbutton{tabela}} COD 	\hyperlink{amzjovemcod2dig}{\beamerbutton{tabela}}}
+	\vspace{1mm}
+	\end{itemize}
+}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[label=amzcod2dig]{Amazônia Legal}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzcnae2dig]{Amazônia Legal}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzcnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzapcod2dig]{Amapá}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzapcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzapcnae2dig]{Amapá}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzapcnae2dig}
+\end{frame}
+
+
+\begin{frame}[label=amzamcod2dig]{Amazonas}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzamcnae2dig]{Amazonas}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzamcnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzaccod2dig]{Acre}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaccod2dig}
+\end{frame}
+
+\begin{frame}[label=amzaccnae2dig]{Acre}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzaccnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzmtcod2dig]{Mato Grosso}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzmtcnae2dig]{Mato Grosso}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmtcnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzpacod2dig]{Pará}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzpacod2dig}
+\end{frame}
+
+\begin{frame}[label=amzpacnae2dig]{Pará}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzpacnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzrocod2dig]{Rondônia}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrocod2dig}
+\end{frame}
+
+\begin{frame}[label=amzrocnae2dig]{Rondônia}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrocnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzrrcod2dig]{Rondônia}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzrrcnae2dig]{Roraima}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzrrcnae2dig}
+\end{frame}
+
+\begin{frame}[label=amztocod2dig]{Tocantins}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztocod2dig}
+\end{frame}
+
+\begin{frame}[label=amztocnae2dig]{Tocantins}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amztocnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzmanauscod2dig]{Manaus}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmanauscod2dig}
+\end{frame}
+
+\begin{frame}[label=amzmanauscnae2dig]{Manaus}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmanauscnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzmetropolitanacod2dig]{Região Metropolitana}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanacod2dig}
+\end{frame}
+
+\begin{frame}[label=amzmetropolitanacnae2dig]{Região Metropolitana}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzmetropolitanacnae2dig}
+\end{frame}
+
+
+\begin{frame}[label=amzurbanacod2dig]{Zona Urbana}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanacod2dig}
+\end{frame}
+
+\begin{frame}[label=amzurbanacnae2dig]{Zona Urbana}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzurbanacnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzruralcod2dig]{Zona Rural}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzruralcnae2dig]{Zona Rural}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzruralcnae2dig}
+\end{frame}
+
+\begin{frame}[label=amzjovemcod2dig]{Jovens}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemcod2dig}
+\end{frame}
+
+\begin{frame}[label=amzjovemcnae2dig]{Jovens}
+\textit{\hyperlink{indice_principal}{\beamerbutton{Voltar}}}
+\input{./../analysis/output/amzjovemcnae2dig}
+\end{frame}
+
+
+\section{Comentários}
+
+\frame
+{
+\begin{center}
+	\vfill
+	\textbf{Obrigado!}
+	\\
+
+	\begin{small}
+	email: francisco.lima.cavalcanti@gmail.com
+	\end{small}
+	\vfill     
+\end{center}
+}
+
+\end{document}
+
