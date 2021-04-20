@@ -6,10 +6,10 @@
 
 
 ******************************
-**	Amazônia Legal Jovem	**
+**	Belem	**
 ******************************
 
-global area_geografica = "Amazônia Legal"
+global area_geografica = "Belem"
 
 forvalues yr = 2012(7)2019{
 	* call data
@@ -17,8 +17,6 @@ forvalues yr = 2012(7)2019{
 	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* keep individuals with age 18 to 29
-	keep if faixa_etaria2 == 1 | faixa_etaria3 == 1
 	* run code
 	do "$code_dir\_numero_ocupados_por_setor"
 	* save as temporary
@@ -34,7 +32,7 @@ forvalues yr = 2012(7)2019{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_jovem_numero_ocupados_por_setor.dta", replace
+save "$output_dir\_amz_belem_numero_ocupados_por_setor.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -43,10 +41,10 @@ save "$output_dir\_amz_jovem_numero_ocupados_por_setor.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Amazônia Legal Jovem	**
+**	Belem	**
 ******************************
 
-global area_geografica = "Amazônia Legal"
+global area_geografica = "Belem"
 
 forvalues yr = 2012(7)2019{
 	* call data
@@ -54,8 +52,6 @@ forvalues yr = 2012(7)2019{
 	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* keep individuals with age 18 to 29
-	keep if faixa_etaria2 == 1 | faixa_etaria3 == 1
 	* run code
 	do "$code_dir\_numero_ocupados_por_ocupacao"
 	* save as temporary
@@ -71,7 +67,7 @@ forvalues yr = 2012(7)2019{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_jovem_numero_ocupados_por_ocupacao.dta", replace
+save "$output_dir\_amz_belem_numero_ocupados_por_ocupacao.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -80,10 +76,10 @@ save "$output_dir\_amz_jovem_numero_ocupados_por_ocupacao.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Amazônia Legal Jovem	**
+**	Belem	**
 ******************************
 
-global area_geografica = "Amazônia Legal"
+global area_geografica = "Belem"
 
 forvalues yr = 2012(7)2019{
 	* call data
@@ -91,8 +87,6 @@ forvalues yr = 2012(7)2019{
 	* sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* keep individuals with age 18 to 29
-	keep if faixa_etaria2 == 1 | faixa_etaria3 == 1
 	* run code
 	do "$code_dir\_numero_ocupados_por_atividade"
 	* save as temporary
@@ -108,8 +102,7 @@ forvalues yr = 2012(7)2019{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_jovem_numero_ocupados_por_atividade.dta", replace
-
+save "$output_dir\_amz_belem_numero_ocupados_por_atividade.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -119,10 +112,10 @@ save "$output_dir\_amz_jovem_numero_ocupados_por_atividade.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Amazônia Legal Jovem	**
+**	Belem	**
 ******************************
 
-global area_geografica = "Amazônia Legal"
+global area_geografica = "Belem"
 
 forvalues yr = 2012(7)2019{
 	* call data
@@ -130,8 +123,6 @@ forvalues yr = 2012(7)2019{
 	 * sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* keep individuals with age 18 to 29
-	keep if faixa_etaria2 == 1 | faixa_etaria3 == 1	
 	* run code
 	do "$code_dir\_numero_ocupados_por_ocupacao_2digitos"
 	* save as temporary
@@ -147,7 +138,7 @@ forvalues yr = 2012(7)2019{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_jovem_numero_ocupados_por_ocupacao_2digitos.dta", replace
+save "$output_dir\_amz_belem_numero_ocupados_por_ocupacao_2digitos.dta", replace
 
 //////////////////////////////////////////////
 //	
@@ -157,10 +148,10 @@ save "$output_dir\_amz_jovem_numero_ocupados_por_ocupacao_2digitos.dta", replace
 //////////////////////////////////////////////
 
 ******************************
-**	Amazônia Legal Jovem	**
+**	Belem	**
 ******************************
 
-global area_geografica = "Amazônia Legal"
+global area_geografica = "Belem"
 
 forvalues yr = 2012(7)2019{
 	* call data
@@ -168,8 +159,6 @@ forvalues yr = 2012(7)2019{
 	 * sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* keep individuals with age 18 to 29
-	keep if faixa_etaria2 == 1 | faixa_etaria3 == 1	
 	* run code
 	do "$code_dir\_numero_ocupados_por_atividade_2digitos"
 	* save as temporary
@@ -185,4 +174,4 @@ forvalues yr = 2012(7)2019{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_jovem_numero_ocupados_por_atividade_2digitos.dta", replace
+save "$output_dir\_amz_belem_numero_ocupados_por_atividade_2digitos.dta", replace

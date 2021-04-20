@@ -4,14 +4,14 @@
 //	
 //////////////////////////////////////////////
 
-/*
+
 ******************************
 **	Manaus	**
 ******************************
 
 global area_geografica = "Manaus"
 
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	* sample 1
@@ -25,7 +25,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -46,7 +46,7 @@ save "$output_dir\_amz_manaus_numero_ocupados_por_setor.dta", replace
 
 global area_geografica = "Manaus"
 
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	* sample 1
@@ -60,7 +60,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -81,7 +81,7 @@ save "$output_dir\_amz_manaus_numero_ocupados_por_ocupacao.dta", replace
 
 global area_geografica = "Manaus"
 
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	* sample 1
@@ -95,7 +95,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -103,7 +103,6 @@ forvalues yr = 2012(1)2020{
 * save in the output directory
 compress
 save "$output_dir\_amz_manaus_numero_ocupados_por_atividade.dta", replace
-*/
 
 //////////////////////////////////////////////
 //	
@@ -118,7 +117,7 @@ save "$output_dir\_amz_manaus_numero_ocupados_por_atividade.dta", replace
 
 global area_geografica = "Manaus"
 
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	 * sample 1
@@ -132,7 +131,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -154,7 +153,7 @@ save "$output_dir\_amz_manaus_numero_ocupados_por_ocupacao_2digitos.dta", replac
 
 global area_geografica = "Manaus"
 
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	 * sample 1
@@ -168,7 +167,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(7)2019{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }

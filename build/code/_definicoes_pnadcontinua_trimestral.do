@@ -165,6 +165,11 @@ else if "$area_geografica" == "Manaus"   {
 
 	local area = "manaus"
 }
+else if "$area_geografica" == "Belem"   {
+    keep if UF == 15 & (V1023 == 1 | V1023 == 2) 	// Amazonas & Capital | Resto da RM (Região Metropolitana, excluindo a capital)
+
+	local area = "belem"
+}
 else if "$area_geografica" == "Tecnologia e Informacao"   {
     keep if UF == 11 	/* 	Rondônia
 	*/ 	| UF == 12 	/* Acre
@@ -305,6 +310,19 @@ replace militar = 0 if militar ==.
 gen homeoffice = 1 if   V4022 == 4  // No domicílio de residência, em local exclusivo para o desempenho da atividade
 replace homeoffice = 1 if   V4022 == 5 // No domicílio de residência, sem local exclusivo para o desempenho da atividade 
 replace homeoffice = 0 if homeoffice ==. 
+
+* ocupado no setor publico
+gen publico = 1 if V4012 == 2  	//Militar do exército, da marinha, da aeronáutica, da polícia militar ou do corpo de bombeiros militar
+replace publico = 1 if   V4012 == 4 // Empregado do setor público (inclusive empresas de economia mista)
+replace publico = 0 if publico ==. 
+
+* privado no setor privado
+gen privado = 1 if V4012 == 1  	//Trabalhador doméstico
+replace privado = 1 if   V4012 == 3 // Empregado do setor privado
+replace privado = 1 if   V4012 == 5 // Empregador
+replace privado = 1 if   V4012 == 6 // Conta própria
+replace privado = 1 if   V4012 == 7 // Trabalhador familiar não remunerado
+replace privado = 0 if privado ==. 
 
 * grandes setores da economia
 gen gstr_agricultura = 1 if VD4010 == 1 	// Agricultura
