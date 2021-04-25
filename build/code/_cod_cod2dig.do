@@ -27,10 +27,10 @@ keep cod_codagr titulo
 gen new_name = ""
 destring cod_codagr, gen(codnumeric)
 
-replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 1
-replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 2
-replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 4
-replace new_name  = "Forças armadas, policias e bombeiros" if codnumeric == 5
+replace new_name  = "Forças armadas, policiais e bombeiros" if codnumeric == 1
+replace new_name  = "Forças armadas, policiais e bombeiros" if codnumeric == 2
+replace new_name  = "Forças armadas, policiais e bombeiros" if codnumeric == 4
+replace new_name  = "Forças armadas, policiais e bombeiros" if codnumeric == 5
 replace new_name  = "Governo" if codnumeric == 11
 replace new_name  = "Dirigentes e gerentes" if codnumeric == 12
 replace new_name  = "Dirigentes e gerentes" if codnumeric == 13
@@ -38,14 +38,14 @@ replace new_name  = "Dirigentes e gerentes" if codnumeric == 14
 replace new_name  = "Ciências e engenharia" if codnumeric == 21
 replace new_name  = "Profissionais da saúde" if codnumeric == 22
 replace new_name  = "Profissionais do ensino" if codnumeric == 23
-replace new_name  = "Administração de empresas" if codnumeric == 24
-replace new_name  = "Informação e comunicação " if codnumeric == 25
-replace new_name  = "Direito, ciências sociais e culturais" if codnumeric == 26
+replace new_name  = "Administração pública e de empresas" if codnumeric == 24
+replace new_name  = "Serviços de TI e comunicação" if codnumeric == 25
+replace new_name  = "Serviços jurídicos, sociais e culturais" if codnumeric == 26
 replace new_name  = "Ciências e engenharia" if codnumeric == 31
 replace new_name  = "Profissionais da saúde" if codnumeric == 32
-replace new_name  = "Administração de empresas" if codnumeric == 33
-replace new_name  = "Direito, ciências sociais e culturais" if codnumeric == 34
-replace new_name  = "Informação e comunicação " if codnumeric == 35
+replace new_name  = "Serviços financeiros e administrativos" if codnumeric == 33
+replace new_name  = "Serviços jurídicos, sociais e culturais" if codnumeric == 34
+replace new_name  = "Serviços de TI e comunicação " if codnumeric == 35
 replace new_name  = "Escriturários" if codnumeric == 41
 replace new_name  = "Atendimento direto ao público" if codnumeric == 42
 replace new_name  = "Apoio administrativo" if codnumeric == 43
