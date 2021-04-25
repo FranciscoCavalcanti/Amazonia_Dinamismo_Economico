@@ -110,7 +110,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc"
         "\caption{`ttitle'}"		
         "\begin{tabular}{l*{@span}{r}}"
         "\midrule \midrule"
-		" & { \bigtriangleup Ocup. } & { Rend. } & { Cresc.  } & { Ocup. } & { Formal (\%) } & { Privado (\%) } \\"
+		" & { \bigtriangleup Emp. } & { Rend. } & { Cresc.  } & { Emp. } & { Formal (\%) } & { Privado (\%) } \\"
     )
 	collabels("{ }" "{ 2019 (R\\$) }" "{ Rend. (\%) }" "{ Total }" "{  }" "{  }") 	
 	postfoot(
