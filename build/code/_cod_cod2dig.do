@@ -45,7 +45,7 @@ replace new_name  = "Ciências e engenharia" if codnumeric == 31
 replace new_name  = "Profissionais da saúde" if codnumeric == 32
 replace new_name  = "Serviços financeiros e administrativos" if codnumeric == 33
 replace new_name  = "Serviços jurídicos, sociais e culturais" if codnumeric == 34
-replace new_name  = "Serviços de TI e comunicação " if codnumeric == 35
+replace new_name  = "Serviços de TI e comunicação" if codnumeric == 35
 replace new_name  = "Escriturários" if codnumeric == 41
 replace new_name  = "Atendimento direto ao público" if codnumeric == 42
 replace new_name  = "Apoio administrativo" if codnumeric == 43
