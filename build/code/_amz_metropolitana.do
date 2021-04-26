@@ -14,7 +14,7 @@ global area_geografica = "Amazônia Legal Metropolitana"
 forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	  sample 1
+	*  sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -50,7 +50,7 @@ global area_geografica = "Amazônia Legal Metropolitana"
 forvalues yr = 2012(7)2019{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	  sample 1
+	*  sample 1
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
