@@ -28,7 +28,7 @@ destring cod_cnaeagr, gen(codnumeric)
 replace new_name = "Outros" if codnumeric == 00
 replace new_name = "Agricultura" if codnumeric == 01
 replace new_name = "Produção florestal" if codnumeric == 02
-replace new_name = "Pesca e aquicultura" if codnumeric == 03
+replace new_name = "Pesca, caça e aquicultura" if codnumeric == 03
 replace new_name = "Extração mineral e de carvão, petróleo e gás" if codnumeric == 05
 replace new_name = "Extração mineral e de carvão, petróleo e gás" if codnumeric == 06
 replace new_name = "Extração mineral e de carvão, petróleo e gás" if codnumeric == 07
@@ -74,7 +74,7 @@ replace new_name = "Transporte e correio" if codnumeric == 51
 replace new_name = "Transporte e correio" if codnumeric == 52
 replace new_name = "Transporte e correio" if codnumeric == 53
 replace new_name = "Estadia e turismo" if codnumeric == 55
-replace new_name = "Alimentação" if codnumeric == 56
+replace new_name = "Serviços de alimentação" if codnumeric == 56
 replace new_name = "Serviços de informação e comunicação" if codnumeric == 58
 replace new_name = "Serviços de informação e comunicação" if codnumeric == 59
 replace new_name = "Serviços de informação e comunicação" if codnumeric == 60

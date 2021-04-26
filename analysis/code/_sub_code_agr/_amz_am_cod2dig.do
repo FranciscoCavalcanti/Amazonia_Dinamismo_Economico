@@ -1,5 +1,5 @@
 ******************************************************
-**	 Tabela com varias colunas por ocupacao agregada **
+**   Tabela com varias colunas por ocupacao agregada **
 ******************************************************
 
 * call data 
@@ -17,7 +17,7 @@ sort Ano Trimestre
 * edit format
 destring nova_agregacao, replace
 tsset nova_agregacao trim, quarterly 
-format %tqCCYY trim     
+format %tqCCYY trim	
 
 ******************************************************************
 **	crescimento da media dos trimestres de 2012 a media 2019	**	
@@ -45,22 +45,22 @@ sort nova_agregacao Ano
 
 * variacao absoluta
 foreach var in n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial {
-sort nova_agregacao Ano	
-by nova_agregacao, sort: gen ops1_`var' = (`var'[_n] - `var'[_n-1])	
+sort nova_agregacao Ano 
+by nova_agregacao, sort: gen ops1_`var' = (`var'[_n] - `var'[_n-1]) 
 by nova_agregacao, sort: egen delta_`var' = mean(ops1) // important for command reshape latter on
 cap drop ops1
 }
 
 * variacao relativa
 foreach var in renda_media renda_formal renda_informal n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial {
-sort nova_agregacao Ano	
+sort nova_agregacao Ano 
 by nova_agregacao, sort: gen ops1 = (`var'[_n]/`var'[_n-1])*100 -100
 by nova_agregacao, sort: egen tx_`var' = mean(ops1) // important for command reshape latter on
 cap drop ops1
 }
 
 * percentual de formal
-sort nova_agregacao Ano	
+sort nova_agregacao Ano 
 by nova_agregacao, sort: gen ops1 = (n_ocu_cod_formal/n_ocu_cod)*100
 by nova_agregacao, sort: egen p_formal = mean(ops1) 
 cap drop ops1
@@ -74,9 +74,9 @@ reshape wide n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_o
 
 gsort -delta_n_ocu_cod
 
-keep nova_agregacao delta_n_ocu_cod renda_media2019 tx_renda_media n_ocu_cod2019 p_formal p_privado
-order nova_agregacao delta_n_ocu_cod renda_media2019 tx_renda_media n_ocu_cod2019 p_formal p_privado
-drop if _n>20
+keep nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
+order nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
+*drop if _n>20
 
 * format
 format delta_* %16,0fc
@@ -92,44 +92,46 @@ format renda_*  %16,2fc
 format n_*  %16,0fc
 
 // transforma data em matrix
-mkmat delta_n_ocu_cod renda_media2019 tx_renda_media n_ocu_cod2019 p_formal p_privado, matrix(A) rownames(nova_agregacao)
+mkmat delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado, matrix(A) rownames(nova_agregacao)
 
 * local notes
 local ttitle "Ocupações que mais cresceram entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc")) using "$output_dir\amzamcod2dig.tex", 
+esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc" "%16,1fc")) using "$output_dir\amzamcod2dig.tex", 
 	replace 
-  prehead(
-    "\begin{table}[H]"
-    "\centering"
-    "\label{amzamcod2dig}"
-    "\scalebox{0.6}{"
-    "\begin{threeparttable}"
-    "\caption{`ttitle'}"		
-    "\begin{tabular}{l*{@span}{rrrrrrr}}"
-    "\midrule \midrule"
-    " & { \bigtriangleup Ocup. } & { Rend. } & { Cresc.  } & { Ocup. } & { Formal (\%) } & { Privado (\%) } \\"
-  )
-  collabels("{ }" "{ 2019 (R\\$) }" "{ Rend. (\%) }" "{ Total }" "{  }" "{  }") 
-  postfoot(
-    "\bottomrule"
-    "\end{tabular}"		
-    "\begin{tablenotes}"
-    "\item \scriptsize{`tnotes'}"
-    "\end{tablenotes}"
-    "\end{threeparttable}"
+    prehead(
+		"\begin{table}[H]"
+		"\centering"
+		"\label{amzamcod2dig}"
+		"\scalebox{0.56}{"
+		"\begin{threeparttable}"
+		"\caption{`ttitle'}"		
+		"\begin{tabular}{l*{@span}{r}}"
+		"\midrule \midrule"
+		" &  \multicolumn{3}{c}{\textbf{Variação 2012-19}} & \multicolumn{4}{c}{\textbf{2019}} \\"	
+		"\cmidrule(lr){2-4} \cmidrule(lr){5-8}"
+		" & Emp. & Emp. & Rendi. & { Emp.} & { Rendi. } & {Formal} & {Privado} \\"
+    )	
+	collabels("total" "(\%)" "(\%)" "{total }" "{(R\\$)}" "(\%)" "(\%)") 	
+	postfoot(
+        "\bottomrule"
+        "\end{tabular}"		
+        "\begin{tablenotes}"
+        "\item \scriptsize{`tnotes'}"
+        "\end{tablenotes}"
+        "\end{threeparttable}"
 		"}"
-    "\end{table}"
+        "\end{table}"
     )    
 	label
     unstack 
 	noobs 
 	nonumber 
 	nomtitle
-        coeflabels(   /* run the follwing code:  label list nova_agregacao */
-           1 "Administração de empresas"
+	coeflabels(   /* run the follwing code:  label list nova_agregacao */
+           1 "Administração pública e de empresas"
            2 "Agricultura"
            3 "Alimentação"
            4 "Ambulantes"
@@ -138,25 +140,26 @@ esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc"
            7 "Atendimento direto ao público"
            8 "Ciências e engenharia"
            9 "Coletores de lixo"
-          10 "Direito, ciências sociais e culturais"
-          11 "Dirigentes e gerentes"
-          12 "Domésticos"
-          13 "Eletricidade e eletrônica"
-          14 "Escriturários"
-          15 "Forças armadas, policias e bombeiros"
-          16 "Governo"
-          17 "Informação e comunicação "
-          18 "Montadores e condutores de veículos"
-          19 "Operários da construção, metalurgia e indústria"
-          20 "Operários de processamento e instalações"
-          21 "Pecuária e criação de animais"
-          22 "Produção florestal"
-          23 "Profissionais da saúde"
-          24 "Profissionais do ensino"
-          25 "Proteção e segurança"
-          26 "Serviços e cuidados pessoais"
-          27 "Vendedores"
-		) 
+          10 "Dirigentes e gerentes"
+          11 "Domésticos"
+          12 "Eletricidade e eletrônica"
+          13 "Escriturários"
+          14 "Forças armadas, policiais e bombeiros"
+          15 "Governo"
+          16 "Montadores e condutores de veículos"
+          17 "Operários da construção, metalurgia e indústria"
+          18 "Operários de processamento e instalações"
+          19 "Pecuária e criação de animais"
+          20 "Produção florestal"
+          21 "Profissionais da saúde"
+          22 "Profissionais do ensino"
+          23 "Proteção e segurança"
+          24 "Serviços de TI e comunicação"
+          25 "Serviços e cuidados pessoais"
+          26 "Serviços financeiros e administrativos"
+          27 "Serviços jurídicos, sociais e culturais"
+          28 "Vendedores"
+		  )
     ;
 #delim cr
 
