@@ -74,9 +74,9 @@ reshape wide n_ocu_cnae n_ocu_cnae_formal n_ocu_cnae_informal n_ocu_cnae_privado
 
 gsort -delta_n_ocu_cnae
 
-keep nova_agregacao delta_n_ocu_cnae renda_media2019 tx_renda_media n_ocu_cnae2019 p_formal p_privado
-order nova_agregacao delta_n_ocu_cnae renda_media2019 tx_renda_media n_ocu_cnae2019 p_formal p_privado
-drop if _n>20
+keep nova_agregacao delta_n_ocu_cnae tx_n_ocu_cnae tx_renda_media n_ocu_cnae2019 renda_media2019 p_formal p_privado
+order nova_agregacao delta_n_ocu_cnae tx_n_ocu_cnae tx_renda_media n_ocu_cnae2019 renda_media2019 p_formal p_privado
+*drop if _n>20
 
 * format
 format delta_* %16,0fc
@@ -92,27 +92,29 @@ format renda_*  %16,2fc
 format n_*  %16,0fc
 
 // transforma data em matrix
-mkmat delta_n_ocu_cnae renda_media2019 tx_renda_media n_ocu_cnae2019 p_formal p_privado, matrix(A) rownames(nova_agregacao)
+mkmat delta_n_ocu_cnae tx_n_ocu_cnae tx_renda_media n_ocu_cnae2019 renda_media2019 p_formal p_privado, matrix(A) rownames(nova_agregacao)
 
 * local notes
 local ttitle "Atividades econômicas que mais cresceram entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc")) using "$output_dir\amzrocnae2dig.tex", 
+esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc" "%16,1fc")) using "$output_dir\amzrocnae2dig.tex", 
 	replace 
     prehead(
-        "\begin{table}[H]"
-        "\centering"
+		"\begin{table}[H]"
+		"\centering"
 		"\label{amzrocnae2dig}"
-		"\scalebox{0.6}{"
-        "\begin{threeparttable}"
-        "\caption{`ttitle'}"		
-        "\begin{tabular}{l*{@span}{r}}"
-        "\midrule \midrule"
-		" & { \bigtriangleup Emp. } & { Rend. } & { Cresc.  } & { Emp. } & { Formal (\%) } & { Privado (\%) } \\"
-    )
-	collabels("{ }" "{ 2019 (R\\$) }" "{ Rend. (\%) }" "{ Total }" "{  }" "{  }") 	
+		"\scalebox{0.56}{"
+		"\begin{threeparttable}"
+		"\caption{`ttitle'}"		
+		"\begin{tabular}{l*{@span}{r}}"
+		"\midrule \midrule"
+		" &  \multicolumn{3}{c}{\textbf{Variação 2012-19}} & \multicolumn{4}{c}{\textbf{2019}} \\"	
+		"\cmidrule(lr){2-4} \cmidrule(lr){5-8}"
+		" & Emp. & Emp. & Rendi. & { Emp.} & { Rendi. } & {Formal} & {Privado} \\"
+    )	
+	collabels("total" "(\%)" "(\%)" "{total }" "{(R\\$)}" "(\%)" "(\%)") 	
 	postfoot(
         "\bottomrule"
         "\end{tabular}"		
@@ -131,30 +133,30 @@ esttab matrix(A, fmt("%16,0fc" "%16,2fc" "%16,2fc" "%16,0fc" "%16,2fc" "%16,2fc"
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
            1 "Administração pública, defesa e seguridade social"
            2 "Agricultura"
-           3 "Alimentação"
-           4 "Alimentos, bebidas e fumo"
-           5 "Artes, cultura, esportes e recreação"
-           6 "Atividades profissionais, científicas e técnicas"
-           7 "Automóveis e equipamentos de transporte"
-           8 "Comércio"
-           9 "Construção"
-          10 "Educação"
-          11 "Eletricidade, gás, água e esgoto"
-          12 "Eletrônicos, máquinas e equipamentos"
-          13 "Eletrônicos, máquinas e equipamentos "
-          14 "Estadia e turismo"
-          15 "Extração mineral e de carvão, petróleo e gás"
-          16 "Madeira, celulose e papel"
-          17 "Móveis"
-          18 "Organizações religiosas, sindicais e patronais"
-          19 "Outros"
-          20 "Pecuária"
-          21 "Pesca e aquicultura"
-          22 "Produtos de metal, minerais não-metálicos e metalurgia"
-          23 "Produção florestal"
-          24 "Químicos, farmacêuticos, borracha e plástico"
-          25 "Saúde e assistência social"
-          26 "Segurança e edifícios"
+           3 "Alimentos, bebidas e fumo"
+           4 "Artes, cultura, esportes e recreação"
+           5 "Atividades profissionais, científicas e técnicas"
+           6 "Automóveis e equipamentos de transporte"
+           7 "Comércio"
+           8 "Construção"
+           9 "Educação"
+          10 "Eletricidade, gás, água e esgoto"
+          11 "Eletrônicos, máquinas e equipamentos"
+          12 "Eletrônicos, máquinas e equipamentos "
+          13 "Estadia e turismo"
+          14 "Extração mineral e de carvão, petróleo e gás"
+          15 "Madeira, celulose e papel"
+          16 "Móveis"
+          17 "Organizações religiosas, sindicais e patronais"
+          18 "Outros"
+          19 "Pecuária e criação de animais"
+          20 "Pesca, caça e aquicultura"
+          21 "Produtos de metal, minerais não-metálicos e metalurgia"
+          22 "Produção florestal"
+          23 "Químicos, farmacêuticos, borracha e plástico"
+          24 "Saúde e assistência social"
+          25 "Segurança e edifícios"
+          26 "Serviços de alimentação"
           27 "Serviços de escritório"
           28 "Serviços de informação e comunicação"
           29 "Serviços domésticos"
