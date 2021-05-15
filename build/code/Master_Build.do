@@ -32,56 +32,12 @@ global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\input"
 
 //////////////////////////////////////////////
 //	
-//	Descricao de codigos de atividades
-//	
-//////////////////////////////////////////////
-
-* call data Atividade_CNAE_Domiciliar_2_0
-import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
-
-* clean data
-cap gen titulo = Denominação 
-cap gen cod_atividade = Classe
-cap tostring cod_atividade, replace
-keep if cod_atividade !=""
-sort cod_atividade
-keep cod_atividade titulo
-
-* save in the output directory
-compress
-save "$output_dir\cod_atividade.dta", replace
-
-
-//////////////////////////////////////////////
-//	
 //	Descricao de codigos de atividades (agregado)
 //	
 //////////////////////////////////////////////
 * run code
 clear 
 do "$code_dir\_cod_cnae2dig"
-
-
-//////////////////////////////////////////////
-//	
-//	Descricao de codigos de ocupacao
-//	
-//////////////////////////////////////////////
-
-* call data Ocupacao_COD
-import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
-
-* clean data
-cap gen titulo = Denominação 
-cap gen cod_ocupacao = Grupodebase
-cap tostring cod_ocupacao, replace
-keep if cod_ocupacao !=""
-sort cod_ocupacao
-keep cod_ocupacao titulo
-
-* save in the output directory
-compress
-save "$output_dir\cod_ocupacao.dta", replace
 
 
 //////////////////////////////////////////////
@@ -131,114 +87,6 @@ keep cod_atividade titulo
 * save in the output directory
 compress
 save "$output_dir\cod_atividade_comidas.dta", replace
-
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por setores na Amazonia
-//	
-//////////////////////////////////////////////
-
-**********************
-**	Amazônia Legal	**
-**********************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(7)2019{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_setor"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(7)2019{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_setor.dta", replace
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por tipo de ocupação na Amazonia
-//	
-//////////////////////////////////////////////
-
-**********************
-**	Amazônia Legal	**
-**********************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(7)2019{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_ocupacao"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(7)2019{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_ocupacao.dta", replace
-
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
-//	
-//////////////////////////////////////////////
-
-**********************
-**	Amazônia Legal	**
-**********************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(7)2019{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_atividade"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(7)2019{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_atividade.dta", replace
-
 
 //////////////////////////////////////////////
 //	
@@ -462,27 +310,6 @@ clear
 * run code
 clear
 do "$code_dir\_amz_metropolitana"
-clear
-
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico nos setores economicos especificos: Tecnologia e Informacao
-//	
-//////////////////////////////////////////////
-* run code
-clear
-do "$code_dir\_amz_ti"
-clear
-
-
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico nos setores economicos especificos: Agricultura/Floresta
-//	
-//////////////////////////////////////////////
-* run code
-clear
-do "$code_dir\_amz_floresta"
 clear
 
 
