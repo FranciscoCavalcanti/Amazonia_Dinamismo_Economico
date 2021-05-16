@@ -45,7 +45,7 @@ set scheme amz2030
 		*/	ylabel(#9, angle(0) ) 		/*
 		*/ 	lwidth(thick thick thick thick thick thick thick thick thick thick thick thick) 	/*		
 		*/	yscale( axis(1) range(0) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Informação") label(8 "Administração pública") label(9 "Serviços sociais") label(10 "Demais Serviços") label(11 "Serviços domésticos") label(12 "Não definidos") size(vsmall) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Informação") label(8 "Administração pública") label(9 "Serviços sociais") label(10 "Demais Serviços") label(11 "Serviços domésticos") label(12 "Outros") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, grid angle(45)) 	/*
 		*/  saving("$tmp_dir\_importancia_relativa", replace) 	
 		
