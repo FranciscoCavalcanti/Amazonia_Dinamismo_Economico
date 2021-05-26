@@ -74,6 +74,9 @@ reshape wide n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_o
 
 gsort -delta_n_ocu_cod
 
+//calcula o total
+do "${code_dir}/_calculo_total_cod2dig.do"
+
 keep nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
 order nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
 *drop if _n>20
@@ -160,6 +163,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
           27 "Trabalhadores no governo"
           28 "Técnicos de eletricidade e eletrônica"
           29 "Vendedores"
+		      30 "Total"
 		  )
     ;
 #delim cr

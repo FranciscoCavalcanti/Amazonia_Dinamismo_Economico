@@ -74,6 +74,9 @@ reshape wide n_ocu_cnae n_ocu_cnae_formal n_ocu_cnae_informal n_ocu_cnae_privado
 
 gsort -delta_n_ocu_cnae
 
+//calcula o total
+do "${code_dir}/_calculo_total_cnae2dig.do"
+
 keep nova_agregacao delta_n_ocu_cnae tx_n_ocu_cnae tx_renda_media n_ocu_cnae2019 renda_media2019 p_formal p_privado
 order nova_agregacao delta_n_ocu_cnae tx_n_ocu_cnae tx_renda_media n_ocu_cnae2019 renda_media2019 p_formal p_privado
 *drop if _n>20
@@ -105,7 +108,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 		"\begin{table}[H]"
 		"\centering"
 		"\label{amzapcnae2dig}"
-		"\scalebox{0.56}{"
+		"\scalebox{0.55}{"
 		"\begin{threeparttable}"
 		"\caption{`ttitle'}"		
 		"\begin{tabular}{l*{@span}{r}}"
@@ -165,6 +168,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
           32 "Terceirização de mão-de-obra"
           33 "Transporte e correio"
           34 "Têxtil, vestuário, couro e calçados"
+          35 "Total"
 		  )
     ;
 #delim cr
