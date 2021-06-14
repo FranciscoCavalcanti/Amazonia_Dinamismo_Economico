@@ -21,15 +21,19 @@ tsset id trim, quarterly
 format %tqCCYY trim	
 
 ******************************************************************
-**	Numero absoluto entre trimestres de 2012 a 2020				**	
+**	media dos trimestres de 2019	**	
 ******************************************************************
 
+keep if Ano == "2019"
+
+collapse (mean) n_ocu_str, by (cod_setor Ano)
+
 drop if cod_setor=="."
-sort cod_setor trim
+drop if cod_setor==""
+sort cod_setor Ano
 
 * reshape data: long to wide
-keep n_ocu_str id trim
-reshape wide n_ocu_str,  i(trim) j(id)
+reshape wide  n_ocu_str, j(cod_setor) i(Ano)  string
 
 * format
 format n_ocu_str* %16,0fc
@@ -39,25 +43,27 @@ format n_ocu_str* %16,0fc
 
 gen iten =  n_ocu_str7 + n_ocu_str9 + n_ocu_str10 + n_ocu_str11 + n_ocu_str12
 replace n_ocu_str7 = iten 
-drop iten
+keep  n_ocu_str1 n_ocu_str2 n_ocu_str3 n_ocu_str4 n_ocu_str5 n_ocu_str6 n_ocu_str7 n_ocu_str8 
 
 *set scheme
 set scheme amz2030  
 			
-	graph twoway line n_ocu_str1 n_ocu_str2 n_ocu_str3 n_ocu_str4 n_ocu_str5 n_ocu_str6 n_ocu_str7 n_ocu_str8 trim  /*
-		*/ 	,  title("", size(Medium)) 	/*
+graph pie n_ocu_str1 n_ocu_str2 n_ocu_str3 n_ocu_str4 n_ocu_str5 n_ocu_str6 n_ocu_str7 n_ocu_str8 	/*
+		*/	,  title("", size(Medium large)) 	/*
 		*/	graphregion(fcolor(white)) 	/*
-		*/ 	ytitle("") 	/*
-		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
-		*/ 	lwidth(thick thick thick thick thick thick thick thick thick thick thick thick) 	/*		
-		*/	yscale( axis(1) range(0) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Serviços gerais") label(8 "Administração pública") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
-		*/  saving("$tmp_dir\_importancia_relativa", replace) 	
-		
+		*/	pie(1, color(%75) explode) 	/*
+		*/	pie(2, color(%75) explode) 	/*
+		*/	pie(3, color(%75) explode) 	/*	
+		*/	pie(4, color(%75) explode) 	/*
+		*/	pie(5, color(%75) explode) 	/*
+		*/	pie(6, color(%75) explode) 	/*
+		*/	pie(7, color(%75) explode) 	/*
+		*/	pie(8, color(%75) explode) 	/*
+		*/	legend(on position(12) ring(1) order(1 2 3 4 5 6 7 8) cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Serviços gerais") label(8 "Administração pública") size(small) forcesize symysize(3pt) symxsize(3pt) )	/*
+		*/	plabel(_all percent, gap(8) size(Medium) format(%12.1f)  lstyle(p1solid) )  	/*
+		*/  saving("$tmp_dir\_importancia_relativa_pizza", replace) 	
 		
 * save graph 
-graph use "$tmp_dir\_importancia_relativa.gph"
-erase "$tmp_dir\_importancia_relativa.gph"
-graph export "$output_dir\_importancia_relativa.png", replace		
+graph use "$tmp_dir\_importancia_relativa_pizza.gph"
+erase "$tmp_dir\_importancia_relativa_pizza.gph"
+graph export "$output_dir\_importancia_relativa_pizza.png", replace		
