@@ -17,7 +17,7 @@
 
 global area_geografica = "Amazônia Legal"
 
-forvalues yr = 2012(7)2019{
+forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	 * sample 1
@@ -33,7 +33,7 @@ forvalues yr = 2012(7)2019{
 
 * append temporary data base
 clear
-forvalues yr = 2012(7)2019{
+forvalues yr = 2012(1)2020{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -55,7 +55,7 @@ save "$output_dir\_amz_jovem_numero_ocupados_por_ocupacao_2digitos.dta", replace
 
 global area_geografica = "Amazônia Legal"
 
-forvalues yr = 2012(7)2019{
+forvalues yr = 2012(1)2020{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
 	 * sample 1
@@ -71,7 +71,7 @@ forvalues yr = 2012(7)2019{
 
 * append temporary data base
 clear
-forvalues yr = 2012(7)2019{
+forvalues yr = 2012(1)2020{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
