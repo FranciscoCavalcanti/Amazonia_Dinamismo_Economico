@@ -101,7 +101,7 @@ graph export "$output_dir\_graph_1.png", replace
 restore
 
 ****** ****** ****** ****** ****** ****** ****** ****** ****** 
-****** GRAFICO DESAGREGADO
+****** GRAFICO DESAGREGADO 1
 ****** ****** ****** ****** ****** ****** ****** ****** ****** 
 preserve
 * reshape data: long to wide
@@ -122,6 +122,70 @@ drop if trim >= 240
 *set scheme
 set scheme amz2030  
 
+graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) /*
+		*/ 	title("", size(Medium)) 	/*
+		*/	graphregion(fcolor(white)) 	/*
+		*/ 	ytitle("") 	/*
+		*/ 	xtitle("")	/*	
+		*/	ylabel(#9, angle(0) ) 		/*
+		*/ 	lwidth(thick) 	/*		
+		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
+		*/ 	legend(on cols(2) label(1 "Agricultores elementares") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/  saving("$tmp_dir\_graph_21", replace) 
+				
+graph use "$tmp_dir\_graph_21.gph"		
+erase "$tmp_dir\_graph_21.gph"
+graph export "$output_dir\_graph_21.png", replace					
+
+
+****** ****** ****** ****** ****** ****** ****** ****** ****** 
+****** GRAFICO DESAGREGADO 2
+****** ****** ****** ****** ****** ****** ****** ****** ****** 
+
+graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==3, lwidth(thick)  /*
+		*/ 	title("", size(Medium)) 	/*
+		*/	graphregion(fcolor(white)) 	/*
+		*/ 	ytitle("") 	/*
+		*/ 	xtitle("")	/*	
+		*/	ylabel(#9, angle(0) ) 		/*
+		*/ 	lwidth(thick) 	/*		
+		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
+		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/  saving("$tmp_dir\_graph_22", replace) 
+				
+graph use "$tmp_dir\_graph_22.gph"		
+erase "$tmp_dir\_graph_22.gph"
+graph export "$output_dir\_graph_22.png", replace					
+
+****** ****** ****** ****** ****** ****** ****** ****** ****** 
+****** GRAFICO DESAGREGADO 3
+****** ****** ****** ****** ****** ****** ****** ****** ******
+
+graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==3, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==16, lwidth(thick) /*
+		*/ 	title("", size(Medium)) 	/*
+		*/	graphregion(fcolor(white)) 	/*
+		*/ 	ytitle("") 	/*
+		*/ 	xtitle("")	/*	
+		*/	ylabel(#9, angle(0) ) 		/*
+		*/ 	lwidth(thick) 	/*		
+		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
+		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/  saving("$tmp_dir\_graph_23", replace) 
+				
+graph use "$tmp_dir\_graph_23.gph"		
+erase "$tmp_dir\_graph_23.gph"
+graph export "$output_dir\_graph_23.png", replace					
+		
+****** ****** ****** ****** ****** ****** ****** ****** ****** 
+****** GRAFICO DESAGREGADO 4
+****** ****** ****** ****** ****** ****** ****** ****** ****** 
+
 graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==3, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==16, lwidth(thick) || /*
@@ -135,11 +199,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") label(4 "Produtores florestais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, grid angle(45)) 	/*
-		*/  saving("$tmp_dir\_graph_2", replace) 
+		*/  saving("$tmp_dir\_graph_24", replace) 
 				
-graph use "$tmp_dir\_graph_2.gph"		
-erase "$tmp_dir\_graph_2.gph"
-graph export "$output_dir\_graph_2.png", replace					
+graph use "$tmp_dir\_graph_24.gph"		
+erase "$tmp_dir\_graph_24.gph"
+graph export "$output_dir\_graph_24.png", replace					
 		
 restore		
 
