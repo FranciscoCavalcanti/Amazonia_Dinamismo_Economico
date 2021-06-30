@@ -87,11 +87,11 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
-		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
+		*/	yscale(axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agropecuária") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_1", replace) 
 		
 graph use "$tmp_dir\_graph_1.gph"		
@@ -127,11 +127,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) /*
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agricultores elementares") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_21", replace) 
 				
 graph use "$tmp_dir\_graph_21.gph"		
@@ -149,11 +149,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_22", replace) 
 				
 graph use "$tmp_dir\_graph_22.gph"		
@@ -171,11 +171,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_23", replace) 
 				
 graph use "$tmp_dir\_graph_23.gph"		
@@ -194,11 +194,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") label(4 "Produtores florestais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_24", replace) 
 				
 graph use "$tmp_dir\_graph_24.gph"		
@@ -241,11 +241,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2 & group =="Acre", 
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(5) label(1 "Acre") label(2 "Amapá")  label(3 "Amazônia") label(4 "Maranhão") label(5 "Mato Grosso") label(6 "Pará") label(7 "Rondônia") label(8 "Roraima") label(9 "Tocantins") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_31", replace) 
 		
 graph use "$tmp_dir\_graph_31.gph"		
@@ -267,11 +267,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==3 & group =="Acre", 
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(5) label(1 "Acre") label(2 "Amapá")  label(3 "Amazônia") label(4 "Maranhão") label(5 "Mato Grosso") label(6 "Pará") label(7 "Rondônia") label(8 "Roraima") label(9 "Tocantins") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_32", replace) 
 		
 graph use "$tmp_dir\_graph_32.gph"		
@@ -292,11 +292,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==16 & group =="Acre",
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(5) label(1 "Acre") label(2 "Amapá")  label(3 "Amazônia") label(4 "Maranhão") label(5 "Mato Grosso") label(6 "Pará") label(7 "Rondônia") label(8 "Roraima") label(9 "Tocantins") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_33", replace) 	
 		
 graph use "$tmp_dir\_graph_33.gph"		
@@ -316,11 +316,11 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==18 & group =="Acre",
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(5) label(1 "Acre") label(2 "Amapá")  label(3 "Amazônia") label(4 "Maranhão") label(5 "Mato Grosso") label(6 "Pará") label(7 "Rondônia") label(8 "Roraima") label(9 "Tocantins") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_34", replace) 
 		
 graph use "$tmp_dir\_graph_34.gph"		

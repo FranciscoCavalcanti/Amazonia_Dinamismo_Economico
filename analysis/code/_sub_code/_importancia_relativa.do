@@ -27,6 +27,8 @@ format %tqCCYY trim
 drop if cod_setor=="."
 sort cod_setor trim
 
+drop if trim >= 240
+
 * reshape data: long to wide
 keep n_ocu_str id trim
 reshape wide n_ocu_str,  i(trim) j(id)
@@ -49,11 +51,11 @@ set scheme amz2030
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, angle(0) ) 		/*
+		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick thick thick thick thick thick thick thick thick thick thick thick) 	/*		
 		*/	yscale( axis(1) range(0) lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(4) label(1 "Agropecuária") label(2 "Indústria geral")  label(3 "Construção") label(4 "Comércio") label(5 "Transporte") label(6 "Alimentação") label(7 "Serviços gerais") label(8 "Administração pública") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
-		*/ 	xlabel(#8, grid angle(45)) 	/*
+		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_importancia_relativa", replace) 	
 		
 		
