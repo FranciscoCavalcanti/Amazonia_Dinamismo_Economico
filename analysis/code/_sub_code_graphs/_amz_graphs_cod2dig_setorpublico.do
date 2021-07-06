@@ -72,9 +72,10 @@ keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas
 	*/	| nova_agregacao == 20  	/* Profissionais de segurança
 	*/ 	| nova_agregacao == 21  	/* Profissionais do ensino
-	*/	| nova_agregacao == 1 	/* Administração pública e de empresas
-	*/
-
+	*/	| nova_agregacao == 12 	/* Escriturários
+	*/	| nova_agregacao == 27 	/* Trabalhadores no Governo
+	*/ 
+	
 collapse (sum) n_ocu_cod,  by(trim)
 
 * normalize in 100
@@ -121,8 +122,10 @@ keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas
 	*/	| nova_agregacao == 20  	/* Profissionais de segurança
 	*/ 	| nova_agregacao == 21  	/* Profissionais do ensino
-	*/	| nova_agregacao == 1 	/* Administração pública e de empresas
-	*/
+	*/	| nova_agregacao == 12 	/* Escriturários
+	*/	| nova_agregacao == 27 	/* Trabalhadores no Governo
+	*/ 
+
 
 collapse (sum) n_ocu_cod,  by(trim nova_agregacao)
 
@@ -147,7 +150,8 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==21, lwidth(thick) ||
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==17, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==19, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==20, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim if nova_agregacao==1, lwidth(thick)	/*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==12, lwidth(thick) || /*		
+		*/ 	line normalized_n_ocu trim if nova_agregacao==27, lwidth(thick)	/*
 		*/ 	title("", size(Medium)) 	/*
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
@@ -155,7 +159,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==21, lwidth(thick) ||
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Profissionais de ensino") label(2 "Policiais, bombeiros e forças armadas")  label(3 "Profissionais da saúde") label(4 "Profissionais de segurança") label(5 "Administração pública e de empresas") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Profissionais de ensino") label(2 "Policiais, bombeiros e forças armadas")  label(3 "Profissionais da saúde") label(4 "Profissionais de segurança") label(5 "Escriturários") label(6 "Trabalhadores no Governo") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_setorpublico_desagregado", replace) 
 				

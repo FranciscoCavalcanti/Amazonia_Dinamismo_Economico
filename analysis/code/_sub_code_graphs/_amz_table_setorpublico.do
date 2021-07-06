@@ -59,8 +59,9 @@ keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas
 	*/	| nova_agregacao == 20  	/* Profissionais de segurança
 	*/ 	| nova_agregacao == 21  	/* Profissionais do ensino
-	*/	| nova_agregacao == 1 	/* Administração pública e de empresas
-	*/
+	*/	| nova_agregacao == 12 	/* Escriturários
+	*/	| nova_agregacao == 27 	/* Trabalhadores no Governo
+	*/ 
 
 keep if Ano == "2019" | Ano == "2012"
 
@@ -206,12 +207,13 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 	nonumber 
 	nomtitle
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
-           1 "Administração pública e de empresas"
+           12 "Escriturários"
 		   17 "Policiais, bombeiros e forças armadas"
 		   19 "Profissionais da saúde"
 		   20 "Profissionais de segurança"
 		   21 "Profissionais do ensino"
-		   30 "Total depêndecia do setor público"		  
+		   27 "Trabalhadores no governo"
+		   30 "Total dependência do setor público"		  
 		  )
     ;
 #delim cr
