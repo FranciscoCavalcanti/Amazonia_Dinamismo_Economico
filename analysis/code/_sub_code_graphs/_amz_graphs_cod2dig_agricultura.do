@@ -79,18 +79,32 @@ gen iten3=  ((n_ocu_cod)/ iten2)*100
 gen normalized_n_ocu = iten3
 cap drop iten*
 
+* import deforestation data from PRODES (by hand)
+** see here: http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes
+generate var4 = 4571 in 4
+replace var4 = 5891 in 8
+replace var4 = 5012 in 12
+replace var4 = 6207 in 16
+replace var4 = 7893 in 20
+replace var4 = 6947 in 24
+replace var4 = 7536 in 28
+replace var4 = 10129 in 32
+
 *set scheme
 set scheme amz2030  
 
-graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
+graph twoway ( line normalized_n_ocu trim, yaxis(1) lwidth(thick) )	/*
+		*/	( line var4 trim, yaxis(2) lwidth(thick) ), 	/*
 		*/ 	title("", size(Medium)) 	/*
-		*/	graphregion(fcolor(white)) 	/*
-		*/ 	ytitle("") 	/*
+		*/	graphregion(fcolor(white)) 	/* 
+		*/ 	ytitle("", axis(1)) 	/*
+		*/ 	ytitle("", axis(2)) 	/*
 		*/ 	xtitle("")	/*	
-		*/	ylabel(#9, grid angle(0) ) 		/*
-		*/ 	lwidth(thick) 	/*		
+		*/	ylabel(#9, axis(1)  angle(0) grid ) 		/*
+		*/	ylabel(#9, axis(2)  angle(0) ) 		/*
+		*/ 	 	/*		lwidth(thick)
 		*/	yscale(axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agropecuária") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Agropecuária")  label(2 "Taxa de desmatamento por km2 (PRODES)")  size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_1", replace) 
 		
