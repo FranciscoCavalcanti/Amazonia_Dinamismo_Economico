@@ -79,6 +79,9 @@ gen iten3=  ((n_ocu_cod)/ iten2)*100
 gen normalized_n_ocu = iten3
 cap drop iten*
 
+* generate variable such as the unit is "thousand of people"
+gen xxx = n_ocu_cod/1000
+
 * import deforestation data from PRODES (by hand)
 ** see here: http://www.obt.inpe.br/OBT/assuntos/programas/amazonia/prodes
 generate var4 = 4571 in 4
@@ -90,10 +93,14 @@ replace var4 = 6947 in 24
 replace var4 = 7536 in 28
 replace var4 = 10129 in 32
 
+* format 
+format var4 %16,0fc
+format xxx* %16,0fc
+
 *set scheme
 set scheme amz2030  
 
-graph twoway ( line normalized_n_ocu trim, yaxis(1) lwidth(thick) )	/*
+graph twoway ( line xxx trim, yaxis(1) lwidth(thick) )	/*
 		*/	( line var4 trim, yaxis(2) lwidth(thick) ), 	/*
 		*/ 	title("", size(Medium)) 	/*
 		*/	graphregion(fcolor(white)) 	/* 
@@ -104,7 +111,7 @@ graph twoway ( line normalized_n_ocu trim, yaxis(1) lwidth(thick) )	/*
 		*/	ylabel(#9, axis(2)  angle(0) ) 		/*
 		*/ 	 	/*		lwidth(thick)
 		*/	yscale(axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agropecuária")  label(2 "Taxa de desmatamento por km2 (PRODES)")  size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(1) label(1 "Emprego Agropecuária (PNAD-C, milhares de pessoas)")  label(2 "Desmatamento por Km2 (PRODES)")  size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_1", replace) 
 		
@@ -144,7 +151,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) /*
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agricultores elementares") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Agricultores não qualificados") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_21", replace) 
 				
@@ -166,7 +173,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Agricultores não qualificados") label(2 "Agricultores qualificados") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_22", replace) 
 				
@@ -188,7 +195,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Agricultores não qualificados") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_23", replace) 
 				
@@ -211,7 +218,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==2, lwidth(thick) || 
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range() lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Agricultores elementares") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") label(4 "Produtores florestais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Agricultores não qualificados") label(2 "Agricultores qualificados")  label(3 "Pecuaristas e criadores de animais") label(4 "Extrativistas florestais") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_24", replace) 
 				
