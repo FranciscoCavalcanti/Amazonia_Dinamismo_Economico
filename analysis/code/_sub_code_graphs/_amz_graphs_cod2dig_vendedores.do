@@ -95,7 +95,7 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale(axis(1) range(60 160) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(1) label(1 "Ocupações qualificadas e liderança") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(1) label(1 "Maiores ocupações") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_vendedores", replace) 
 		
