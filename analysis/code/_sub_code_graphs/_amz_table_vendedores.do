@@ -53,13 +53,16 @@ encode iten2, gen(iten3)
 gen uniquely_identify = iten3
 cap drop iten*
 
-
+keep if group == "Amazônia Legal"
 * Vendedores
 keep if nova_agregacao == 11 /* Domésticos
+	*/	| nova_agregacao == 23 	/* Serviços de TI e comunicação 23
 	*/	| nova_agregacao == 24 	/* Serviços e cuidados pessoais
+	*/	| nova_agregacao == 25 	/* Serviços financeiros e administrativos 25
+	*/	| nova_agregacao == 26 	/* Serviços jurídicos, sociais e culturais 26
 	*/	| nova_agregacao == 29 	/* Vendedores
-	*/  
-
+	*/ 
+	
 keep if Ano == "2019" | Ano == "2012"
 
 collapse (mean) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico renda_media renda_formal renda_informal massa_salarial , by (titulo nova_agregacao Ano)
@@ -205,9 +208,12 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 	nomtitle
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
 		   11 "Domésticos"
+		   23 "Serviços de TI e comunicação"
 		   24 "Serviços e cuidados pessoais"
+		   25 "Serviços financeiros e administrativos"
+		   26 "Serviços jurídicos, sociais e culturais"
 		   29 "Vendedores"
-		   30 "Total das maiores ocupações"		  
+		   30 "Total das ocupações em serviços"		
 		  )
     ;
 #delim cr

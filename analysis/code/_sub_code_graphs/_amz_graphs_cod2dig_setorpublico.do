@@ -66,7 +66,7 @@ cap drop iten*
 ****** ****** ****** ****** ****** ****** ****** ****** ****** 
 preserve
 
-
+keep if group == "Amazônia Legal"
 * Ensino/saúde/segurança/dependência do setor publico
 keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas
@@ -94,7 +94,7 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale(axis(1) range(90 170) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Ocupações dependentes do setor público") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Ocupações relativas ao setor público") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_setorpublico", replace) 
 		
@@ -114,6 +114,7 @@ preserve
 
 * Deixar ainda mais agregado 
 
+keep if group == "Amazônia Legal"
 * Ensino/saúde/segurança/dependência do setor publico
 keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas

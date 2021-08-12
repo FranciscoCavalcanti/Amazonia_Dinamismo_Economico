@@ -53,10 +53,9 @@ encode iten2, gen(iten3)
 gen uniquely_identify = iten3
 cap drop iten*
 
-
+keep if group == "Amazônia Legal"
 * Dirigentes e gerentes / Cientistas e engenheiros
-keep if nova_agregacao == 1 /* Administração pública e de empresas
-	*/	| nova_agregacao == 8 /* Cientistas e engenheiros
+keep if nova_agregacao == 8 /* Cientistas e engenheiros
 	*/	| nova_agregacao == 10 	/* Dirigentes e gerentes
 	*/ 
 
@@ -80,7 +79,7 @@ collapse (mean) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_inf
 
 preserve
 collapse (sum) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial, by (Ano)
-gen titulo = "Total de ocupações qualificadas e de liderança"
+gen titulo = "Total de ocupações qualificadas"
 tempfile base_total
 save  `base_total', replace
 restore
@@ -88,7 +87,7 @@ restore
 
 preserve
 collapse (mean) renda_media [aw = n_ocu_cod], by (Ano)
-gen titulo = "Total de ocupações qualificadas e de liderança"
+gen titulo = "Total de ocupações qualificadas"
 tempfile base_renda_media
 save  `base_renda_media', replace
 restore
@@ -204,10 +203,9 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 	nonumber 
 	nomtitle
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
-		   1 "Administração pública e de empresas"
 		   8 "Cientistas e engenheiros"
 		   10 "Dirigentes e gerentes"
-		   30 "Total de ocupações qualificadas e de liderança"		  
+		   30 "Total de ocupações qualificadas"		  
 		  )
     ;
 #delim cr

@@ -66,13 +66,17 @@ cap drop iten*
 ****** ****** ****** ****** ****** ****** ****** ****** ****** 
 preserve
 
-
+keep if group == "Amazônia Legal"
 * Vendedores
 keep if nova_agregacao == 11 /* Domésticos
-	*/	| nova_agregacao == 14 /* Operários da construção, metalurgia e indústria
+	*/	| nova_agregacao == 23 	/* Serviços de TI e comunicação 23
 	*/	| nova_agregacao == 24 	/* Serviços e cuidados pessoais
+	*/	| nova_agregacao == 25 	/* Serviços financeiros e administrativos 25
+	*/	| nova_agregacao == 26 	/* Serviços jurídicos, sociais e culturais 26
 	*/	| nova_agregacao == 29 	/* Vendedores
 	*/ 
+	
+
 	
 collapse (sum) n_ocu_cod,  by(trim)
 
@@ -95,7 +99,7 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale(axis(1) range(60 160) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(1) label(1 "Maiores ocupações") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(1) label(1 "Ocupações em serviços") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_vendedores", replace) 
 		
@@ -113,10 +117,14 @@ preserve
 * format
 *format normalized_n_ocu* %16,0fc
 
+keep if group == "Amazônia Legal"
 * Deixar ainda mais agregado 
 * Vendedores
 keep if nova_agregacao == 11 /* Domésticos
+	*/	| nova_agregacao == 23 	/* Serviços de TI e comunicação 23
 	*/	| nova_agregacao == 24 	/* Serviços e cuidados pessoais
+	*/	| nova_agregacao == 25 	/* Serviços financeiros e administrativos 25
+	*/	| nova_agregacao == 26 	/* Serviços jurídicos, sociais e culturais 26
 	*/	| nova_agregacao == 29 	/* Vendedores
 	*/ 
 	
@@ -141,7 +149,10 @@ drop if trim >= 240
 set scheme amz2030  
 
 graph twoway line normalized_n_ocu trim  if nova_agregacao==11, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==23, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==24, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==25, lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if nova_agregacao==26, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==29, lwidth(thick)	/*
 		*/ 	title("", size(Medium)) 	/*
 		*/	graphregion(fcolor(white)) 	/*
@@ -150,7 +161,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==11, lwidth(thick) ||
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range(90 170) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(3) label(1 "Domésticos") label(2 "Serviços e cuidados pessoais") label(3 "Vendedores") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Domésticos") label(2 "Serviços de TI e comunicação") label(3 "Serviços e cuidados pessoais") label(4 "Serviços financeiros e administrativos") label(5 "Serviços jurídicos, sociais e culturais") label(6 "Vendedores") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_vendedores_desagregado", replace) 
 				

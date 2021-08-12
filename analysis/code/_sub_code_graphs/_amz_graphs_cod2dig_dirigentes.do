@@ -66,10 +66,9 @@ cap drop iten*
 ****** ****** ****** ****** ****** ****** ****** ****** ****** 
 preserve
 
-
+keep if group == "Amazônia Legal"
 * Dirigentes e gerentes / Cientistas e engenheiros
-keep if nova_agregacao == 1 /* Administração pública e de empresas
-	*/	| nova_agregacao == 8 /* Cientistas e engenheiros
+keep if nova_agregacao == 8 /* Cientistas e engenheiros
 	*/	| nova_agregacao == 10 	/* Dirigentes e gerentes
 	*/ 
 	
@@ -114,9 +113,9 @@ preserve
 
 * Deixar ainda mais agregado 
 
+keep if group == "Amazônia Legal"
 * Dirigentes e gerentes / Cientistas e engenheiros
-keep if nova_agregacao == 1 /* Administração pública e de empresas
-	*/	| nova_agregacao == 8 /* Cientistas e engenheiros
+keep if nova_agregacao == 8 /* Cientistas e engenheiros
 	*/	| nova_agregacao == 10 	/* Dirigentes e gerentes
 	*/ 
 
@@ -139,8 +138,7 @@ drop if trim >= 240
 *set scheme
 set scheme amz2030  
 
-graph twoway line normalized_n_ocu trim  if nova_agregacao==1, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==8, lwidth(thick) || /*
+graph twoway line normalized_n_ocu trim  if nova_agregacao==8, lwidth(thick) || /*
 		*/ 	line normalized_n_ocu trim  if nova_agregacao==10, lwidth(thick)	/*
 		*/ 	title("", size(Medium)) 	/*
 		*/	graphregion(fcolor(white)) 	/*
@@ -149,7 +147,7 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==1, lwidth(thick) || 
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range(60 160) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(3) label(1 "Administração pública e de empresas") label(2 "Cientistas e engenheiros") label(3 "Dirigentes e gerentes") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Cientistas e engenheiros") label(2 "Dirigentes e gerentes") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_dirigentes_desagregado", replace) 
 				

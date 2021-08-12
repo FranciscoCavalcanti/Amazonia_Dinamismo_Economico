@@ -53,7 +53,7 @@ encode iten2, gen(iten3)
 gen uniquely_identify = iten3
 cap drop iten*
 
-
+keep if group == "Amazônia Legal"
 * Ensino/saúde/segurança/dependência do setor publico
 keep if nova_agregacao == 19 /* Profissionais da saúde
 	*/	| nova_agregacao == 17  	/* Policiais, bombeiros e forças armadas
@@ -80,7 +80,7 @@ collapse (mean) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_inf
 
 preserve
 collapse (sum) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial, by (Ano)
-gen titulo = "Total depêndecia do setor público"
+gen titulo = "Total de ocupações relativas ao setor público"
 tempfile base_total
 save  `base_total', replace
 restore
@@ -88,7 +88,7 @@ restore
 
 preserve
 collapse (mean) renda_media [aw = n_ocu_cod], by (Ano)
-gen titulo = "Total depêndecia do setor público"
+gen titulo = "Total de ocupações relativas ao setor público"
 tempfile base_renda_media
 save  `base_renda_media', replace
 restore
@@ -207,7 +207,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 		   17 "Policiais, bombeiros e forças armadas"
 		   19 "Profissionais da saúde"
 		   21 "Profissionais do ensino"
-		   30 "Total dependência do setor público"		  
+		   30 "Total de ocupações relativas ao setor público"		  
 		  )
     ;
 #delim cr
