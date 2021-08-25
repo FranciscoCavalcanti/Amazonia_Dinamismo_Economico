@@ -28,6 +28,15 @@ replace titulo = "Pecuaristas e criadores de animais" if V4010 == "9216" // Trab
 
 replace titulo = "Extrativistas florestais" if V4010 == "9215" // Trabalhadores florestais elementares
 
+replace titulo = "Serviços jurídicos" if V4010 == "2611" // Advogados e juristas
+replace titulo = "Serviços jurídicos" if V4010 == "2612" // Juízes
+replace titulo = "Serviços jurídicos" if V4010 == "2619" // Profissionais em direito não classificados anteriormente
+
+replace titulo = "Serviços jurídicos" if V4010 == "3411" // Profissionais de nível médio do direito e serviços legais e afins
+replace titulo = "Serviços jurídicos" if V4010 == "3412" // Trabalhadores e assistentes sociais de nível médio
+replace titulo = "Serviços jurídicos" if V4010 == "3413" // Auxiliares leigos de religião
+
+
 **************************************************
 **	 Calcular numero de ocupados por tipo de ocupação	**
 **************************************************
