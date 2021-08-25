@@ -4,8 +4,8 @@
 //////////////////////////////////////////////
 
 capture macro drop sub_amostra_area_geografica sub_amostra_demografia
-global sub_amostra_area_geografica = "Tocantins"
-global sub_amostra_demografia = ""
+global sub_amostra_area_geografica = "Amazônia Legal"
+global sub_amostra_demografia = "edu_h"
 
 forvalues yr = 2012(1)2021{
 	* call data
@@ -32,7 +32,7 @@ forvalues yr = 2012(1)2021{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta", replace
+save "$output_dir\_amz_edu_h_numero_ocupados_por_ocupacao_2digitos.dta", replace
 
 /////////////////////////////////////////////
 //	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
@@ -64,4 +64,4 @@ forvalues yr = 2012(1)2021{
 
 * save in the output directory
 compress
-save "$output_dir\_amz_to_numero_ocupados_por_atividade_2digitos.dta", replace
+save "$output_dir\_amz_edu_h_numero_ocupados_por_atividade_2digitos.dta", replace

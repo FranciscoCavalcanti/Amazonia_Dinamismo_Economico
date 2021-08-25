@@ -21,7 +21,6 @@ else if "`c(username)'" == "f.cavalcanti"   {
     global ROOT "C:\Users\Francisco\Dropbox\DataZoom"
 }	
 
-global input_basiic		"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\basico"  
 global input_advanc     "${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\avancado"
 global input_pnadanual	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
 global input_pnadcdoc	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
@@ -52,179 +51,14 @@ do "$code_dir\_cod_cod2dig"
 
 //////////////////////////////////////////////
 //	
-//	Descricao de codigos de comida (definicoes por Salo V Coslovsky)
-//	
-//////////////////////////////////////////////
-
-* call data for COD
-import excel "$input_dir\Lista_corrida_COD_PNADC_SVC.xls", sheet("Sheet1") firstrow clear
-
-* clean data
-keep if Comidas==1
-cap gen titulo = nome 
-cap gen cod_ocupacao = codigo
-cap tostring cod_ocupacao, replace
-keep if cod_ocupacao !=""
-sort cod_ocupacao
-keep cod_ocupacao titulo
-
-* save in the output directory
-compress
-save "$output_dir\cod_ocupacao_comidas.dta", replace
-
-* call data for CNAE
-import excel "$input_dir\Lista_corrida_CNAE_PNADC_SVC.xls", sheet("Sheet1") firstrow clear
-
-* clean data
-keep if Comidas==1
-cap gen titulo = nome 
-cap gen cod_atividade = codigo
-cap tostring cod_atividade, replace
-keep if cod_atividade !=""
-sort cod_atividade
-keep cod_atividade titulo
-
-* save in the output directory
-compress
-save "$output_dir\cod_atividade_comidas.dta", replace
-
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por setores na Amazonia
-//	
-//////////////////////////////////////////////
-
-**********************
-**	Amazônia Legal	**
-**********************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(1)2020{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_setor"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(1)2020{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_setor.dta", replace
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por tipo de ocupação na Amazonia
-//	(COD de 2 digitos)
-//	
-//////////////////////////////////////////////
-
-******************************
-**	Amazônia Legal	**
-******************************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(1)2020{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_ocupacao_2digitos"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(1)2020{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_ocupacao_2digitos.dta", replace
-
-//////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
-//	(CNAE de 2 digitos)
-//	
-//////////////////////////////////////////////
-
-******************************
-**	Amazônia Legal 	**
-******************************
-
-global area_geografica = "Amazônia Legal"
-
-forvalues yr = 2012(1)2020{
-	* call data
-	use "$input_advanc\PNADC`yr'.dta", clear
-	* sample 1
-	* run code
-	do "$code_dir\_definicoes_pnadcontinua_trimestral"
-	* run code
-	do "$code_dir\_numero_ocupados_por_atividade_2digitos"
-	* save as temporary
-	save "$tmp_dir\_temp_PNADC`yr'.dta", replace
-}
-
-* append temporary data base
-clear
-forvalues yr = 2012(1)2020{
-	* call data
-	append using "$tmp_dir\_temp_PNADC`yr'.dta"
-}
-
-* save in the output directory
-compress
-save "$output_dir\_numero_ocupados_por_atividade_2digitos.dta", replace
-
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico na Zona Urbana da Amazônia
+//	Dinamismo Econômico na Amazonia Legal
 //	
 //////////////////////////////////////////////
 * run code
 clear
-do "$code_dir\_amz_urbana"
+do "$code_dir\_amz_legal"
 clear
 
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico na Zona Rural da Amazônia
-//	
-//////////////////////////////////////////////
-* run code
-clear
-do "$code_dir\_amz_rural"
-clear
-
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico Entre os Jovens da Amazônia
-//	
-//////////////////////////////////////////////
-* run code
-clear
-do "$code_dir\_amz_jovem"
-clear
 
 //////////////////////////////////////////////
 //	
@@ -319,35 +153,63 @@ clear
 
 //////////////////////////////////////////////
 //	
-//	Dinamismo Econômico na região metropolitana de Manaus
+//	Dinamismo Econômico na Zona Urbana da Amazônia
 //	
 //////////////////////////////////////////////
 * run code
 clear
-do "$code_dir\_amz_manaus"
+do "$code_dir\_amz_urbana"
 clear
 
 //////////////////////////////////////////////
 //	
-//	Dinamismo Econômico na região metropolitana de Belem
-//	
-//////////////////////////////////////////////
-* run code
-clear
-do "$code_dir\_amz_belem"
-clear
-
-
-//////////////////////////////////////////////
-//	
-//	Dinamismo Econômico nas regioes metropolitanas
+//	Dinamismo Econômico na Zona Rural da Amazônia
 //	
 //////////////////////////////////////////////
 * run code
 clear
-do "$code_dir\_amz_metropolitana"
+do "$code_dir\_amz_rural"
 clear
 
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico Entre os Jovens da Amazônia
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_jovem"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico Entre os Escolarizados (com pelo menos ensino medio)
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_edu_h"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico Entre os Não Escolarizados (até ensino medio)
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_edu_l"
+clear
+
+//////////////////////////////////////////////
+//	
+//	Dinamismo Econômico Brasil (exceto Amazônia Legal)
+//	
+//////////////////////////////////////////////
+* run code
+clear
+do "$code_dir\_amz_resto"
+clear
 
 ******************************************
 ** delete temporary files

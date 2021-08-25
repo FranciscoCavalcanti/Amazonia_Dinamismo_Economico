@@ -1,26 +1,20 @@
 //////////////////////////////////////////////
-//	
-//	Calcular o numero de ocupados e rendimento médio por setores na Amazonia
-//	
-//////////////////////////////////////////////
-
-//////////////////////////////////////////////
-//	
 //	Calcular o numero de ocupados e rendimento médio por tipo de ocupação na Amazonia
 //	(COD de 2 digitos)
-//	
 //////////////////////////////////////////////
 
-******************************
-**	Mato Grosso	**
-******************************
+capture macro drop sub_amostra_area_geografica sub_amostra_demografia
+global sub_amostra_area_geografica = "Mato Grosso"
+global sub_amostra_demografia = ""
 
-global area_geografica = "Mato Grosso"
-
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(1)2021{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	 * sample 1
+	* sample 1
+	 * run code
+	do "$code_dir\_definicoes_subamostra_area_geografica"
+	* run code
+	do "$code_dir\_definicoes_subamostra_composicao_demografica"
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -31,7 +25,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(1)2021{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
@@ -40,23 +34,19 @@ forvalues yr = 2012(1)2020{
 compress
 save "$output_dir\_amz_mt_numero_ocupados_por_ocupacao_2digitos.dta", replace
 
-//////////////////////////////////////////////
-//	
+/////////////////////////////////////////////
 //	Calcular o numero de ocupados e rendimento médio por atividade na Amazonia
 //	(CNAE de 2 digitos)
-//	
 //////////////////////////////////////////////
 
-******************************
-**	Mato Grosso	**
-******************************
-
-global area_geografica = "Mato Grosso"
-
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(1)2021{
 	* call data
 	use "$input_advanc\PNADC`yr'.dta", clear
-	 * sample 1
+	* sample 1
+	 * run code
+	do "$code_dir\_definicoes_subamostra_area_geografica"
+	* run code
+	do "$code_dir\_definicoes_subamostra_composicao_demografica"
 	* run code
 	do "$code_dir\_definicoes_pnadcontinua_trimestral"
 	* run code
@@ -67,7 +57,7 @@ forvalues yr = 2012(1)2020{
 
 * append temporary data base
 clear
-forvalues yr = 2012(1)2020{
+forvalues yr = 2012(1)2021{
 	* call data
 	append using "$tmp_dir\_temp_PNADC`yr'.dta"
 }
