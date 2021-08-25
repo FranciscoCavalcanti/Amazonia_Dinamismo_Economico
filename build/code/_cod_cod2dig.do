@@ -38,13 +38,13 @@ replace new_name  = "Dirigentes e gerentes" if codnumeric == 14
 replace new_name  = "Cientistas e engenheiros" if codnumeric == 21
 replace new_name  = "Profissionais da saúde" if codnumeric == 22
 replace new_name  = "Profissionais do ensino" if codnumeric == 23
-replace new_name  = "Administração pública e de empresas" if codnumeric == 24
+replace new_name  = "Administradores e analistas" if codnumeric == 24
 replace new_name  = "Serviços de TI e comunicação" if codnumeric == 25
-replace new_name  = "Serviços jurídicos, sociais e culturais" if codnumeric == 26
+replace new_name  = "Serviços sociais e culturais" if codnumeric == 26
 replace new_name  = "Cientistas e engenheiros" if codnumeric == 31
 replace new_name  = "Profissionais da saúde" if codnumeric == 32
 replace new_name  = "Serviços financeiros e administrativos" if codnumeric == 33
-replace new_name  = "Serviços jurídicos, sociais e culturais" if codnumeric == 34
+replace new_name  = "Serviços sociais e culturais" if codnumeric == 34
 replace new_name  = "Serviços de TI e comunicação" if codnumeric == 35
 replace new_name  = "Escriturários" if codnumeric == 41
 replace new_name  = "Atendimento direto ao público" if codnumeric == 42
@@ -55,7 +55,7 @@ replace new_name  = "Vendedores" if codnumeric == 52
 replace new_name  = "Serviços e cuidados pessoais" if codnumeric == 53
 replace new_name  = "Profissionais de segurança" if codnumeric == 54
 replace new_name  = "Agricultores qualificados" if codnumeric == 61
-replace new_name  = "Produtores florestais" if codnumeric == 62
+replace new_name  = "Extrativistas florestais" if codnumeric == 62
 replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 71
 replace new_name  = "Operários da construção, metalurgia e indústria" if codnumeric == 72
 replace new_name  = "Artesões e artes gráficas" if codnumeric == 73
