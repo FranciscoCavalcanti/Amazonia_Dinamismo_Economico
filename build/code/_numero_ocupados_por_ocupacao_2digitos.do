@@ -26,7 +26,7 @@ replace titulo = "Pecuaristas e criadores de animais" if V4010 == "9212" // Trab
 replace titulo = "Pecuaristas e criadores de animais" if V4010 == "9213" // Trabalhadores elementares da agropecuária
 replace titulo = "Pecuaristas e criadores de animais" if V4010 == "9216" // Trabalhadores elementares da pesca e aquicultura 
 
-replace titulo = "Produtores florestais" if V4010 == "9215" // Trabalhadores florestais elementares
+replace titulo = "Extrativistas florestais" if V4010 == "9215" // Trabalhadores florestais elementares
 
 **************************************************
 **	 Calcular numero de ocupados por tipo de ocupação	**
@@ -87,7 +87,7 @@ cap drop iten*
 /////////////////////////////////////////////////////////
 
 * Merge na base de dados com o deflator
-merge m:1 Ano Trimestre UF using "$input_dir\deflatorPNADC_2012.1-2020.3.dta", update force
+merge m:1 Ano Trimestre UF using "$input_dir\deflatorPNADC_2012.1-2021.1.dta", update force
 drop if _merge==2 
 drop _merge
 
