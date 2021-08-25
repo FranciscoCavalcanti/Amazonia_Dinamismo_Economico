@@ -3,7 +3,7 @@
 ******************************************************
 
 * call data 
-use "$input_dir\_numero_ocupados_por_ocupacao_2digitos.dta", clear
+use "$input_dir\_amz_legal_numero_ocupados_por_ocupacao_2digitos.dta", clear
 gen group = "Amazônia Legal"
 append using "$input_dir\_amz_ac_numero_ocupados_por_ocupacao_2digitos.dta"
 replace group = "Acre" if group == ""
@@ -72,12 +72,9 @@ keep if titulo == "Domésticos" /* Domésticos
 	*/	| titulo == "Serviços de TI e comunicação" 	/* Serviços de TI e comunicação 23
 	*/	| titulo == "Serviços e cuidados pessoais" 	/* Serviços e cuidados pessoais
 	*/	| titulo == "Serviços financeiros e administrativos" 	/* Serviços financeiros e administrativos 25
-	*/	| titulo == "Serviços jurídicos" 	/* Serviços jurídicos, sociais e culturais 26
 	*/	| titulo == "Serviços sociais e culturais" 	/* Serviços jurídicos, sociais e culturais 26	
 	*/	| titulo == "Vendedores" 	/* Vendedores
 	*/ 	
-	
-
 	
 collapse (sum) n_ocu_cod,  by(trim)
 
@@ -99,14 +96,14 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/ 	xtitle("")	/*	
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
-		*/	yscale(axis(1) range(60 160) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(1) label(1 "Ocupações em serviços") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/	yscale(axis(1) range(90 170) lstyle(none) )	/* how y axis looks
+		*/ 	legend(on cols(2) label(1 "Ocupações relativas à serviços") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
-		*/  saving("$tmp_dir\_graph_vendedores", replace) 
+		*/  saving("$tmp_dir\_graph_servicos_amz_legal", replace) 
 		
-graph use "$tmp_dir\_graph_vendedores.gph"		
-erase "$tmp_dir\_graph_vendedores.gph"
-graph export "$output_dir\_graph_vendedores.png", replace	
+graph use "$tmp_dir\_graph_servicos_amz_legal.gph"		
+erase "$tmp_dir\_graph_servicos_amz_legal.gph"
+graph export "$output_dir\_graph_servicos_amz_legal.png", replace	
 
 restore
 
@@ -118,19 +115,19 @@ preserve
 * format
 *format normalized_n_ocu* %16,0fc
 
-keep if group == "Amazônia Legal"
 * Deixar ainda mais agregado 
-* Vendedores
-keep if nova_agregacao == 11 /* Domésticos
-	*/	| nova_agregacao == 23 	/* Serviços de TI e comunicação 23
-	*/	| nova_agregacao == 24 	/* Serviços e cuidados pessoais
-	*/	| nova_agregacao == 25 	/* Serviços financeiros e administrativos 25
-	*/	| nova_agregacao == 26 	/* Serviços jurídicos, sociais e culturais 26
-	*/	| nova_agregacao == 29 	/* Vendedores
-	*/ 
-	
 
-collapse (sum) n_ocu_cod,  by(trim nova_agregacao)
+keep if group == "Amazônia Legal"
+
+keep if titulo == "Domésticos" /* Domésticos
+	*/	| titulo == "Serviços de TI e comunicação" 	/* Serviços de TI e comunicação 23
+	*/	| titulo == "Serviços e cuidados pessoais" 	/* Serviços e cuidados pessoais
+	*/	| titulo == "Serviços financeiros e administrativos" 	/* Serviços financeiros e administrativos 25
+	*/	| titulo == "Serviços sociais e culturais" 	/* Serviços jurídicos, sociais e culturais 26	
+	*/	| titulo == "Vendedores" 	/* Vendedores
+	*/ 	
+
+collapse (sum) n_ocu_cod,  by(trim nova_agregacao titulo)
 
 * normalize in 100
 sort nova_agregacao trim 
@@ -149,12 +146,12 @@ drop if trim >= 240
 *set scheme
 set scheme amz2030  
 
-graph twoway line normalized_n_ocu trim  if nova_agregacao==11, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==23, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==24, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==25, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==26, lwidth(thick) || /*
-		*/ 	line normalized_n_ocu trim  if nova_agregacao==29, lwidth(thick)	/*
+graph twoway line normalized_n_ocu trim  if titulo == "Serviços e cuidados pessoais", lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if titulo == "Serviços de TI e comunicação", lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if titulo == "Domésticos", lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if titulo == "Serviços financeiros e administrativos", lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if titulo == "Serviços sociais e culturais", lwidth(thick) || /*
+		*/ 	line normalized_n_ocu trim  if titulo == "Vendedores", lwidth(thick)	/*
 		*/ 	title("", size(Medium)) 	/*
 		*/	graphregion(fcolor(white)) 	/*
 		*/ 	ytitle("") 	/*
@@ -162,12 +159,12 @@ graph twoway line normalized_n_ocu trim  if nova_agregacao==11, lwidth(thick) ||
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range(90 170) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Domésticos") label(2 "Serviços de TI e comunicação") label(3 "Serviços e cuidados pessoais") label(4 "Serviços financeiros e administrativos") label(5 "Serviços jurídicos, sociais e culturais") label(6 "Vendedores") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(3) label(1 "Serviços e cuidados pessoais") label(2 "Serviços de TI e comunicaçãos") label(3 "Domésticos") label(4 "Serviços financeiros e administrativos") label(5 "Serviços sociais e culturais") label(6 "Vendedores") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
-		*/  saving("$tmp_dir\_graph_vendedores_desagregado", replace) 
+		*/  saving("$tmp_dir\_graph_servicos_amz_legal_desagregado", replace) 
 				
-graph use "$tmp_dir\_graph_vendedores_desagregado.gph"		
-erase "$tmp_dir\_graph_vendedores_desagregado.gph"
-graph export "$output_dir\_graph_vendedores_desagregado.png", replace					
+graph use "$tmp_dir\_graph_servicos_amz_legal_desagregado.gph"		
+erase "$tmp_dir\_graph_servicos_amz_legal_desagregado.gph"
+graph export "$output_dir\_graph_servicos_amz_legal_desagregado.png", replace					
 		
 restore		

@@ -3,26 +3,7 @@
 ******************************************************
 
 * call data 
-use "$input_dir\_amz_legal_numero_ocupados_por_ocupacao_2digitos.dta", clear
-gen group = "Amazônia Legal"
-append using "$input_dir\_amz_ac_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Acre" if group == ""
-append using "$input_dir\_amz_am_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Amazônia" if group == ""
-append using "$input_dir\_amz_ap_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Amapá" if group == ""
-append using "$input_dir\_amz_ma_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Maranhão" if group == ""
-append using "$input_dir\_amz_mt_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Mato Grosso" if group == ""
-append using "$input_dir\_amz_pa_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Pará" if group == ""
-append using "$input_dir\_amz_ro_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Rondônia" if group == ""
-append using "$input_dir\_amz_rr_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Roraima" if group == ""
-append using "$input_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Tocantins" if group == ""
+use "$input_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta", clear
 
 encode titulo, generate(nova_agregacao)
 sort Ano Trimestre 
@@ -46,15 +27,6 @@ drop if trim >= 240
 
 drop if titulo==""
 
-* generate variable that uniquely identify the observations
-tostring nova_agregacao, gen(iten1)
-gen iten2 = group + "-"+ iten1
-encode iten2, gen(iten3)
-gen uniquely_identify = iten3
-cap drop iten*
-
-keep if group == "Amazônia Legal"
-
 * Ensino/saúde/segurança/dependência do setor publico
 keep if titulo == "Profissionais da saúde" /* Profissionais da saúde
 	*/	| titulo == "Policiais, bombeiros e forças armadas"  	/* Policiais, bombeiros e forças armadas
@@ -64,20 +36,6 @@ keep if titulo == "Profissionais da saúde" /* Profissionais da saúde
 keep if Ano == "2019" | Ano == "2012"
 
 collapse (mean) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico renda_media renda_formal renda_informal massa_salarial , by (titulo nova_agregacao Ano)
-
-
-/*
-collapse (sum) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_informal (mean) renda_media [aw = n_ocu_cod], by (Ano)
-
-collapse (sum) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_informal (mean) renda_media, by (Ano)
-
-collapse (sum) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_informal (mean) renda_media [pw = n_ocu_cod], by (Ano)
-
-collapse (mean) temp1 = n_ocu_cod temp2 = n_ocu_cod_formal temp3 = n_ocu_cod_informal renda_media [aw = n_ocu_cod], by (Ano)
-
-
-*/
-
 
 preserve
 collapse (sum) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial, by (Ano)
@@ -137,16 +95,13 @@ tostring Ano, replace
 cap keep n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal massa_salarial renda_media renda_formal renda_informal titulo Ano delta_n_ocu_cod delta_n_ocu_cod_formal delta_n_ocu_cod_informal delta_massa_salarial tx_renda_media tx_renda_formal tx_renda_informal tx_n_ocu_cod tx_n_ocu_cod_formal tx_n_ocu_cod_informal tx_massa_salarial p_formal p_privado
 cap drop _merge
 
-
 ***
 encode titulo, generate(nova_agregacao)
 drop titulo
 
-
 reshape wide n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal massa_salarial renda_media renda_formal renda_informal, i(nova_agregacao) j(Ano) string
 
 gsort -delta_n_ocu_cod
-
 
 keep nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
 order nova_agregacao delta_n_ocu_cod tx_n_ocu_cod tx_renda_media n_ocu_cod2019 renda_media2019 p_formal p_privado
@@ -173,12 +128,12 @@ local ttitle "Ocupações que mais cresceram entre 2012 e 2019"
 local tnotes "Fonte: com base nos dados da PNAD Contínua, IBGE"
 
 #delim ;    
-esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc" "%16,1fc")) using "$output_dir\amztablesetorpublico.tex", 
+esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc" "%16,1fc")) using "$output_dir\tablesetorpublicoamzto.tex", 
 	replace 
     prehead(
 		"\begin{table}[H]"
 		"\centering"
-		"\label{amztablesetorpublico}"
+		"\label{tablesetorpublicoamzto}"
 		"\scalebox{0.56}{"
 		"\begin{threeparttable}"
 		"\caption{`ttitle'}"		
@@ -205,10 +160,37 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 	nonumber 
 	nomtitle
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
-		   17 "Policiais, bombeiros e forças armadas"
-		   19 "Profissionais da saúde"
-		   21 "Profissionais do ensino"
-		   30 "Total de ocupações relativas ao setor público"		  
+           1 "Administradores e analistas"
+           2 "Agricultores elementares"
+           3 "Agricultores qualificados"
+           4 "Ambulantes"
+           5 "Apoio administrativo"
+           6 "Artesões e artes gráficas"
+           7 "Atendimento direto ao público"
+           8 "Cientistas e engenheiros"
+           9 "Coletores de lixo"
+          10 "Dirigentes e gerentes"
+          11 "Domésticos"
+          12 "Escriturários"
+          13 "Extrativistas florestais"
+          14 "Montadores e condutores de veículos"
+          15 "Operários da construção, metalurgia e indústria"
+          16 "Operários de processamento e instalações"
+          17 "Pecuaristas e criadores de animais"
+          18 "Policiais, bombeiros e forças armadas"
+          19 "Profissionais da saúde"
+          20 "Profissionais de segurança"
+          21 "Profissionais do ensino"
+          22 "Profissionais em alimentação"
+          23 "Serviços de TI e comunicação"
+          24 "Serviços e cuidados pessoais"
+          25 "Serviços financeiros e administrativos"
+          26 "Serviços jurídicos"
+          27 "Serviços sociais e culturais"
+          28 "Trabalhadores no governo"
+          29 "Técnicos de eletricidade e eletrônica"
+          30 "Vendedores"
+          31 "Total de ocupações relativas ao setor público"	  
 		  )
     ;
 #delim cr
