@@ -30,6 +30,31 @@ else if "$sub_amostra_demografia" == "edu_3superior" {
 }
 
 
+else if "$sub_amostra_demografia" == "edu_h" {
+	* nivel educacional até médio completo
+	gen educacao = 0 
+	replace educacao =  1 if VD3004 ==5 	// Médio completo ou equivalente
+	replace educacao =  1 if VD3004 ==6 	// Superior incompleto ou equivalente
+	keep if educacao==1
+	* nivel educacional superior completo
+	replace educacao =  1 if VD3004 ==7 	// Superior completo 
+	keep if educacao==1 
+	cap drop educacao
+}
+
+else if "$sub_amostra_demografia" == "edu_l" {
+	* nivel educacional até médio completo
+	gen educacao = 0 
+	replace educacao =  1 if VD3004 ==5 	// Médio completo ou equivalente
+	replace educacao =  1 if VD3004 ==6 	// Superior incompleto ou equivalente
+	keep if educacao==1
+	* nivel educacional superior completo
+	replace educacao =  1 if VD3004 ==7 	// Superior completo 
+	drop if educacao==1 
+	cap drop educacao
+}
+
+
 else if "$sub_amostra_demografia" == "domicilio_urbano" {
 	* urbano
 	gen domicilio_urbano = 0
