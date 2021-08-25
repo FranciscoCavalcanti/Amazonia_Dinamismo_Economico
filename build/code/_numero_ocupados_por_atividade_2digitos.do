@@ -94,7 +94,7 @@ cap drop iten*
 /////////////////////////////////////////////////////////
 
 * Merge na base de dados com o deflator
-merge m:1 Ano Trimestre UF using "$input_dir\deflatorPNADC_2012.1-2020.3.dta", update force
+merge m:1 Ano Trimestre UF using "$input_dir\deflatorPNADC_2012.1-2021.1.dta", update force
 drop if _merge==2 
 drop _merge
 
