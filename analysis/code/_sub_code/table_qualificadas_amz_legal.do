@@ -189,7 +189,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
           28 "Trabalhadores no governo"
           29 "Técnicos de eletricidade e eletrônica"
           30 "Vendedores"
-          31 "Total de ocupações qualidifadas"	  
+          31 "Total de ocupações de liderança e qualificadas"	  
 		  )
     ;
 #delim cr

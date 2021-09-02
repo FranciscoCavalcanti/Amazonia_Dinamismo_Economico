@@ -38,7 +38,7 @@ collapse (mean) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado 
 
 preserve
 collapse (sum) n_ocu_cod n_ocu_cod_formal n_ocu_cod_informal n_ocu_cod_privado n_ocu_cod_publico massa_salarial, by (Ano)
-gen titulo = "Total de ocupações relativas ao setor público"
+gen titulo = "Total de ocupações de liderança e qualificadas"
 tempfile base_total
 save  `base_total', replace
 restore
@@ -46,7 +46,7 @@ restore
 
 preserve
 collapse (mean) renda_media [aw = n_ocu_cod], by (Ano)
-gen titulo = "Total de ocupações relativas ao setor público"
+gen titulo = "Total de ocupações de liderança e qualificadas"
 tempfile base_renda_media
 save  `base_renda_media', replace
 restore
@@ -189,7 +189,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
           28 "Trabalhadores no governo"
           29 "Técnicos de eletricidade e eletrônica"
           30 "Vendedores"
-          31 "Total de ocupações qualidifadas"	  
+          31 "Total de ocupações de liderança e qualificadas"	  
 		  )
     ;
 #delim cr

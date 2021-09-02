@@ -3,26 +3,8 @@
 ******************************************************
 
 * call data 
-use "$input_dir\_amz_legal_numero_ocupados_por_ocupacao_2digitos.dta", clear
+use "$input_dir\_amz_urbana_numero_ocupados_por_ocupacao_2digitos.dta", clear
 gen group = "Amazônia Legal"
-append using "$input_dir\_amz_ac_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Acre" if group == ""
-append using "$input_dir\_amz_am_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Amazônia" if group == ""
-append using "$input_dir\_amz_ap_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Amapá" if group == ""
-append using "$input_dir\_amz_ma_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Maranhão" if group == ""
-append using "$input_dir\_amz_mt_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Mato Grosso" if group == ""
-append using "$input_dir\_amz_pa_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Pará" if group == ""
-append using "$input_dir\_amz_ro_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Rondônia" if group == ""
-append using "$input_dir\_amz_rr_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Roraima" if group == ""
-append using "$input_dir\_amz_to_numero_ocupados_por_ocupacao_2digitos.dta"
-replace group = "Tocantins" if group == ""
 
 encode titulo, generate(nova_agregacao)
 sort Ano Trimestre 
@@ -67,7 +49,7 @@ cap drop iten*
 preserve
 
 keep if group == "Amazônia Legal"
-	
+
 keep if titulo == "Cientistas e engenheiros" /* 
 	*/	| titulo == "Dirigentes e gerentes" 	/*
 	*/	| titulo == "Administradores e analistas" 	/* 
@@ -96,11 +78,11 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	yscale(axis(1) range(90 170) lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(2) label(1 "Ocupações de liderança e qualificadas") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
-		*/  saving("$tmp_dir\_graph_qualificadas_amz_legal", replace) 
+		*/  saving("$tmp_dir\_graph_qualificadas_amz_urbana", replace) 
 		
-graph use "$tmp_dir\_graph_qualificadas_amz_legal.gph"		
-erase "$tmp_dir\_graph_qualificadas_amz_legal.gph"
-graph export "$output_dir\_graph_qualificadas_amz_legal.png", replace	
+graph use "$tmp_dir\_graph_qualificadas_amz_urbana.gph"		
+erase "$tmp_dir\_graph_qualificadas_amz_urbana.gph"
+graph export "$output_dir\_graph_qualificadas_amz_urbana.png", replace	
 
 restore
 
@@ -120,7 +102,6 @@ keep if titulo == "Cientistas e engenheiros" /*
 	*/	| titulo == "Dirigentes e gerentes" 	/*
 	*/	| titulo == "Administradores e analistas" 	/* 
 	*/ 	
-	
 
 collapse (sum) n_ocu_cod,  by(trim nova_agregacao titulo)
 
@@ -153,10 +134,10 @@ graph twoway line normalized_n_ocu trim  if titulo == "Cientistas e engenheiros"
 		*/	yscale( axis(1) range(90 170) lstyle(none) )	/* how y axis looks
 		*/ 	legend(on cols(3) label(1 "Cientistas e engenheiros") label(2 "Dirigentes e gerentes") label(3 "Administradores e analistas") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
-		*/  saving("$tmp_dir\_graph_qualificadas_amz_legal_desagregado", replace) 
+		*/  saving("$tmp_dir\_graph_qualificadas_amz_urbana_desagregado", replace) 
 				
-graph use "$tmp_dir\_graph_qualificadas_amz_legal_desagregado.gph"		
-erase "$tmp_dir\_graph_qualificadas_amz_legal_desagregado.gph"
-graph export "$output_dir\_graph_qualificadas_amz_legal_desagregado.png", replace					
+graph use "$tmp_dir\_graph_qualificadas_amz_urbana_desagregado.gph"		
+erase "$tmp_dir\_graph_qualificadas_amz_urbana_desagregado.gph"
+graph export "$output_dir\_graph_qualificadas_amz_urbana_desagregado.png", replace					
 		
 restore		
