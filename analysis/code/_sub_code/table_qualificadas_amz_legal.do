@@ -159,7 +159,7 @@ esttab matrix(A, fmt("%16,0fc" "%16,1fc" "%16,1fc" "%16,0fc" "%16,0fc" "%16,1fc"
 	nonumber 
 	nomtitle
 	coeflabels(   /* run the follwing code:  label list nova_agregacao */
-           1 "Administradores e analistas"
+           1 "Administradores e especialistas em gestão"
            2 "Agricultores elementares"
            3 "Agricultores qualificados"
            4 "Ambulantes"

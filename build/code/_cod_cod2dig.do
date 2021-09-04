@@ -38,7 +38,7 @@ replace new_name  = "Dirigentes e gerentes" if codnumeric == 14
 replace new_name  = "Cientistas e engenheiros" if codnumeric == 21
 replace new_name  = "Profissionais da saúde" if codnumeric == 22
 replace new_name  = "Profissionais do ensino" if codnumeric == 23
-replace new_name  = "Administradores e analistas" if codnumeric == 24
+replace new_name  = "Administradores e especialista em gestão" if codnumeric == 24
 replace new_name  = "Serviços de TI e comunicação" if codnumeric == 25
 replace new_name  = "Serviços sociais e culturais" if codnumeric == 26
 replace new_name  = "Cientistas e engenheiros" if codnumeric == 31
