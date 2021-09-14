@@ -79,7 +79,7 @@ graph twoway line normalized_n_ocu trim , lwidth(thick)	/*
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale(axis(1) range(20 180) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(2) label(1 "Ocupações relativas à serviços") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Ocupações selecionadas de serviços") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#8, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_servicos_amz_edu_l", replace) 
 		
@@ -141,7 +141,7 @@ graph twoway line normalized_n_ocu trim  if titulo == "Serviços e cuidados pess
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range(20 180) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(3) label(1 "Serviços e cuidados pessoais") label(2 "Serviços de TI e comunicaçãos") label(3 "Domésticos") label(4 "Serviços financeiros e administrativos") label(5 "Serviços sociais e culturais") label(6 "Vendedores") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(2) label(1 "Serviços e cuidados pessoais") label(2 "Serviços de TI e comunicaçãos") label(3 "Domésticos") label(4 "Serviços financeiros e administrativos") label(5 "Serviços sociais e culturais") label(6 "Vendedores") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_servicos_amz_edu_l_desagregado", replace) 
 				
