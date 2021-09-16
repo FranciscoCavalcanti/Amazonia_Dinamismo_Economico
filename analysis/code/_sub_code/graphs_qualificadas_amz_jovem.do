@@ -132,7 +132,7 @@ graph twoway line normalized_n_ocu trim  if titulo == "Cientistas e engenheiros"
 		*/	ylabel(#9, grid angle(0) ) 		/*
 		*/ 	lwidth(thick) 	/*		
 		*/	yscale( axis(1) range(90 170) lstyle(none) )	/* how y axis looks
-		*/ 	legend(on cols(3) label(1 "Cientistas e engenheiros") label(2 "Dirigentes e gerentes") label(3 "Administradores e especialistas em gestão") size(small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
+		*/ 	legend(on cols(1) label(1 "Cientistas e engenheiros") label(2 "Dirigentes e gerentes") label(3 "Administradores e especialistas em gestão") size(Small) forcesize symysize(2pt) symxsize(2pt) ) 	/*
 		*/ 	xlabel(#9, angle(45)) 	/*
 		*/  saving("$tmp_dir\_graph_qualificadas_amz_jovem_desagregado", replace) 
 				
