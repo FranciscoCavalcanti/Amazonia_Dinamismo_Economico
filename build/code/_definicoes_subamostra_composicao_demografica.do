@@ -136,6 +136,14 @@ if "$sub_amostra_demografia" == "jovem" {
 	cap drop faixa_jovem
 }
 
+if "$sub_amostra_demografia" == "naojovem" {
+	gen faixa_jovem = 1 if V2009 >= 14 & V2009 <= 17
+	replace faixa_jovem = 1 if V2009 >= 18 & V2009 <= 24
+	replace faixa_jovem = 1 if V2009 >= 25 & V2009 <= 29
+	drop if faixa_jovem==1
+	cap drop faixa_jovem
+}
+
 if "$sub_amostra_demografia" == "setor_agricultura" {
 	gen setor_agricultura = 1 if VD4010 == 1 	// Indústria geral
 	keep if setor_agricultura==1
