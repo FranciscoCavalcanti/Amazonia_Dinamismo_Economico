@@ -19,7 +19,10 @@ if "`c(username)'" == "Francisco"   {
 }
 else if "`c(username)'" == "f.cavalcanti"   {
     global ROOT "C:\Users\Francisco\Dropbox\DataZoom"
-}	
+}
+else if "`c(username)'" == "DELL"   {
+    global ROOT "D:\Dropbox\DataZoom"
+}		
 
 global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\analysis\tmp"   
 global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\analysis\code"   
