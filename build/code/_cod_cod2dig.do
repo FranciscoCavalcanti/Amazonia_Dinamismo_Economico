@@ -5,7 +5,7 @@
 //////////////////////////////////////////////
 
 * call data Ocupacao_COD
-import excel "$input_pnadcdoc\Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
+import excel "$input_pnadcdoc\Estrutura_Ocupacao_COD.xls", sheet("Estrutura COD") cellrange(A3:E617) firstrow clear
 
 * clean data
 cap gen titulo = Denominação 

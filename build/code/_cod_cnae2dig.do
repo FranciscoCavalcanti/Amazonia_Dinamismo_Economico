@@ -5,7 +5,7 @@
 //////////////////////////////////////////////
 
 * call data Atividade_CNAE_Domiciliar_2_0
-import excel "$input_pnadcdoc\Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
+import excel "$input_pnadcdoc\Estrutura_Atividade_CNAE_Domiciliar_2_0.xls", sheet("Estrutura CNAE Domiciliar 2.0") cellrange(A3:E335) firstrow clear
 
 * clean data
 cap gen titulo = Denominação 

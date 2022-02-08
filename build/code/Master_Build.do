@@ -25,7 +25,7 @@ else if "`c(username)'" == "DELL"   {
 
 global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\pnad_continua_stata\avancado"
 global input_pnadanual	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
-global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
+global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\Documentacao"      
 global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\tmp"   
 global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\code"   
 global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
