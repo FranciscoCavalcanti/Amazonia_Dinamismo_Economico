@@ -16,14 +16,16 @@ set more off, perm
 // caminhos (check your username by typing "di c(username)" in Stata) ----
 if "`c(username)'" == "Francisco"   {
     global ROOT "C:\Users\Francisco\Dropbox\DataZoom"
+    global DATABASE "C:\Users\Francisco\Dropbox\DataZoom"
 }
-else if "`c(username)'" == "f.cavalcanti"   {
-    global ROOT "C:\Users\Francisco\Dropbox\DataZoom"
+else if "`c(username)'" == "DELL"   {
+    global ROOT "C:/Users/DELL/Documents/GitHub"
+    global DATABASE "D:\Dropbox\DataZoom"
 }	
 
-global input_advanc     "${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\pnad_painel\avancado"
-global input_pnadanual	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
-global input_pnadcdoc	"${ROOT}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
+global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\pnad_continua_stata\avancado"
+global input_pnadanual	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
+global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
 global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\tmp"   
 global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\code"   
 global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
