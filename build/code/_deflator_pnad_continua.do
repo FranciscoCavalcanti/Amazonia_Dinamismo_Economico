@@ -26,17 +26,15 @@ replace Trimestre = "4" if trim == "10-11-12"
 replace Trimestre = "4" if trim == "11-12-01"
 replace Trimestre = "4" if trim == "12-01-02"
 
-gen deflator_habitual = Habitual
-gen deflator_efetivo = Efetivo
-
-cap destring deflator_habitual, replace
-cap destring deflator_efetivo, replace
+cap destring Habitual, replace
+cap destring Efetivo, replace
 
 *
-collapse (mean) deflator_habitual deflator_efetivo, by(Ano Trimestre UF)
+collapse (mean) Habitual Efetivo, by(Ano Trimestre UF)
 
 cap destring Ano, replace
 cap destring UF, replace
+cap destring Trimestre, replace
 
 * save in the output directory
 compress

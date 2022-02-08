@@ -5,7 +5,7 @@
 
 capture macro drop sub_amostra_area_geografica sub_amostra_demografia
 global sub_amostra_area_geografica = "Amapa"
-global sub_amostra_demografia = "ap"
+global sub_amostra_demografia = ""
 
 forvalues yr = 2012(1)2021{
 	* call data
