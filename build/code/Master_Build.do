@@ -23,7 +23,7 @@ else if "`c(username)'" == "DELL"   {
     global DATABASE "D:\Dropbox\DataZoom"
 }	
 
-global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\pnad_painel\avancado"
+global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\pnad_continua_stata\avancado"
 global input_pnadanual	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
 global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20190729\Documentacao"      
 global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\tmp"   
