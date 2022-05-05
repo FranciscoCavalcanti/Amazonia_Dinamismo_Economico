@@ -23,13 +23,21 @@ else if "`c(username)'" == "DELL"   {
     global DATABASE "D:\Dropbox\DataZoom"
 }	
 
-global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\pnad_continua_stata\avancado"
+global input_advanc     "${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_2022024\Stata\pnadcontinua"
 global input_pnadanual	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_anual_20191016\Stata"      
-global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_20211130\Documentacao"      
+global input_pnadcdoc	"${DATABASE}\BasesIBGE\datazoom_rar\PNAD_CONTINUA\pnadcontinua_trimestral_2022024\Documentacao"      
 global tmp_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\tmp"   
 global code_dir			"${ROOT}\Amazonia_Dinamismo_Economico\build\code"   
 global output_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\output"   
 global input_dir		"${ROOT}\Amazonia_Dinamismo_Economico\build\input"   
+
+//////////////////////////////////////////////
+//	
+//	Gerar deflator
+//	
+//////////////////////////////////////////////
+clear
+do "$code_dir\_deflator_pnad_continua"
 
 //////////////////////////////////////////////
 //	
